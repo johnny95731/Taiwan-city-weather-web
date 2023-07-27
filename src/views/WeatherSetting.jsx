@@ -97,18 +97,18 @@ const Save = styled.button`
 const WeatherSetting = ({
   currentCity,
   updateCurrentPage,
-  handleCityNameChange,
+  updateCityName,
 }) => {
   const [locationName, setLocationName] = useState(currentCity);
 
-  const updateChange = (e) => {
+  const menuChanged = (e) => {
     setLocationName(e.target.value);
   };
 
-  const handleSave = () => {
+  const updateLocationName = () => {
     console.log('locationName', locationName);
     updateCurrentPage("WeatherCard");
-    handleCityNameChange(locationName);
+    updateCityName(locationName);
     localStorage.setItem("cityName", locationName);
   };
 
@@ -120,7 +120,7 @@ const WeatherSetting = ({
       <StyledSelect
         id="location"
         name="location"
-        onChange={updateChange}
+        onChange={menuChanged}
         value={locationName}
       >
         {availableLocations.map(({ cityName }) => (
@@ -132,7 +132,7 @@ const WeatherSetting = ({
 
       <ButtonGroup>
         <Back onClick={() => updateCurrentPage('WeatherCard')}>返回</Back>
-        <Save onClick={handleSave}>儲存</Save>
+        <Save onClick={updateLocationName}>儲存</Save>
       </ButtonGroup>
     </WeatherSettingWrapper>
   );

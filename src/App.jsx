@@ -97,7 +97,7 @@ const App = () => {
           <WeatherSetting
             currentCity={currentCity}
             updateCurrentPage={updateCurrentPage}
-            handleCityNameChange={updateCityName}
+            updateCityName={updateCityName}
           />
         )}
       </Container>

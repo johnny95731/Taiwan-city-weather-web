@@ -1,12 +1,12 @@
 import React from 'react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 
 import { getMoment, findLocation } from "./utils/helpers"
 import useWeatherAPI from './hooks/useWeatherAPI.jsx';
 import WeatherCard from './views/WeatherCard.jsx';
-import WeatherSetting from './views/WeatherSetting.jsx';
+import Header from './views/Header.jsx';
 
 
 // Constants
@@ -16,6 +16,7 @@ const theme = {
   light: {
     backgroundColor: '#ededed',
     foregroundColor: '#f9f9f9',
+    headerColor: '#cccccc',
     boxShadow: '0 1px 3px 0 #999999',
     titleColor: '#212121',
     temperatureColor: '#757575',
@@ -24,6 +25,7 @@ const theme = {
   dark: {
     backgroundColor: '#1F2022',
     foregroundColor: '#121416',
+    headerColor: '#333333',
     boxShadow:
       '0 1px 4px 0 rgba(12, 12, 13, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.15)',
     titleColor: '#f9f9fa',
@@ -41,21 +43,31 @@ const Container = styled.div`
   justify-content: center;;
 `;
 
-
 const App = () => {
-  // Web theme: { light, dark }
-  const [currentTheme, setCurrentTheme] = useState('light');
-
   // Displayed city name and observation location name.
   const [currentCity, setCurrentCity] = useState(() =>
     localStorage.getItem("cityName") || "臺北市"
   );
   const currentLocation = useMemo(() => findLocation(currentCity),
-    [currentCity]);
+   [currentCity]);
   const { locationName, cityName } = currentLocation;
 
+  // Get the city is day or night.
+  const moment = useMemo(() => getMoment(cityName), [cityName]);
+
+  // Web theme: { light, dark }
+  const [currentTheme, setCurrentTheme] = useState(() => 
+    localStorage.getItem("theme") || 'light'
+  );
+
+  const updateTheme = useCallback(() => {
+    const theme = currentTheme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+    setCurrentTheme(theme);
+  }, [currentTheme]);
+
   const updateCityName = (cityName) => {
-    setCurrentCity(cityName)
+    setCurrentCity(cityName);
   };
 
   // Weather info fetched from API.
@@ -65,41 +77,22 @@ const App = () => {
     authorizationKey: AUTHORIZATION_KEY,
   });
 
-  // Current page: { WeatherCard, WeatherSetting }
-  const [currentPage, setCurrentPage] = useState('WeatherCard');
-
-  const updateCurrentPage = (currentPage) => {
-    setCurrentPage(currentPage);
-  };
-
-  // Get the city is day or night.
-  const moment = useMemo(() => getMoment(cityName), []);
-
-  useEffect(() => { // Decide theme by day/night.
-    setCurrentTheme(moment === 'day' ? 'light' : 'dark');
-  }, [moment]);
-
   
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <Container>
-        {currentPage === 'WeatherCard' && (
-          <WeatherCard
-            weatherElement={weatherElement}
-            currentCity={currentCity}
-            moment={moment}
-            fetchData={fetchData}
-            updateCurrentPage={updateCurrentPage}
-          />
-        )}
-
-        {currentPage === 'WeatherSetting' && (
-          <WeatherSetting
-            currentCity={currentCity}
-            updateCurrentPage={updateCurrentPage}
-            updateCityName={updateCityName}
-          />
-        )}
+        <Header 
+          currentTheme={currentTheme}
+          updateTheme={updateTheme}
+        />
+        
+        <WeatherCard
+          weatherElement={weatherElement}
+          currentCity={currentCity}
+          moment={moment}
+          fetchData={fetchData}
+          updateCityName={updateCityName}
+        />
       </Container>
     </ThemeProvider>
   );

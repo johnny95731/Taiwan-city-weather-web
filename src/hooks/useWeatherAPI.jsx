@@ -55,17 +55,19 @@ const fetchWeatherForecast = ({ authorizationKey, cityName }) => {
 };
 
 const useWeatherAPI = ({ locationName, cityName, authorizationKey }) => {
-  const [weatherElement, setWeatherElement] = useState({
-    observationTime: new Date(),
-    locationName: '',
-    cityName: "",
-    temperature: 0,
-    windSpeed: 0,
-    description: '',
-    weatherCode: 0,
-    rainPossibility: 0,
-    comfortability: '',
-    isLoading: true,
+  const [weatherElement, setWeatherElement] = useState(() => {
+    return {
+      observationTime: new Date(),
+      locationName: '',
+      cityName: "",
+      temperature: 0,
+      windSpeed: 0,
+      description: '',
+      weatherCode: 0,
+      rainPossibility: 0,
+      comfortability: '',
+      isLoading: true,
+    };
   });
 
   const fetchData = useCallback(async () => {

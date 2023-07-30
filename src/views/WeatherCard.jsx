@@ -3,10 +3,10 @@ import dayjs from 'dayjs';
 
 import WeatherIcon from './../components/WeatherIcon.jsx';
 import { ReactComponent as AirFlowIcon } from './../images/airFlow.svg';
-import { ReactComponent as CogIcon } from './../images/cog.svg';
 import { ReactComponent as LoadingIcon } from './../images/loading.svg';
 import { ReactComponent as RainIcon } from './../images/rain.svg';
 import { ReactComponent as RefreshIcon } from './../images/refresh.svg';
+import { availableLocations } from './../utils/helpers';
 
 
 const WeatherCardWrapper = styled.div`
@@ -15,29 +15,33 @@ const WeatherCardWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.foregroundColor};
   box-sizing: border-box;
-  padding: 30px 15px;
+  padding: 15px 15px 30px 15px;
 `;
 
-const Location = styled.div`
+const LocationMenu = styled.select`
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  background: transparent;
   font-size: 28px;
   font-weight: 600;
   color: ${({ theme }) => theme.titleColor};
-  align-items: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
+  cursor: pointer;
+  padding: 7px 0px;
+  border: none;
 `;
 
-const Cog = styled(CogIcon)`
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
+const LocationOption = styled.option`
+  background-color:  ${({ theme }) => theme.foregroundColor};
+  font-size: 18px;
+  color: ${({ theme }) => theme.titleColor};
 `;
 
 const Description = styled.div`
   font-size: 16px;
   color: ${({ theme }) => theme.textColor};
-  margin-bottom: 30px;
+  padding-left: 5px;
+  margin-bottom: 20px;
 `;
 
 const CurrentWeather = styled.div`
@@ -59,7 +63,7 @@ const Celsius = styled.div`
   font-size: 42px;
 `;
 
-const AirFlow = styled.div`
+const OtherInfo = styled.div`
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -70,22 +74,19 @@ const AirFlow = styled.div`
   svg {
     width: 25px;
     height: auto;
-    margin-right: 30px;
+    margin-right: 10px;
   }
+`;
+
+const AirFlow = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const Rain = styled.div`
   display: flex;
   align-items: center;
-  font-size: 16x;
-  font-weight: 400;
-  color: ${({ theme }) => theme.textColor};
-
-  svg {
-    width: 25px;
-    height: auto;
-    margin-right: 30px;
-  }
+  margin-left: 50px;
 `;
 
 const Refresh = styled.div`
@@ -122,7 +123,7 @@ const WeatherCard = ({
   currentCity,
   moment,
   fetchData,
-  updateCurrentPage
+  updateCityName
 }) => {
   const {
     observationTime,
@@ -135,12 +136,26 @@ const WeatherCard = ({
     isLoading,
   } = weatherElement;
 
+  const menuChanged = (e) => {
+    const locationName = e.target.value;
+    localStorage.setItem("cityName", locationName);
+    updateCityName(locationName);
+  };
+
   return (
     <WeatherCardWrapper>
-      <Location>
-        {currentCity}
-        <Cog onClick={() => updateCurrentPage('WeatherSetting')} />
-      </Location>
+      <LocationMenu
+        id="location"
+        name="location"
+        onChange={menuChanged}
+        value={currentCity}
+      >
+        {availableLocations.map(({ cityName }) => (
+          <LocationOption value={cityName} key={cityName}>
+            {cityName}
+          </LocationOption>
+        ))}
+      </LocationMenu>
       <Description>
         {description} {comfortability}
       </Description>
@@ -150,12 +165,14 @@ const WeatherCard = ({
         </Temperature>
         <WeatherIcon weatherCode={weatherCode} moment={moment} />
       </CurrentWeather>
-      <AirFlow>
-        <AirFlowIcon /> {windSpeed} m/h
-      </AirFlow>
-      <Rain>
-        <RainIcon /> {rainPossibility}%
-      </Rain>
+      <OtherInfo>
+        <AirFlow>
+          <AirFlowIcon /> {windSpeed} m/h
+        </AirFlow>
+        <Rain>
+          <RainIcon /> {rainPossibility}%
+        </Rain>
+      </OtherInfo>
       <Refresh onClick={fetchData} isLoading={isLoading}>
         最後觀測時間：
         {new Intl.DateTimeFormat('zh-TW', {

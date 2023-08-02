@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Taiwinan-city-weather-web/static/css/main.ab9c0ad2.css",
-    "main.js": "/Taiwinan-city-weather-web/static/js/main.ec7e7227.js",
+    "main.js": "/Taiwinan-city-weather-web/static/js/main.96e65beb.js",
     "static/js/787.92527363.chunk.js": "/Taiwinan-city-weather-web/static/js/787.92527363.chunk.js",
     "service-worker.js": "/Taiwinan-city-weather-web/service-worker.js",
     "static/media/day-snowing.svg": "/Taiwinan-city-weather-web/static/media/day-snowing.c46361c3c4c6be9ac89ece97659afc9e.svg",
@@ -19,16 +19,16 @@
     "static/media/rain.svg": "/Taiwinan-city-weather-web/static/media/rain.c5da9c3ea5e75c005f6bac2cb6fb9e25.svg",
     "static/media/day-clear.svg": "/Taiwinan-city-weather-web/static/media/day-clear.bff4c3988aefdeb854fc976062ca014e.svg",
     "static/media/refresh.svg": "/Taiwinan-city-weather-web/static/media/refresh.29ab97f48fd3407d547194b3fd5b8faa.svg",
+    "index.html": "/Taiwinan-city-weather-web/index.html",
     "static/media/airFlow.svg": "/Taiwinan-city-weather-web/static/media/airFlow.3b3541e4ac6e017d56ae919d7c2a406b.svg",
     "static/media/loading.svg": "/Taiwinan-city-weather-web/static/media/loading.665f7c0d37c65c48d153750153e7b3f8.svg",
     "static/media/night-clear.svg": "/Taiwinan-city-weather-web/static/media/night-clear.71cf504772f48ba6bd5aab8ea47c37dc.svg",
-    "index.html": "/Taiwinan-city-weather-web/index.html",
     "main.ab9c0ad2.css.map": "/Taiwinan-city-weather-web/static/css/main.ab9c0ad2.css.map",
-    "main.ec7e7227.js.map": "/Taiwinan-city-weather-web/static/js/main.ec7e7227.js.map",
+    "main.96e65beb.js.map": "/Taiwinan-city-weather-web/static/js/main.96e65beb.js.map",
     "787.92527363.chunk.js.map": "/Taiwinan-city-weather-web/static/js/787.92527363.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab9c0ad2.css",
-    "static/js/main.ec7e7227.js"
+    "static/js/main.96e65beb.js"
   ]
 }

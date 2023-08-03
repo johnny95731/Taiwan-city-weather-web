@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useCallback, useState } from 'react';
 import dayjs from 'dayjs';
 
 import WeatherIcon from './../components/WeatherIcon.jsx';
@@ -11,6 +12,8 @@ import { availableLocations } from './../utils/helpers';
 
 const WeatherCardWrapper = styled.div`
   position: relative;
+  top: ${({ cardPos }) => cardPos.y};
+  left: ${({ cardPos }) => cardPos.x};
   min-width: 360px;
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.foregroundColor};
@@ -142,8 +145,57 @@ const WeatherCard = ({
     updateCityName(locationName);
   };
 
+  const [cardPos, setCardPos] = useState(() => {
+    return {
+      x: "0px",
+      y: "0px",
+    }
+  });
+
+  const [start, setStart] = useState(() => {
+    return {
+      x: undefined,
+      y: undefined,
+    }
+  });
+
+  const [isDragging, SetIsDragging] = useState(() => false);
+
+  const dragStart = (e) => {
+    setStart({
+      x: e.clientX,
+      y: e.clientY,
+    });
+    SetIsDragging(true);
+  };
+
+  const dragging = useCallback((e) => {
+    if (isDragging) {
+      const xBias = Number(cardPos.x.slice(0, -2))
+                    + e.clientX
+                    - start.x;
+      const yBias = Number(cardPos.y.slice(0, -2))
+                    + e.clientY
+                    - start.y;
+      setCardPos({
+        x: `${xBias}px`,
+        y: `${yBias}px`,
+      });
+    }
+  }, [isDragging])
+
+  const dragEnd = () => {
+    SetIsDragging(false);
+  };
+
   return (
-    <WeatherCardWrapper>
+    <WeatherCardWrapper 
+      cardPos={cardPos} 
+      onMouseDown={dragStart}
+      onMouseMove={dragging}
+      onMouseUp={dragEnd}
+      onMouseLeave={dragEnd}
+    >
       <LocationMenu
         id="location"
         name="location"

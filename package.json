@@ -1,6 +1,6 @@
 {
   "name": "web-weather",
-  "homepage": "https://johnny95731.github.io/Taiwinan-city-weather-web",
+  "homepage": "https://johnny95731.github.io/Taiwan-city-weather-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,8 @@
     "gh-pages": "^5.0.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",

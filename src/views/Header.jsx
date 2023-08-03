@@ -39,7 +39,7 @@ const Header = ({
     <HeaderWrapper>
       <Title>縣市即時天氣資訊</Title>
       <DarkMode onClick={updateTheme}>
-        { currentTheme==="light" ? "深" : "淺" }色模式
+        { currentTheme === "light" ? "深" : "淺" }色模式
       </DarkMode>
     </HeaderWrapper>
   )

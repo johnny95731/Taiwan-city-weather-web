@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import styled from '@emotion/styled';
 
 import { ReactComponent as DayClear } from './../images/day-clear.svg';
 import { ReactComponent as DayCloudy } from './../images/day-cloudy.svg';
@@ -16,13 +15,6 @@ import { ReactComponent as NightPartiallyClearWithRain } from './../images/night
 import { ReactComponent as NightSnowing } from './../images/night-snowing.svg';
 import { ReactComponent as NightThunderstorm } from './../images/night-thunderstorm.svg';
 
-
-const IconContainer = styled.div`
-  flex-basis: 30%;
-  svg {
-    max-height: 110px;
-  }
-`;
 
 const weatherTypes = {
   isThunderstorm: [15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41],
@@ -69,12 +61,7 @@ const WeatherIcon = ({weatherCode, moment}) => {
   const weatherType = useMemo(() => weatherCode2Type(weatherCode), [
     weatherCode,
   ]);
-
-  return (
-    <IconContainer>
-      {weatherIcons[moment][weatherType]}
-    </IconContainer>
-  );
+  return weatherIcons[moment][weatherType];
 };
 
 export default WeatherIcon;

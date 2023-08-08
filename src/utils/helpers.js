@@ -1,113 +1,35 @@
-import sunriseAndSunsetData from './sunrise-sunset.json'; // sunrise-sunset data
+import sunriseAndSunsetData from './sunrise-sunset.json';
+import locations from './locations.json';
 
-
-export const availableLocations = [
-  /**
-   * Available city for weather API.
-   * cityName: string
-   *    Available city name.
-   * locationName: string
-   *    Observation station name. The choosed station is the representative of
-   * city.
-   */
-  {
-    cityName: '宜蘭縣',
-    locationName: '宜蘭',
-  },
-  {
-    cityName: '嘉義市',
-    locationName: '嘉義',
-  },
-  {
-    cityName: '屏東縣',
-    locationName: '恆春',
-  },
-  {
-    cityName: '苗栗縣',
-    locationName: '國一N142K', // 銅鑼鄉
-  },
-  {
-    cityName: '雲林縣',
-    locationName: '國一N234K',
-  },
-  {
-    cityName: '臺東縣',
-    locationName: '臺東',
-  },
-  {
-    cityName: '臺北市',
-    locationName: '臺北',
-  },
-  {
-    cityName: '金門縣',
-    locationName: '金門',
-  },
-  {
-    cityName: '桃園市',
-    locationName: '新屋',
-  },
-  {
-    cityName: '彰化縣',
-    locationName: '彰師大',
-  },
-  {
-    cityName: '嘉義縣',
-    locationName: '國一N250K', // 大林鎮
-  },
-  {
-    cityName: '高雄市',
-    locationName: '高雄',
-  },
-  {
-    cityName: '基隆市',
-    locationName: '基隆',
-  },
-  {
-    cityName: '臺南市',
-    locationName: '臺南',
-  },
-  {
-    cityName: '南投縣',
-    locationName: '國三N223K',
-  },
-  {
-    cityName: '臺中市',
-    locationName: '臺中',
-  },
-  {
-    cityName: '新竹縣',
-    locationName: '新竹',
-  },
-  {
-    cityName: '花蓮縣',
-    locationName: '花蓮',
-  },
-  {
-    cityName: '連江縣',
-    locationName: '馬祖',
-  },
-  {
-    cityName: '澎湖縣',
-    locationName: '澎湖',
-  },
-  {
-    cityName: '新北市',
-    locationName: '新北',
-  },
-];
-
-export const findLocation = (cityName) => {
-  /**
-   * Return an object with three attributes:
-   * {
-   *  cityName, locationName,
-   * }
-   * locationName: string
-   *    Observation station name. For sending request to weather API.
-   */
-  return availableLocations.find((location) => location.cityName === cityName);
+export const getLocation = (cityName) => {
+  return locations[cityName];
 };
 
+export const getCode = (cityName) => {
+  /**
+   * 返回鄉鎮預報之代碼
+   */
+  return locations[cityName].code
+};
+
+export const getGov = (cityName) => {
+  /**
+   * 返回地方政府所在之區域
+   */
+  return locations[cityName].towns[0]
+};
+
+export const getCities = Object.keys(locations)
+  /**
+   * 返回所有城市
+   */ 
+
+export const getTowns = (cityName) => {
+  /**
+   * 返回城市的所有鄉鎮市區
+   */
+  return locations[cityName].towns
+};
 
 export const getMoment = (locationName) => {
   /**
@@ -150,4 +72,25 @@ export const getMoment = (locationName) => {
   return sunriseTimestamp <= nowTimeStamp && nowTimeStamp <= sunsetTimestamp
     ? 'day'
     : 'night';
+};
+
+const rgbScale = [0.299, 0.587, 0.114];
+
+export const hex2Decimal = (hex) => {
+  /**
+   * Convert hex rgb color to gray scale number.
+   */
+  if ( hex.startsWith("#") ) {
+    hex = hex.slice(1);
+  }
+  if ( hex.length == 3 ) {
+    const strs = hex.split("");
+    const vals = strs.map((str, i) => parseInt(str+str, 16) * rgbScale[i]);
+    return vals.reduce((cummul, val) => cummul += val, 0);
+  } else if ( hex.length == 6 ) {
+    return parseInt(hex.substr(0, 2), 16) * rgbScale[0]
+         + parseInt(hex.substr(2, 2), 16) * rgbScale[1]
+         + parseInt(hex.substr(4, 2), 16) * rgbScale[2]
+  }
+  return null
 };

@@ -1,95 +1,172 @@
 import styled from '@emotion/styled';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useMemo } from 'react';
 import dayjs from 'dayjs';
 
 import WeatherIcon from './../components/WeatherIcon.jsx';
+import useWeatherAPI from './../hooks/useWeatherAPI.jsx';
+import { ReactComponent as DangerIcon_ } from './../images/danger.svg';
 import { ReactComponent as AirFlowIcon } from './../images/airFlow.svg';
 import { ReactComponent as LoadingIcon } from './../images/loading.svg';
 import { ReactComponent as RainIcon } from './../images/rain.svg';
 import { ReactComponent as RefreshIcon } from './../images/refresh.svg';
-import { availableLocations } from './../utils/helpers';
+import { getLocation, getCities, getTowns, hex2Decimal } from './../utils/helpers';
 
+// Constants
+const AUTHORIZATION_KEY = "CWB-3F426C61-2685-412E-8A11-F0CC475190D5";
 
+// Components
 const WeatherCardWrapper = styled.div`
+  display: block;
   position: relative;
   top: ${({ cardPos }) => cardPos.y};
   left: ${({ cardPos }) => cardPos.x};
   min-width: 360px;
+  max-width: 360px;
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.foregroundColor};
   box-sizing: border-box;
   padding: 15px 15px 30px 15px;
+  margin: 20px 30px;
 `;
 
-const LocationMenu = styled.select`
-  display: block;
-  width: 100%;
-  max-width: 100%;
+const CityMenu = styled.select`
+  display: inline;
+  width: 95px;
   background: transparent;
-  font-size: 28px;
+  font-size: 21px;
   font-weight: 600;
   color: ${({ theme }) => theme.titleColor};
   cursor: pointer;
-  padding: 7px 0px;
   border: none;
+  &:hover {
+    background: ${({ theme }) => theme.menuHoverColor};
+  }
 `;
 
 const LocationOption = styled.option`
   background-color:  ${({ theme }) => theme.foregroundColor};
-  font-size: 18px;
+  font-size: 16px;
   color: ${({ theme }) => theme.titleColor};
 `;
 
+const TownMenu = styled.select`
+  display: inline;
+  width: 90px;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 550;
+  color: ${({ theme }) => theme.titleColor};
+  cursor: pointer;
+  margin-left: 10px;
+  border: none;
+  &:hover {
+    background: ${({ theme }) => theme.menuHoverColor};
+  }
+`;
+
 const Description = styled.div`
+  display: block;
   font-size: 16px;
   color: ${({ theme }) => theme.textColor};
   padding-left: 5px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 `;
 
 const CurrentWeather = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-items: start;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  svg{
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    /* flex-basis: 30%; */
+    max-height: 80px;
+    max-width: 80px;
+    margin-left: 5px;
+  }
+`;
+
+const TempNDanger = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  width: min-content;
+  height: 80px;
 `;
 
 const Temperature = styled.div`
-  color: ${({ theme }) => theme.temperatureColor};
-  font-size: 96px;
-  font-weight: 300;
   display: flex;
+  color: ${({ theme }) => theme.temperatureColor};
+  font-size: 40px;
+  font-weight: 300;
+  margin-left: 20px;
 `;
 
 const Celsius = styled.div`
-  font-weight: normal;
-  font-size: 42px;
+  font-weight: 400;
+  font-size: 16px;
 `;
 
-const OtherInfo = styled.div`
+const DangerIndex = styled.div`
   display: flex;
-  align-items: center;
+  color: ${({ theme }) => theme.temperatureColor};
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.textColor};
-  margin-bottom: 20px;
-
+  margin-bottom: 5px;
   svg {
-    width: 25px;
-    height: auto;
+    max-height: 18px;
+    max-width: 18px;
+    height: 25px;
+    margin-left: 20px;
     margin-right: 10px;
   }
 `;
 
+const DangerIcon = styled(DangerIcon_)`
+  ${
+    ({ theme }) => hex2Decimal(theme.foregroundColor) > 127 ?
+    "" : 
+    "-webkit-filter: invert(100%); filter: invert(100%);"
+  }
+`
+
+const Info = styled.div`
+  display: flex;
+  /* justify-items: flex-start; */
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  color: ${({ theme }) => theme.textColor};
+  margin-top: 10px;
+`;
+
 const AirFlow = styled.div`
   display: flex;
-  align-items: center;
+  align-content: center;
+  svg {
+    min-width: 25px;
+    max-width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
 `;
 
 const Rain = styled.div`
   display: flex;
-  align-items: center;
-  margin-left: 50px;
+  align-content: center;
+  margin-left: 20px;
+  svg {
+    min-width: 25px;
+    max-width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
 `;
 
 const Refresh = styled.div`
@@ -122,12 +199,28 @@ const Refresh = styled.div`
 
 
 const WeatherCard = ({
-  weatherElement,
-  currentCity,
-  moment,
-  fetchData,
-  updateCityName
+  theme,
+  cardNum,
+  moment
 }) => {
+  // Displayed city name and observation location name.
+  const [currentCity, setCurrentCity] = useState(() =>
+    localStorage.getItem(`cityName${cardNum}`) || "臺北市"
+  );
+  const [currentTown, setCurrentTown] = useState(() =>
+  localStorage.getItem(`townName${cardNum}`) || "---"
+  );
+  const currentStation = useMemo(() => getLocation(currentCity).repStation,
+   [currentCity]);
+
+  // fetch weather info from API.
+  const [weatherElement, fetchData] = useWeatherAPI({
+    locationName: currentStation,
+    cityName: currentCity,
+    townName: currentTown,
+    authorizationKey: AUTHORIZATION_KEY,
+  });
+
   const {
     observationTime,
     temperature,
@@ -136,15 +229,26 @@ const WeatherCard = ({
     weatherCode,
     rainPossibility,
     comfortability,
+    heatInjuryIndex,
+    heatInjuryWarning,
     isLoading,
   } = weatherElement;
 
-  const menuChanged = (e) => {
+  const cityChanged = (e) => {
     const locationName = e.target.value;
-    localStorage.setItem("cityName", locationName);
-    updateCityName(locationName);
+    localStorage.setItem(`townName${cardNum}`, "---");
+    setCurrentTown("---");
+    localStorage.setItem(`cityName${cardNum}`, locationName);
+    setCurrentCity(locationName);
   };
 
+  const townChanged = (e) => {
+    const townName = e.target.value;
+    localStorage.setItem(`townName${cardNum}`, townName);
+    setCurrentTown(townName);
+  };
+
+  // Drag event
   const [cardPos, setCardPos] = useState(() => {
     return {
       x: "0px",
@@ -152,6 +256,8 @@ const WeatherCard = ({
     }
   });
 
+  const [isDragging, SetIsDragging] = useState(() => false);
+  
   const [start, setStart] = useState(() => {
     return {
       x: undefined,
@@ -159,24 +265,18 @@ const WeatherCard = ({
     }
   });
 
-  const [isDragging, SetIsDragging] = useState(() => false);
-
-  const dragStart = (e) => {
+  const mouseDown = (e) => {
     setStart({
-      x: e.clientX,
-      y: e.clientY,
+      x: Number(cardPos.x.slice(0, -2)) - e.clientX,
+      y: Number(cardPos.y.slice(0, -2)) - e.clientY,
     });
     SetIsDragging(true);
   };
 
-  const dragging = useCallback((e) => {
+  const mouseMove = useCallback((e) => {
     if (isDragging) {
-      const xBias = Number(cardPos.x.slice(0, -2))
-                    + e.clientX
-                    - start.x;
-      const yBias = Number(cardPos.y.slice(0, -2))
-                    + e.clientY
-                    - start.y;
+      const xBias = start.x + e.clientX;
+      const yBias = start.y + e.clientY;
       setCardPos({
         x: `${xBias}px`,
         y: `${yBias}px`,
@@ -184,47 +284,66 @@ const WeatherCard = ({
     }
   }, [isDragging])
 
-  const dragEnd = () => {
+  const MouseUp = () => {
     SetIsDragging(false);
   };
+
 
   return (
     <WeatherCardWrapper 
       cardPos={cardPos} 
-      onMouseDown={dragStart}
-      onMouseMove={dragging}
-      onMouseUp={dragEnd}
-      onMouseLeave={dragEnd}
+      onMouseDown={mouseDown}
+      onMouseMove={mouseMove}
+      onMouseUp={MouseUp}
+      onMouseLeave={MouseUp}
     >
-      <LocationMenu
-        id="location"
-        name="location"
-        onChange={menuChanged}
+      <CityMenu
+        onChange={cityChanged}
         value={currentCity}
       >
-        {availableLocations.map(({ cityName }) => (
+        {getCities.map((cityName) => (
           <LocationOption value={cityName} key={cityName}>
             {cityName}
           </LocationOption>
         ))}
-      </LocationMenu>
+      </CityMenu>
+      <TownMenu
+        onChange={townChanged}
+        value={currentTown}>
+        <LocationOption value={"---"} key={"---"}>
+          ---
+        </LocationOption>
+        {getTowns(currentCity).map((districtName) => (
+          <LocationOption value={districtName} key={districtName}>
+            {districtName}
+          </LocationOption>
+        ))}
+      </TownMenu>
+
       <Description>
         {description} {comfortability}
       </Description>
+      
       <CurrentWeather>
-        <Temperature>
-          {Math.round(temperature)} <Celsius>°C</Celsius>
-        </Temperature>
         <WeatherIcon weatherCode={weatherCode} moment={moment} />
+        <TempNDanger>
+          <Temperature>
+            {Math.round(temperature)} <Celsius>°C</Celsius>
+          </Temperature>
+          <DangerIndex>
+            <DangerIcon />
+            {heatInjuryIndex} {heatInjuryWarning}
+          </DangerIndex>
+        </TempNDanger>
+        <Info>
+          <AirFlow>
+            <AirFlowIcon /> {windSpeed} m/h
+          </AirFlow>
+          <Rain>
+            <RainIcon /> {rainPossibility}%
+          </Rain>
+        </Info>
       </CurrentWeather>
-      <OtherInfo>
-        <AirFlow>
-          <AirFlowIcon /> {windSpeed} m/h
-        </AirFlow>
-        <Rain>
-          <RainIcon /> {rainPossibility}%
-        </Rain>
-      </OtherInfo>
       <Refresh onClick={fetchData} isLoading={isLoading}>
         最後觀測時間：
         {new Intl.DateTimeFormat('zh-TW', {

@@ -83,11 +83,11 @@ export const hex2Decimal = (hex) => {
   if ( hex.startsWith("#") ) {
     hex = hex.slice(1);
   }
-  if ( hex.length == 3 ) {
+  if ( hex.length === 3 ) {
     const strs = hex.split("");
     const vals = strs.map((str, i) => parseInt(str+str, 16) * rgbScale[i]);
     return vals.reduce((cummul, val) => cummul += val, 0);
-  } else if ( hex.length == 6 ) {
+  } else if ( hex.length === 6 ) {
     return parseInt(hex.substr(0, 2), 16) * rgbScale[0]
          + parseInt(hex.substr(2, 2), 16) * rgbScale[1]
          + parseInt(hex.substr(4, 2), 16) * rgbScale[2]

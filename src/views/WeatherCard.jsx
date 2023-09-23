@@ -1,15 +1,16 @@
-import styled from '@emotion/styled';
-import { useCallback, useState, useMemo } from 'react';
-import dayjs from 'dayjs';
+import styled from "@emotion/styled";
+import { useCallback, useState, useMemo } from "react";
+import dayjs from "dayjs";
 
-import WeatherIcon from './../components/WeatherIcon.jsx';
-import useWeatherAPI from './../hooks/useWeatherAPI.jsx';
-import { ReactComponent as DangerIcon_ } from './../images/danger.svg';
-import { ReactComponent as AirFlowIcon } from './../images/airFlow.svg';
-import { ReactComponent as LoadingIcon } from './../images/loading.svg';
-import { ReactComponent as RainIcon } from './../images/rain.svg';
-import { ReactComponent as RefreshIcon } from './../images/refresh.svg';
-import { getLocation, getCities, getTowns, hex2Decimal } from './../utils/helpers';
+import WeatherIcon from "./../components/WeatherIcon.jsx";
+import Tooltip from "./../components/Tooltip.jsx";
+import useWeatherAPI from "./../hooks/useWeatherAPI.jsx";
+import { ReactComponent as DangerIcon_ } from "./../images/danger.svg";
+import { ReactComponent as AirFlowIcon } from "./../images/airFlow.svg";
+import { ReactComponent as LoadingIcon } from "./../images/loading.svg";
+import { ReactComponent as RainIcon } from "./../images/rain.svg";
+import { ReactComponent as RefreshIcon } from "./../images/refresh.svg";
+import { getLocation, getCities, getTowns, hex2Decimal } from "./../utils/helpers";
 
 // Constants
 const AUTHORIZATION_KEY = "CWB-3F426C61-2685-412E-8A11-F0CC475190D5";
@@ -20,13 +21,16 @@ const WeatherCardWrapper = styled.div`
   position: relative;
   top: ${({ cardPos }) => cardPos.y};
   left: ${({ cardPos }) => cardPos.x};
-  min-width: 360px;
-  max-width: 360px;
+  width: 350px;
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.foregroundColor};
   box-sizing: border-box;
   padding: 15px 15px 30px 15px;
   margin: 20px 30px;
+
+  @media screen and (max-height: 640px) {
+    width: 400px;
+  }
 `;
 
 const CityMenu = styled.select`
@@ -75,18 +79,18 @@ const Description = styled.div`
 
 const CurrentWeather = styled.div`
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  width: 100%;
+  height: min-content;
   justify-items: start;
   align-items: flex-end;
   margin-bottom: 10px;
   svg{
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    /* flex-basis: 30%; */
-    max-height: 80px;
-    max-width: 80px;
+    height: 80px;
+    width: 80px;
+    flex-shrink: 0;
     margin-left: 5px;
+    pointer-events: none;
   }
 `;
 
@@ -96,7 +100,7 @@ const TempNDanger = styled.div`
   justify-content: flex-start;
   align-content: space-between;
   width: min-content;
-  height: 80px;
+  height: max-content;
 `;
 
 const Temperature = styled.div`
@@ -113,47 +117,51 @@ const Celsius = styled.div`
 `;
 
 const DangerIndex = styled.div`
+  height: 20px;
+  width: 20px;
   display: flex;
+  align-items: center;
   color: ${({ theme }) => theme.temperatureColor};
   font-size: 16px;
   font-weight: 400;
-  margin-bottom: 5px;
-  svg {
-    max-height: 18px;
-    max-width: 18px;
-    height: 25px;
-    margin-left: 20px;
-    margin-right: 10px;
-  }
+  margin-left: 17px;
 `;
 
 const DangerIcon = styled(DangerIcon_)`
+  max-width: 18px;
+  max-height: 18px;
+  margin-right: 10px;
   ${
+    // 原圖檔為黑色。
+    // 背景亮度高則維持黑色，亮度低則反轉為白色。
     ({ theme }) => hex2Decimal(theme.foregroundColor) > 127 ?
     "" : 
     "-webkit-filter: invert(100%); filter: invert(100%);"
   }
-`
+`;
 
 const Info = styled.div`
   display: flex;
-  /* justify-items: flex-start; */
-  margin-left: 8px;
+  align-self: flex-end;
+  align-content: flex-end;
+  width: min-content;
   font-size: 16px;
   font-weight: 400;
   white-space: nowrap;
   color: ${({ theme }) => theme.textColor};
-  margin-top: 10px;
+  margin-left: 8px;
+  margin-top: 12px;
 `;
 
 const AirFlow = styled.div`
   display: flex;
   align-content: center;
   svg {
-    min-width: 25px;
-    max-width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
     margin-right: 10px;
+    pointer-events: none;
   }
 `;
 
@@ -162,10 +170,11 @@ const Rain = styled.div`
   align-content: center;
   margin-left: 20px;
   svg {
-    min-width: 25px;
-    max-width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
     margin-right: 10px;
+    pointer-events: none;
   }
 `;
 
@@ -177,14 +186,13 @@ const Refresh = styled.div`
   display: inline-flex;
   align-items: center;
   color: ${({ theme }) => theme.textColor};
-
   svg {
     margin-left: 10px;
     width: 15px;
     height: 15px;
     cursor: pointer;
     animation: rotate infinite 1.5s linear;
-    animation-duration: ${({ isLoading }) => (isLoading ? '1.5s' : '0s')};
+    animation-duration: ${({ isLoading }) => (isLoading ? "1.5s" : "0s")};
   }
 
   @keyframes rotate {
@@ -199,7 +207,6 @@ const Refresh = styled.div`
 
 
 const WeatherCard = ({
-  theme,
   cardNum,
   moment
 }) => {
@@ -325,31 +332,46 @@ const WeatherCard = ({
       </Description>
       
       <CurrentWeather>
-        <WeatherIcon weatherCode={weatherCode} moment={moment} />
+        <WeatherIcon
+          weatherCode={weatherCode}
+          moment={moment}
+        />
         <TempNDanger>
           <Temperature>
             {Math.round(temperature)} <Celsius>°C</Celsius>
           </Temperature>
-          <DangerIndex>
+          <DangerIndex id={"Tooltip-1"}>
+            <Tooltip
+              id={"Tooltip-1"}
+              content={"熱傷害指數"}
+            />
             <DangerIcon />
             {heatInjuryIndex} {heatInjuryWarning}
           </DangerIndex>
         </TempNDanger>
         <Info>
-          <AirFlow>
+          <AirFlow id={"Tooltip-2"}>
+            <Tooltip
+              id={"Tooltip-2"}
+              content={"風速"}
+            />
             <AirFlowIcon /> {windSpeed} m/h
           </AirFlow>
-          <Rain>
+          <Rain id={"Tooltip-3"}>
+            <Tooltip
+              id={"Tooltip-3"}
+              content={"12小時內降雨機率"}
+            />
             <RainIcon /> {rainPossibility}%
           </Rain>
         </Info>
       </CurrentWeather>
       <Refresh onClick={fetchData} isLoading={isLoading}>
         最後觀測時間：
-        {new Intl.DateTimeFormat('zh-TW', {
-          hour: 'numeric',
-          minute: 'numeric',
-        }).format(dayjs(observationTime))}{' '}
+        {new Intl.DateTimeFormat("zh-TW", {
+          hour: "numeric",
+          minute: "numeric",
+        }).format(dayjs(observationTime))}{" "}
         {isLoading ? <LoadingIcon /> : <RefreshIcon />}
       </Refresh>
     </WeatherCardWrapper>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 
@@ -6,7 +6,7 @@ import { ReactComponent as List } from "./../images/list.svg";
 import { hex2Decimal } from "./../utils/helpers";
 
 // Components
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +32,7 @@ const HeaderWrapper = styled.header`
 
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   font-size: 21px;
   font-weight: 600;
   color: ${({ theme }) => theme.textColor};
@@ -112,7 +112,7 @@ const Header = ({
   // Hide Header when scrolling more than heightToHideFrom.
   const [isVisible, setIsVisible] = useState(true);
 
-  const listenToScroll = () => {
+  const listenToScroll = useCallback(() => {
     let heightToHideFrom = 400;
     const winScroll = document.body.scrollTop ||
         document.documentElement.scrollTop;
@@ -123,13 +123,13 @@ const Header = ({
     } else {
          setIsVisible(true);
     }
-  };
+  }, [isVisible]);
 
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
     return () =>
        window.removeEventListener("scroll", listenToScroll);
-  }, [])
+  }, [listenToScroll])
   
   const clickOption = (e) => {
     const element = document.getElementById("OptionContents");
@@ -139,19 +139,18 @@ const Header = ({
       element.style.display = "none";
     }
   };
-
   
   return (
     <HeaderWrapper isVisible={isVisible}>
       <Title>縣市天氣即時資訊</Title>
 
-      <OptionMenu id="OptionMenu">
+      <OptionMenu onClick={clickOption} id="OptionMenu">
         {/* <button onClick={addCard}>新增天氣卡</button>
         <button onClick={changeThemeMode}>
           { currentTheme === "light" ? "深" : "淺" }色模式
         </button> */}
-        <OptionButton onClick={clickOption} id="OptionButton"/>
-        <OptionContent onClick={clickOption} id="OptionContents">
+        <OptionButton id="OptionButton"/>
+        <OptionContent id="OptionContents">
           <button onClick={addCard}>新增天氣卡</button>
           <button onClick={changeThemeMode}>
             { currentTheme === "light" ? "深" : "淺" }色模式

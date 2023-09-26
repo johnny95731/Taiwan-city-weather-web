@@ -10,6 +10,7 @@ import { ReactComponent as AirFlowIcon } from "./../images/airFlow.svg";
 import { ReactComponent as LoadingIcon } from "./../images/loading.svg";
 import { ReactComponent as RainIcon } from "./../images/rain.svg";
 import { ReactComponent as RefreshIcon } from "./../images/refresh.svg";
+import { ReactComponent as DashCircleIcon } from "./../images/dash-circle.svg";
 import { getLocation, getCities, getTowns, hex2Decimal } from "./../utils/helpers";
 
 // Constants
@@ -65,6 +66,24 @@ const TownMenu = styled.select`
   border: none;
   &:hover {
     background: ${({ theme }) => theme.menuHoverColor};
+  }
+`;
+
+const CloseButton = styled(DashCircleIcon)`
+  text-align: center;
+  float: right;
+  width: 20px;
+  height: 28px;
+  cursor: pointer;
+  ${
+    // 原圖檔為黑色。
+    // 背景亮度高則維持黑色，亮度低則反轉為白色。
+    ({ theme }) => hex2Decimal(theme.foregroundColor) > 127 ?
+    "" : 
+    "-webkit-filter: invert(100%); filter: invert(100%);"
+  }
+  @media (max-width: 500px), (max-height: 600px) {
+    width: 16px;
   }
 `;
 
@@ -208,7 +227,8 @@ const Refresh = styled.div`
 
 const WeatherCard = ({
   cardNum,
-  moment
+  moment,
+  cardsRearrange
 }) => {
   // Displayed city name and observation location name.
   const [currentCity, setCurrentCity] = useState(() =>
@@ -291,10 +311,14 @@ const WeatherCard = ({
     }
   }, [isDragging])
 
-  const MouseUp = () => {
+  const MouseUp = useCallback(() => {
     SetIsDragging(false);
-  };
+  }, []);
 
+  // Delete event
+  const deleteEvent = useCallback(() =>{
+    cardsRearrange(cardNum);
+  }, [cardNum]);
 
   return (
     <WeatherCardWrapper 
@@ -326,6 +350,7 @@ const WeatherCard = ({
           </LocationOption>
         ))}
       </TownMenu>
+      <CloseButton onClick={deleteEvent}/>
 
       <Description>
         {description} {comfortability}

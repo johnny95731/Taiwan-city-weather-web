@@ -52,47 +52,45 @@ const Container = styled.article`
 `;
 
 
-const ScreenSize = () => {
-  const body = document.getElementsByTagName('body')[0];
-  const [size, setSize] = useState({
-    screen: [window.screen.width, window.screen.height],
-    window: [window.innerWidth, window.innerHeight],
-    doc: [document.documentElement.clientWidth, document.documentElement.clientHeight],
-    body: [body.clientWidth, body.clientHeight],
-  });
+// const ScreenSize = () => {
+//   const body = document.getElementsByTagName('body')[0];
+//   const [size, setSize] = useState({
+//     screen: [window.screen.width, window.screen.height],
+//     window: [window.innerWidth, window.innerHeight],
+//     doc: [document.documentElement.clientWidth, document.documentElement.clientHeight],
+//     body: [body.clientWidth, body.clientHeight],
+//   });
 
-  const resize = () => {
-    setSize({
-      screen: [window.screen.width, window.screen.height],
-      window: [window.innerWidth, window.innerHeight],
-      doc: [document.documentElement.clientWidth, document.documentElement.clientHeight],
-      body: [body.clientWidth, body.clientHeight],
-    })
-  }
+//   const resize = () => {
+//     setSize({
+//       screen: [window.screen.width, window.screen.height],
+//       window: [window.innerWidth, window.innerHeight],
+//       doc: [document.documentElement.clientWidth, document.documentElement.clientHeight],
+//       body: [body.clientWidth, body.clientHeight],
+//     })
+//   };
   
-  useEffect(() => {
-    window.addEventListener("resize", resize);
-    return () =>
-       window.removeEventListener("resize", resize);
-  }, [])
+//   useEffect(() => {
+//     window.addEventListener("resize", resize);
+//     return () =>
+//        window.removeEventListener("resize", resize);
+//   }, [])
 
-
-
-  return (
-    <div style={{
-        position: "fixed",
-        top: "60px",
-        left: "50px",
-        zIndex: "2",
-        color: `${({ theme }) => theme.textColor}`,
-      }}>
-      window.screen: {size.screen[0]} / {size.screen[1]} <br />
-      window.inner: {size.window[0]} / {size.window[1]} <br />
-      documentElement: {size.doc[0]} / {size.doc[1]} <br />
-      body: {size.body[0]} / {size.body[1]}
-    </div>
-  )
-}
+//   return (
+//     <div style={{
+//         position: "fixed",
+//         top: "60px",
+//         left: "50px",
+//         zIndex: "2",
+//         color: `${({ theme }) => theme.textColor}`,
+//       }}>
+//       window.screen: {size.screen[0]} / {size.screen[1]} <br />
+//       window.inner: {size.window[0]} / {size.window[1]} <br />
+//       documentElement: {size.doc[0]} / {size.doc[1]} <br />
+//       body: {size.body[0]} / {size.body[1]}
+//     </div>
+//   )
+// }
 
 
 const App = () => {
@@ -114,25 +112,49 @@ const App = () => {
   }, [currentTheme]);
 
   // Card number
-  const [cards, setCards] = useState(() => 
-    [<WeatherCard
-      key={0}
-      cardNum={0}
-      moment={moment}
-    />]
-  )
+  const [cards, setCards] = useState(() => [])
+
+  const cardsRearrange = (idx) => {
+    // Rearrange after delete a card.
+    setCards((prevState) => {
+      const newCards = [...prevState];
+      newCards.splice(idx, 1);
+      return newCards
+    });
+  };
 
   const addCard = useCallback(() => {
-    setCards((prevState) => ([
-      ...prevState,
-      <WeatherCard
-        key={cards.length}
-        cardNum={cards.length}
-        moment={moment}
-      />
-    ]));
+    if (!cards.length || cards[cards.length-1].key == cards.length-1){
+      // No card exists or cards be deleted from the middle.
+      // If the card always be deleted from last, the if-else statement will
+      // enter this part.
+      setCards((prevState) => ([
+        ...prevState,
+        <WeatherCard
+          key={cards.length}
+          cardNum={cards.length}
+          moment={moment}
+          cardsRearrange={cardsRearrange}
+        />
+      ]));
+    } else { // If some cards be deleted Last key is not matching length.
+      const allKeys = cards.map((card) => card.key);
+      allKeys.sort((a, b) => a-b);
+      // Find the missing key (card be deleted).
+      const idx = allKeys.slice(1).find((key, i) => key-allKeys[i] != 1);
+      setCards((prevState) => ([
+        ...prevState,
+        <WeatherCard
+          key={idx}
+          cardNum={idx}
+          moment={moment}
+          cardsRearrange={cardsRearrange}
+        />
+      ]));
+    };
   }, [cards, moment]);
 
+  useMemo(() => addCard(), []);
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       {/* <ScreenSize /> */}

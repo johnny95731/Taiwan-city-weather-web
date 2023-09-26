@@ -1,18 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
-
 import { getCode, getGov } from "./../utils/helpers"
 
-const fetchCurrentWeather = ({ authorizationKey, locationName }) => {
+const fetchCurrentWeather = ({ authorizationKey, stationID }) => {
   /**
    * 抓取氣象站資料
    */
+  const code = stationID.startsWith("C") ? "O-A0001-001" : "O-A0003-001"
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=${authorizationKey}&locationName=${locationName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/${code}?Authorization=${authorizationKey}&stationId=${stationID}`
   )
     .then((response) => response.json())
     .then((data) => {
       const locationData = data.records.location[0];
-
       const weatherElements = locationData.weatherElement.reduce(
         (neededElements, item) => {
           if (['WDSD', 'TEMP'].includes(item.elementName)) {
@@ -37,7 +36,7 @@ const fetchWeatherForecast = ({ authorizationKey, cityName }) => {
    * 抓取縣市天氣預報資料
    */
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${authorizationKey}&locationName=${cityName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${authorizationKey}&locationName=${cityName}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -72,7 +71,7 @@ const fetchTownWeatherForecast = ({
    */
   const code = getCode(cityName);
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${authorizationKey}&locationName=${townName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${authorizationKey}&locationName=${townName}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -108,7 +107,7 @@ const fetchWBGT = ({
    */
   const townName_ = townName === "---" ? getGov(cityName) : townName;
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${authorizationKey}&CountyName=${cityName}&TownName=${townName_}&sort=IssueTime`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${authorizationKey}&CountyName=${cityName}&TownName=${townName_}&sort=IssueTime`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -123,7 +122,7 @@ const fetchWBGT = ({
 
 
 const useWeatherAPI = ({
-  locationName: repStation,
+  locationName: repStationID,
   cityName,
   townName,
   authorizationKey
@@ -150,10 +149,10 @@ const useWeatherAPI = ({
       ...prevState,
       isLoading: true,
     }));
-    const funt = townName === "---" ? fetchWeatherForecast : fetchTownWeatherForecast
+    const func = townName === "---" ? fetchWeatherForecast : fetchTownWeatherForecast
     const [currentWeather, weatherForecast, heatInjury] = await Promise.all([
-      fetchCurrentWeather({ authorizationKey, locationName: repStation }),
-      funt({ authorizationKey, cityName, townName }),
+      fetchCurrentWeather({ authorizationKey, stationID: repStationID }),
+      func({ authorizationKey, cityName, townName }),
       fetchWBGT({ authorizationKey, cityName, townName })
     ]);
 
@@ -163,7 +162,7 @@ const useWeatherAPI = ({
       ...heatInjury,
       isLoading: false,
     });
-  }, [cityName, repStation, townName, authorizationKey]);
+  }, [cityName, repStationID, townName, authorizationKey]);
 
   useEffect(() => {
     fetchData();

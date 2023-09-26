@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback } from "react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "@emotion/react";
 
@@ -123,8 +123,22 @@ const App = () => {
     });
   };
 
-  const addCard = useCallback(() => {
-    if (!cards.length || cards[cards.length-1].key == cards.length-1){
+  const addCardEvent = useCallback(() => {
+    if (!cards.length){
+      setCards((prevState) => ([
+        ...prevState,
+        <WeatherCard
+          key={cards.length}
+          cardNum={cards.length}
+          moment={moment}
+          cardsRearrange={cardsRearrange}
+        />
+      ]));
+      return
+    };
+    const allKeys = cards.map((card) => parseInt(card.key));
+    allKeys.sort((a, b) => a-b);
+    if (allKeys[allKeys.length-1] === allKeys.length-1){
       // No card exists or cards be deleted from the middle.
       // If the card always be deleted from last, the if-else statement will
       // enter this part.
@@ -138,10 +152,8 @@ const App = () => {
         />
       ]));
     } else { // If some cards be deleted Last key is not matching length.
-      const allKeys = cards.map((card) => card.key);
-      allKeys.sort((a, b) => a-b);
       // Find the missing key (card be deleted).
-      const idx = allKeys.slice(1).find((key, i) => key-allKeys[i] != 1);
+      const idx = allKeys.slice(0,-1).find((key, i) => allKeys[i+1]-key > 1)+1;
       setCards((prevState) => ([
         ...prevState,
         <WeatherCard
@@ -154,14 +166,14 @@ const App = () => {
     };
   }, [cards, moment]);
 
-  useMemo(() => addCard(), []);
+  useMemo(() => addCardEvent(), []);
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       {/* <ScreenSize /> */}
       <Header
         currentTheme={currentTheme}
         changeThemeMode={changeThemeMode}
-        addCard={addCard}
+        addCard={addCardEvent}
       />
       <Container>
         {cards}

@@ -237,7 +237,7 @@ const WeatherCard = ({
   const [currentTown, setCurrentTown] = useState(() =>
   localStorage.getItem(`townName${cardNum}`) || "---"
   );
-  const currentStation = useMemo(() => getLocation(currentCity).repStation,
+  const currentStation = useMemo(() => getLocation(currentCity).repStationID,
    [currentCity]);
 
   // fetch weather info from API.

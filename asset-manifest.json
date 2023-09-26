@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Taiwan-city-weather-web/static/css/main.efd6c139.css",
-    "main.js": "/Taiwan-city-weather-web/static/js/main.24829370.js",
+    "main.js": "/Taiwan-city-weather-web/static/js/main.857d4c80.js",
     "static/js/787.92527363.chunk.js": "/Taiwan-city-weather-web/static/js/787.92527363.chunk.js",
     "service-worker.js": "/Taiwan-city-weather-web/service-worker.js",
     "static/media/day-snowing.svg": "/Taiwan-city-weather-web/static/media/day-snowing.c46361c3c4c6be9ac89ece97659afc9e.svg",
@@ -24,13 +24,14 @@
     "static/media/loading.svg": "/Taiwan-city-weather-web/static/media/loading.665f7c0d37c65c48d153750153e7b3f8.svg",
     "static/media/night-clear.svg": "/Taiwan-city-weather-web/static/media/night-clear.71cf504772f48ba6bd5aab8ea47c37dc.svg",
     "static/media/danger.svg": "/Taiwan-city-weather-web/static/media/danger.70a5b487095d6284c947f6f601a89911.svg",
-    "static/media/list.svg": "/Taiwan-city-weather-web/static/media/list.f98b98b4905b36b844a65327ecaadc32.svg",
+    "static/media/list.svg": "/Taiwan-city-weather-web/static/media/list.b8fa93e0a1485bc1cc22740a8ca4805d.svg",
+    "static/media/dash-circle.svg": "/Taiwan-city-weather-web/static/media/dash-circle.77321307ac117f742244e0481c38ac0e.svg",
     "main.efd6c139.css.map": "/Taiwan-city-weather-web/static/css/main.efd6c139.css.map",
-    "main.24829370.js.map": "/Taiwan-city-weather-web/static/js/main.24829370.js.map",
+    "main.857d4c80.js.map": "/Taiwan-city-weather-web/static/js/main.857d4c80.js.map",
     "787.92527363.chunk.js.map": "/Taiwan-city-weather-web/static/js/787.92527363.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.efd6c139.css",
-    "static/js/main.24829370.js"
+    "static/js/main.857d4c80.js"
   ]
 }

@@ -136,9 +136,8 @@ const Celsius = styled.div`
 `;
 
 const DangerIndex = styled.div`
-  height: 20px;
-  width: 20px;
-  display: flex;
+  display: inline-flex;
+  white-space: nowrap;
   align-items: center;
   color: ${({ theme }) => theme.temperatureColor};
   font-size: 16px;
@@ -235,7 +234,7 @@ const WeatherCard = ({
     localStorage.getItem(`cityName${cardNum}`) || "臺北市"
   );
   const [currentTown, setCurrentTown] = useState(() =>
-  localStorage.getItem(`townName${cardNum}`) || "---"
+    localStorage.getItem(`townName${cardNum}`) || "---"
   );
   const currentStation = useMemo(() => getLocation(currentCity).repStationID,
    [currentCity]);

@@ -2,4754 +2,4939 @@
   "新北市": {
     "瑞芳區": [
       {
-        "locationName": "新北市",
-        "districtName": "瑞芳區",
-        "stationName": "五分山雷達站",
-        "stationType": "局屬有人站"
+        "id": "466850",
+        "name": "五分山雷達站",
+        "type": "有人站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "瑞芳區",
-        "stationName": "瑞芳",
-        "stationType": "局屬自動站"
+        "id": "C0A660",
+        "name": "瑞芳",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "瑞芳區",
-        "stationName": "鼻頭角",
-        "stationType": "局屬自動站"
+        "id": "C0A950",
+        "name": "鼻頭角",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "瑞芳區",
-        "stationName": "五分山",
-        "stationType": "局屬自動站"
+        "id": "C0AH30",
+        "name": "五分山",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "瑞芳區",
-        "stationName": "水湳洞",
-        "stationType": "局屬自動站"
+        "id": "C0AJ50",
+        "name": "水湳洞",
+        "type": "自動站"
       }
     ],
     "新店區": [
       {
-        "locationName": "新北市",
-        "districtName": "新店區",
-        "stationName": "新北",
-        "stationType": "局屬有人站"
+        "id": "466881",
+        "name": "新北",
+        "type": "有人站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "新店區",
-        "stationName": "屈尺",
-        "stationType": "局屬自動站"
+        "id": "C0AI10",
+        "name": "屈尺",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "新店區",
-        "stationName": "四十份",
-        "stationType": "局屬自動站"
+        "id": "C1A9N0",
+        "name": "四十份",
+        "type": "自動站"
       }
     ],
     "淡水區": [
       {
-        "locationName": "新北市",
-        "districtName": "淡水區",
-        "stationName": "淡水",
-        "stationType": "局屬有人站"
+        "id": "466900",
+        "name": "淡水",
+        "type": "有人站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "淡水區",
-        "stationName": "淡水觀海",
-        "stationType": "局屬自動站"
+        "id": "C0AJ30",
+        "name": "淡水觀海",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "淡水區",
-        "stationName": "六塊厝",
-        "stationType": "局屬自動站"
+        "id": "C0AJ60",
+        "name": "六塊厝",
+        "type": "自動站"
       }
     ],
     "樹林區": [
       {
-        "locationName": "新北市",
-        "districtName": "樹林區",
-        "stationName": "山佳",
-        "stationType": "局屬自動站"
+        "id": "C0A520",
+        "name": "山佳",
+        "type": "自動站"
+      },
+      {
+        "id": "72AI40",
+        "name": "桃改樹林分場",
+        "type": "農業站"
       }
     ],
     "坪林區": [
       {
-        "locationName": "新北市",
-        "districtName": "坪林區",
-        "stationName": "坪林",
-        "stationType": "局屬自動站"
+        "id": "C0A530",
+        "name": "坪林",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "坪林區",
-        "stationName": "四堵",
-        "stationType": "局屬自動站"
+        "id": "C0A540",
+        "name": "四堵",
+        "type": "自動站"
       }
     ],
     "雙溪區": [
       {
-        "locationName": "新北市",
-        "districtName": "雙溪區",
-        "stationName": "泰平",
-        "stationType": "局屬自動站"
+        "id": "C0A550",
+        "name": "泰平",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "雙溪區",
-        "stationName": "雙溪",
-        "stationType": "局屬自動站"
+        "id": "C0A890",
+        "name": "雙溪",
+        "type": "自動站"
       }
     ],
     "烏來區": [
       {
-        "locationName": "新北市",
-        "districtName": "烏來區",
-        "stationName": "福山",
-        "stationType": "局屬自動站"
+        "id": "C0A560",
+        "name": "福山",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "烏來區",
-        "stationName": "桶後",
-        "stationType": "局屬自動站"
+        "id": "C0A570",
+        "name": "桶後",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "烏來區",
-        "stationName": "福山植物園",
-        "stationType": "局屬自動站"
+        "id": "C0AH90",
+        "name": "福山植物園",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "烏來區",
-        "stationName": "下盆",
-        "stationType": "局屬自動站"
+        "id": "C1A630",
+        "name": "下盆",
+        "type": "自動站"
       }
     ],
     "石碇區": [
       {
-        "locationName": "新北市",
-        "districtName": "石碇區",
-        "stationName": "石碇",
-        "stationType": "局屬自動站"
+        "id": "C0A640",
+        "name": "石碇",
+        "type": "自動站"
+      },
+      {
+        "id": "82A750",
+        "name": "茶改北部分場",
+        "type": "農業站"
       }
     ],
     "平溪區": [
       {
-        "locationName": "新北市",
-        "districtName": "平溪區",
-        "stationName": "火燒寮",
-        "stationType": "局屬自動站"
+        "id": "C0A650",
+        "name": "火燒寮",
+        "type": "自動站"
       }
     ],
     "萬里區": [
       {
-        "locationName": "新北市",
-        "districtName": "萬里區",
-        "stationName": "大坪",
-        "stationType": "局屬自動站"
+        "id": "C0A860",
+        "name": "大坪",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "萬里區",
-        "stationName": "野柳",
-        "stationType": "局屬自動站"
+        "id": "C0AJ20",
+        "name": "野柳",
+        "type": "自動站"
       }
     ],
     "汐止區": [
       {
-        "locationName": "新北市",
-        "districtName": "汐止區",
-        "stationName": "五指山",
-        "stationType": "局屬自動站"
+        "id": "C0A870",
+        "name": "五指山",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "汐止區",
-        "stationName": "汐止",
-        "stationType": "局屬自動站"
+        "id": "C0AH00",
+        "name": "汐止",
+        "type": "自動站"
       }
     ],
     "貢寮區": [
       {
-        "locationName": "新北市",
-        "districtName": "貢寮區",
-        "stationName": "福隆",
-        "stationType": "局屬自動站"
+        "id": "C0A880",
+        "name": "福隆",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "貢寮區",
-        "stationName": "三貂角",
-        "stationType": "局屬自動站"
+        "id": "C0A970",
+        "name": "三貂角",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "貢寮區",
-        "stationName": "澳底",
-        "stationType": "局屬自動站"
+        "id": "C0AJ90",
+        "name": "澳底",
+        "type": "自動站"
       }
     ],
     "石門區": [
       {
-        "locationName": "新北市",
-        "districtName": "石門區",
-        "stationName": "富貴角",
-        "stationType": "局屬自動站"
+        "id": "C0A920",
+        "name": "富貴角",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "石門區",
-        "stationName": "白沙灣",
-        "stationType": "局屬自動站"
+        "id": "C0AI20",
+        "name": "白沙灣",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "石門區",
-        "stationName": "石門",
-        "stationType": "局屬自動站"
+        "id": "C0AJ40",
+        "name": "石門",
+        "type": "自動站"
       }
     ],
     "金山區": [
       {
-        "locationName": "新北市",
-        "districtName": "金山區",
-        "stationName": "三和",
-        "stationType": "局屬自動站"
+        "id": "C0A931",
+        "name": "三和",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "金山區",
-        "stationName": "金山",
-        "stationType": "局屬自動站"
+        "id": "C0A940",
+        "name": "金山",
+        "type": "自動站"
       }
     ],
     "三峽區": [
       {
-        "locationName": "新北市",
-        "districtName": "三峽區",
-        "stationName": "三峽",
-        "stationType": "局屬自動站"
+        "id": "C0AC60",
+        "name": "三峽",
+        "type": "自動站"
       }
     ],
     "新莊區": [
       {
-        "locationName": "新北市",
-        "districtName": "新莊區",
-        "stationName": "新莊",
-        "stationType": "局屬自動站"
+        "id": "C0ACA0",
+        "name": "新莊",
+        "type": "自動站"
       }
     ],
     "三芝區": [
       {
-        "locationName": "新北市",
-        "districtName": "三芝區",
-        "stationName": "三芝",
-        "stationType": "局屬自動站"
+        "id": "C0AD00",
+        "name": "三芝",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "三芝區",
-        "stationName": "田寮",
-        "stationType": "局屬自動站"
+        "id": "C0AJ70",
+        "name": "田寮",
+        "type": "自動站"
       }
     ],
     "八里區": [
       {
-        "locationName": "新北市",
-        "districtName": "八里區",
-        "stationName": "八里",
-        "stationType": "局屬自動站"
+        "id": "C0AD10",
+        "name": "八里",
+        "type": "自動站"
+      },
+      {
+        "id": "CAAH70",
+        "name": "硬漢嶺",
+        "type": "合作站"
       }
     ],
     "蘆洲區": [
       {
-        "locationName": "新北市",
-        "districtName": "蘆洲區",
-        "stationName": "蘆洲",
-        "stationType": "局屬自動站"
+        "id": "C0AD30",
+        "name": "蘆洲",
+        "type": "自動站"
       }
     ],
     "土城區": [
       {
-        "locationName": "新北市",
-        "districtName": "土城區",
-        "stationName": "土城",
-        "stationType": "局屬自動站"
+        "id": "C0AD40",
+        "name": "土城",
+        "type": "自動站"
       }
     ],
     "鶯歌區": [
       {
-        "locationName": "新北市",
-        "districtName": "鶯歌區",
-        "stationName": "鶯歌",
-        "stationType": "局屬自動站"
+        "id": "C0AD50",
+        "name": "鶯歌",
+        "type": "自動站"
       }
     ],
     "中和區": [
       {
-        "locationName": "新北市",
-        "districtName": "中和區",
-        "stationName": "中和",
-        "stationType": "局屬自動站"
+        "id": "C0AG80",
+        "name": "中和",
+        "type": "自動站"
       }
     ],
     "永和區": [
       {
-        "locationName": "新北市",
-        "districtName": "永和區",
-        "stationName": "永和",
-        "stationType": "局屬自動站"
+        "id": "C0AH10",
+        "name": "永和",
+        "type": "自動站"
       }
     ],
     "林口區": [
       {
-        "locationName": "新北市",
-        "districtName": "林口區",
-        "stationName": "林口",
-        "stationType": "局屬自動站"
+        "id": "C0AH50",
+        "name": "林口",
+        "type": "自動站"
       }
     ],
     "深坑區": [
       {
-        "locationName": "新北市",
-        "districtName": "深坑區",
-        "stationName": "深坑",
-        "stationType": "局屬自動站"
+        "id": "C0AH80",
+        "name": "深坑",
+        "type": "自動站"
       }
     ],
     "五股區": [
       {
-        "locationName": "新北市",
-        "districtName": "五股區",
-        "stationName": "五股",
-        "stationType": "局屬自動站"
+        "id": "C0AI00",
+        "name": "五股",
+        "type": "自動站"
       }
     ],
     "三重區": [
       {
-        "locationName": "新北市",
-        "districtName": "三重區",
-        "stationName": "三重",
-        "stationType": "局屬自動站"
+        "id": "C0AI30",
+        "name": "三重",
+        "type": "自動站"
       }
     ],
     "板橋區": [
       {
-        "locationName": "新北市",
-        "districtName": "板橋區",
-        "stationName": "板橋",
-        "stationType": "局屬自動站"
+        "id": "C0AJ80",
+        "name": "板橋",
+        "type": "自動站"
       }
     ],
     "新北市": [
       {
-        "locationName": "新北市",
-        "districtName": "新北市",
-        "stationName": "石碇服務區",
-        "stationType": "局屬自動站"
+        "id": "C1A750",
+        "name": "石碇服務區",
+        "type": "自動站"
       },
       {
-        "locationName": "新北市",
-        "districtName": "新北市",
-        "stationName": "坪林交控",
-        "stationType": "局屬自動站"
+        "id": "C1A760",
+        "name": "坪林交控",
+        "type": "自動站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "新北市",
-        "districtName": "",
-        "stationName": "國一N039K",
-        "stationType": "局屬自動站"
+        "id": "C1AI60",
+        "name": "國一N039K",
+        "type": "自動站"
+      },
+      {
+        "id": "CAA010",
+        "name": "國一N013K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAA020",
+        "name": "國一S026K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAA030",
+        "name": "國三S010K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAA050",
+        "name": "國三S037K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAA060",
+        "name": "國三S042K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAA070",
+        "name": "國三N046K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAA080",
+        "name": "國三S054K",
+        "type": "合作站"
       }
     ]
   },
   "臺北市": {
     "北投區": [
       {
-        "locationName": "臺北市",
-        "districtName": "北投區",
-        "stationName": "鞍部",
-        "stationType": "局屬有人站"
+        "id": "466910",
+        "name": "鞍部",
+        "type": "有人站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "北投區",
-        "stationName": "竹子湖",
-        "stationType": "局屬有人站"
+        "id": "466930",
+        "name": "竹子湖",
+        "type": "有人站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "北投區",
-        "stationName": "大屯山",
-        "stationType": "局屬自動站"
+        "id": "C0AC40",
+        "name": "大屯山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "北投區",
-        "stationName": "石牌",
-        "stationType": "局屬自動站"
+        "id": "C0AI40",
+        "name": "石牌",
+        "type": "自動站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "北投區",
-        "stationName": "關渡",
-        "stationType": "局屬自動站"
+        "id": "C1AC50",
+        "name": "關渡",
+        "type": "自動站"
       }
     ],
     "中正區": [
       {
-        "locationName": "臺北市",
-        "districtName": "中正區",
-        "stationName": "臺北",
-        "stationType": "局屬有人站"
+        "id": "466920",
+        "name": "臺北",
+        "type": "有人站"
       }
     ],
     "士林區": [
       {
-        "locationName": "臺北市",
-        "districtName": "士林區",
-        "stationName": "科教館",
-        "stationType": "局屬自動站"
+        "id": "C0A770",
+        "name": "科教館",
+        "type": "自動站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "士林區",
-        "stationName": "社子",
-        "stationType": "局屬自動站"
+        "id": "C0A980",
+        "name": "社子",
+        "type": "自動站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "士林區",
-        "stationName": "天母",
-        "stationType": "局屬自動站"
+        "id": "C0A9C0",
+        "name": "天母",
+        "type": "自動站"
       },
       {
-        "locationName": "臺北市",
-        "districtName": "士林區",
-        "stationName": "平等",
-        "stationType": "局屬自動站"
+        "id": "C0AH40",
+        "name": "平等",
+        "type": "自動站"
       }
     ],
     "內湖區": [
       {
-        "locationName": "臺北市",
-        "districtName": "內湖區",
-        "stationName": "內湖",
-        "stationType": "局屬自動站"
+        "id": "C0A9F0",
+        "name": "內湖",
+        "type": "自動站"
       }
     ],
     "信義區": [
       {
-        "locationName": "臺北市",
-        "districtName": "信義區",
-        "stationName": "信義",
-        "stationType": "局屬自動站"
+        "id": "C0AC70",
+        "name": "信義",
+        "type": "自動站"
       }
     ],
     "文山區": [
       {
-        "locationName": "臺北市",
-        "districtName": "文山區",
-        "stationName": "文山",
-        "stationType": "局屬自動站"
+        "id": "C0AC80",
+        "name": "文山",
+        "type": "自動站"
+      },
+      {
+        "id": "CAA090",
+        "name": "國三A005K",
+        "type": "合作站"
       }
     ],
     "松山區": [
       {
-        "locationName": "臺北市",
-        "districtName": "松山區",
-        "stationName": "松山",
-        "stationType": "局屬自動站"
+        "id": "C0AH70",
+        "name": "松山",
+        "type": "自動站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "臺北市",
-        "districtName": "",
-        "stationName": "國三N016K",
-        "stationType": "局屬自動站"
+        "id": "C1AI50",
+        "name": "國三N016K",
+        "type": "自動站"
+      },
+      {
+        "id": "CAA040",
+        "name": "國三S016K",
+        "type": "合作站"
+      }
+    ],
+    "大安區": [
+      {
+        "id": "CAAH60",
+        "name": "大安森林",
+        "type": "合作站"
       }
     ]
   },
   "基隆市": {
     "仁愛區": [
       {
-        "locationName": "基隆市",
-        "districtName": "仁愛區",
-        "stationName": "基隆",
-        "stationType": "局屬有人站"
+        "id": "466940",
+        "name": "基隆",
+        "type": "有人站"
       }
     ],
     "中正區": [
       {
-        "locationName": "基隆市",
-        "districtName": "中正區",
-        "stationName": "彭佳嶼",
-        "stationType": "局屬有人站"
+        "id": "466950",
+        "name": "彭佳嶼",
+        "type": "有人站"
       },
       {
-        "locationName": "基隆市",
-        "districtName": "中正區",
-        "stationName": "基隆嶼",
-        "stationType": "局屬自動站"
+        "id": "C0B020",
+        "name": "基隆嶼",
+        "type": "自動站"
       },
       {
-        "locationName": "基隆市",
-        "districtName": "中正區",
-        "stationName": "八斗子",
-        "stationType": "局屬自動站"
+        "id": "C0B050",
+        "name": "八斗子",
+        "type": "自動站"
       }
     ],
     "七堵區": [
       {
-        "locationName": "基隆市",
-        "districtName": "七堵區",
-        "stationName": "七堵",
-        "stationType": "局屬自動站"
+        "id": "C0B010",
+        "name": "七堵",
+        "type": "自動站"
       }
     ],
     "安樂區": [
       {
-        "locationName": "基隆市",
-        "districtName": "安樂區",
-        "stationName": "大武崙",
-        "stationType": "局屬自動站"
+        "id": "C0B040",
+        "name": "大武崙",
+        "type": "自動站"
       }
     ],
     "暖暖區": [
       {
-        "locationName": "基隆市",
-        "districtName": "暖暖區",
-        "stationName": "暖暖",
-        "stationType": "局屬自動站"
+        "id": "C0B060",
+        "name": "暖暖",
+        "type": "自動站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAB010",
+        "name": "國一S001K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAB020",
+        "name": "國一S006K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAB030",
+        "name": "國三S004K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAB040",
+        "name": "國三S007K",
+        "type": "合作站"
+      }
+    ],
+    "中山區": [
+      {
+        "id": "CAB050",
+        "name": "國三K002K",
+        "type": "合作站"
       }
     ]
   },
   "花蓮縣": {
     "花蓮市": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "花蓮市",
-        "stationName": "花蓮",
-        "stationType": "局屬有人站"
+        "id": "466990",
+        "name": "花蓮",
+        "type": "有人站"
       }
     ],
     "秀林鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "大禹嶺",
-        "stationType": "局屬自動站"
+        "id": "C0T790",
+        "name": "大禹嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "天祥",
-        "stationType": "局屬自動站"
+        "id": "C0T820",
+        "name": "天祥",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "水源",
-        "stationType": "局屬自動站"
+        "id": "C0T9B0",
+        "name": "水源",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "和中",
-        "stationType": "局屬自動站"
+        "id": "C0T9D0",
+        "name": "和中",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "富世",
-        "stationType": "局屬自動站"
+        "id": "C0Z190",
+        "name": "富世",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "和平林道",
-        "stationType": "局屬自動站"
+        "id": "C0Z220",
+        "name": "和平林道",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "和平",
-        "stationType": "局屬自動站"
+        "id": "C0Z230",
+        "name": "和平",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "清水斷崖",
-        "stationType": "局屬自動站"
+        "id": "C0Z310",
+        "name": "清水斷崖",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "洛韶",
-        "stationType": "局屬自動站"
+        "id": "C1T800",
+        "name": "洛韶",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "慈恩",
-        "stationType": "局屬自動站"
+        "id": "C1T810",
+        "name": "慈恩",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "布洛灣",
-        "stationType": "局屬自動站"
+        "id": "C1T830",
+        "name": "布洛灣",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "龍澗",
-        "stationType": "局屬自動站"
+        "id": "C1T980",
+        "name": "龍澗",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "太魯閣",
-        "stationType": "局屬自動站"
+        "id": "C1TA00",
+        "name": "太魯閣",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "三棧",
-        "stationType": "局屬自動站"
+        "id": "C1Z110",
+        "name": "三棧",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "銅門",
-        "stationType": "局屬自動站"
+        "id": "C1Z130",
+        "name": "銅門",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "秀林鄉",
-        "stationName": "荖溪",
-        "stationType": "局屬自動站"
+        "id": "C1Z140",
+        "name": "荖溪",
+        "type": "自動站"
+      },
+      {
+        "id": "A0Z080",
+        "name": "合歡山",
+        "type": "合作站"
       }
     ],
     "壽豐鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "鯉魚潭",
-        "stationType": "局屬自動站"
+        "id": "C0T870",
+        "name": "鯉魚潭",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "月眉山",
-        "stationType": "局屬自動站"
+        "id": "C0T9A0",
+        "name": "月眉山",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "大坑",
-        "stationType": "局屬自動站"
+        "id": "C0T9E0",
+        "name": "大坑",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "水璉",
-        "stationType": "局屬自動站"
+        "id": "C0T9F0",
+        "name": "水璉",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "東華",
-        "stationType": "局屬自動站"
+        "id": "C0Z100",
+        "name": "東華",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "蕃薯寮",
-        "stationType": "局屬自動站"
+        "id": "C0Z270",
+        "name": "蕃薯寮",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "中興",
-        "stationType": "局屬自動站"
+        "id": "C1T920",
+        "name": "中興",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "壽豐鄉",
-        "stationName": "壽豐",
-        "stationType": "局屬自動站"
+        "id": "C1Z120",
+        "name": "壽豐",
+        "type": "自動站"
       }
     ],
     "萬榮鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "萬榮鄉",
-        "stationName": "西林",
-        "stationType": "局屬自動站"
+        "id": "C0T900",
+        "name": "西林",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "萬榮鄉",
-        "stationName": "大觀",
-        "stationType": "局屬自動站"
+        "id": "C1T940",
+        "name": "大觀",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "萬榮鄉",
-        "stationName": "太安",
-        "stationType": "局屬自動站"
+        "id": "C1T950",
+        "name": "太安",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "萬榮鄉",
-        "stationName": "紅葉",
-        "stationType": "局屬自動站"
+        "id": "C1Z030",
+        "name": "紅葉",
+        "type": "自動站"
       }
     ],
     "光復鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "光復鄉",
-        "stationName": "光復",
-        "stationType": "局屬自動站"
+        "id": "C0T960",
+        "name": "光復",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "光復鄉",
-        "stationName": "富源",
-        "stationType": "局屬自動站"
+        "id": "C0Z080",
+        "name": "富源",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "光復鄉",
-        "stationName": "大農",
-        "stationType": "局屬自動站"
+        "id": "C1T970",
+        "name": "大農",
+        "type": "自動站"
       }
     ],
     "鳳林鎮": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "鳳林鎮",
-        "stationName": "鳳林山",
-        "stationType": "局屬自動站"
+        "id": "C0T9G0",
+        "name": "鳳林山",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "鳳林鎮",
-        "stationName": "鳳林",
-        "stationType": "局屬自動站"
+        "id": "C0Z160",
+        "name": "鳳林",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "鳳林鎮",
-        "stationName": "萬榮",
-        "stationType": "局屬自動站"
+        "id": "C0Z200",
+        "name": "萬榮",
+        "type": "自動站"
       }
     ],
     "豐濱鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "豐濱鄉",
-        "stationName": "加路蘭山",
-        "stationType": "局屬自動站"
+        "id": "C0T9H0",
+        "name": "加路蘭山",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "豐濱鄉",
-        "stationName": "豐濱",
-        "stationType": "局屬自動站"
+        "id": "C0T9I0",
+        "name": "豐濱",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "豐濱鄉",
-        "stationName": "靜浦",
-        "stationType": "局屬自動站"
+        "id": "C0T9M0",
+        "name": "靜浦",
+        "type": "自動站"
       }
     ],
     "富里鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "富里鄉",
-        "stationName": "富里",
-        "stationType": "局屬自動站"
+        "id": "C0T9N0",
+        "name": "富里",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "富里鄉",
-        "stationName": "明里",
-        "stationType": "局屬自動站"
+        "id": "C0Z020",
+        "name": "明里",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "富里鄉",
-        "stationName": "東里",
-        "stationType": "局屬自動站"
+        "id": "C0Z300",
+        "name": "東里",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "富里鄉",
-        "stationName": "豐南",
-        "stationType": "局屬自動站"
+        "id": "C1S850",
+        "name": "豐南",
+        "type": "自動站"
       }
     ],
     "卓溪鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "卓溪鄉",
-        "stationName": "佳心",
-        "stationType": "局屬自動站"
+        "id": "C0Z050",
+        "name": "佳心",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "卓溪鄉",
-        "stationName": "卓溪",
-        "stationType": "局屬自動站"
+        "id": "C0Z170",
+        "name": "卓溪",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "卓溪鄉",
-        "stationName": "瑞穗林道",
-        "stationType": "局屬自動站"
+        "id": "C0Z250",
+        "name": "瑞穗林道",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "卓溪鄉",
-        "stationName": "清水林道",
-        "stationType": "局屬自動站"
+        "id": "C0Z320",
+        "name": "清水林道",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "卓溪鄉",
-        "stationName": "立山",
-        "stationType": "局屬自動站"
+        "id": "C1Z040",
+        "name": "立山",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "卓溪鄉",
-        "stationName": "中平林道",
-        "stationType": "局屬自動站"
+        "id": "C1Z240",
+        "name": "中平林道",
+        "type": "自動站"
       }
     ],
     "玉里鎮": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "玉里鎮",
-        "stationName": "玉里",
-        "stationType": "局屬自動站"
+        "id": "C0Z061",
+        "name": "玉里",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "玉里鎮",
-        "stationName": "德武",
-        "stationType": "局屬自動站"
+        "id": "C0Z280",
+        "name": "德武",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "玉里鎮",
-        "stationName": "赤柯山",
-        "stationType": "局屬自動站"
+        "id": "C0Z290",
+        "name": "赤柯山",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "玉里鎮",
-        "stationName": "安通山",
-        "stationType": "局屬自動站"
+        "id": "C0Z330",
+        "name": "安通山",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "玉里鎮",
-        "stationName": "高寮",
-        "stationType": "局屬自動站"
+        "id": "C1T990",
+        "name": "高寮",
+        "type": "自動站"
       }
     ],
     "瑞穗鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "瑞穗鄉",
-        "stationName": "舞鶴",
-        "stationType": "局屬自動站"
+        "id": "C0Z070",
+        "name": "舞鶴",
+        "type": "自動站"
       },
       {
-        "locationName": "花蓮縣",
-        "districtName": "瑞穗鄉",
-        "stationName": "瑞穗",
-        "stationType": "局屬自動站"
+        "id": "C0Z210",
+        "name": "瑞穗",
+        "type": "自動站"
       }
     ],
     "吉安鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "吉安鄉",
-        "stationName": "吉安光華",
-        "stationType": "局屬自動站"
+        "id": "C0Z150",
+        "name": "吉安光華",
+        "type": "自動站"
+      },
+      {
+        "id": "72T250",
+        "name": "花蓮農改場",
+        "type": "農業站"
       }
     ],
     "新城鄉": [
       {
-        "locationName": "花蓮縣",
-        "districtName": "新城鄉",
-        "stationName": "新城",
-        "stationType": "局屬自動站"
+        "id": "C0Z180",
+        "name": "新城",
+        "type": "自動站"
       }
     ]
   },
   "桃園市": {
     "新屋區": [
       {
-        "locationName": "桃園市",
-        "districtName": "新屋區",
-        "stationName": "新屋",
-        "stationType": "局屬有人站"
+        "id": "467050",
+        "name": "新屋",
+        "type": "有人站"
       },
       {
-        "locationName": "桃園市",
-        "districtName": "新屋區",
-        "stationName": "中大臨海站",
-        "stationType": "局屬自動站"
+        "id": "C0C730",
+        "name": "中大臨海站",
+        "type": "自動站"
+      },
+      {
+        "id": "72C440",
+        "name": "桃園農改場",
+        "type": "農業站"
       }
     ],
     "復興區": [
       {
-        "locationName": "桃園市",
-        "districtName": "復興區",
-        "stationName": "復興",
-        "stationType": "局屬自動站"
+        "id": "C0C460",
+        "name": "復興",
+        "type": "自動站"
       }
     ],
     "桃園區": [
       {
-        "locationName": "桃園市",
-        "districtName": "桃園區",
-        "stationName": "桃園",
-        "stationType": "局屬自動站"
+        "id": "C0C480",
+        "name": "桃園",
+        "type": "自動站"
       }
     ],
     "八德區": [
       {
-        "locationName": "桃園市",
-        "districtName": "八德區",
-        "stationName": "八德",
-        "stationType": "局屬自動站"
+        "id": "C0C490",
+        "name": "八德",
+        "type": "自動站"
+      },
+      {
+        "id": "V2C250",
+        "name": "八德合作社",
+        "type": "農業站"
+      },
+      {
+        "id": "V2C260",
+        "name": "八德蔬果",
+        "type": "農業站"
       }
     ],
     "觀音區": [
       {
-        "locationName": "桃園市",
-        "districtName": "觀音區",
-        "stationName": "觀音",
-        "stationType": "局屬自動站"
+        "id": "C0C590",
+        "name": "觀音",
+        "type": "自動站"
       },
       {
-        "locationName": "桃園市",
-        "districtName": "觀音區",
-        "stationName": "觀音工業區",
-        "stationType": "局屬自動站"
+        "id": "C0C740",
+        "name": "觀音工業區",
+        "type": "自動站"
       },
       {
-        "locationName": "桃園市",
-        "districtName": "觀音區",
-        "stationName": "新興坑尾",
-        "stationType": "局屬自動站"
+        "id": "C0C750",
+        "name": "新興坑尾",
+        "type": "自動站"
       }
     ],
     "蘆竹區": [
       {
-        "locationName": "桃園市",
-        "districtName": "蘆竹區",
-        "stationName": "蘆竹",
-        "stationType": "局屬自動站"
+        "id": "C0C620",
+        "name": "蘆竹",
+        "type": "自動站"
       }
     ],
     "大溪區": [
       {
-        "locationName": "桃園市",
-        "districtName": "大溪區",
-        "stationName": "大溪",
-        "stationType": "局屬自動站"
+        "id": "C0C630",
+        "name": "大溪",
+        "type": "自動站"
       },
       {
-        "locationName": "桃園市",
-        "districtName": "大溪區",
-        "stationName": "大溪永福",
-        "stationType": "局屬自動站"
+        "id": "C0C710",
+        "name": "大溪永福",
+        "type": "自動站"
       }
     ],
     "平鎮": [
       {
-        "locationName": "桃園市",
-        "districtName": "平鎮",
-        "stationName": "平鎮",
-        "stationType": "局屬自動站"
+        "id": "C0C650",
+        "name": "平鎮",
+        "type": "自動站"
       }
     ],
     "楊梅區": [
       {
-        "locationName": "桃園市",
-        "districtName": "楊梅區",
-        "stationName": "楊梅",
-        "stationType": "局屬自動站"
+        "id": "C0C660",
+        "name": "楊梅",
+        "type": "自動站"
       },
       {
-        "locationName": "桃園市",
-        "districtName": "楊梅區",
-        "stationName": "水尾",
-        "stationType": "局屬自動站"
+        "id": "C1C510",
+        "name": "水尾",
+        "type": "自動站"
+      },
+      {
+        "id": "82C160",
+        "name": "茶改場",
+        "type": "農業站"
       }
     ],
     "龍潭區": [
       {
-        "locationName": "桃園市",
-        "districtName": "龍潭區",
-        "stationName": "龍潭",
-        "stationType": "局屬自動站"
+        "id": "C0C670",
+        "name": "龍潭",
+        "type": "自動站"
       }
     ],
     "龜山區": [
       {
-        "locationName": "桃園市",
-        "districtName": "龜山區",
-        "stationName": "龜山",
-        "stationType": "局屬自動站"
+        "id": "C0C680",
+        "name": "龜山",
+        "type": "自動站"
       }
     ],
     "中壢區": [
       {
-        "locationName": "桃園市",
-        "districtName": "中壢區",
-        "stationName": "中壢",
-        "stationType": "局屬自動站"
+        "id": "C0C700",
+        "name": "中壢",
+        "type": "自動站"
+      },
+      {
+        "id": "A2C560",
+        "name": "農工中心",
+        "type": "農業站"
       }
     ],
     "大園區": [
       {
-        "locationName": "桃園市",
-        "districtName": "大園區",
-        "stationName": "竹圍",
-        "stationType": "局屬自動站"
+        "id": "C0C720",
+        "name": "竹圍",
+        "type": "自動站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAC010",
+        "name": "國一S072K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAC020",
+        "name": "國二E009K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAC030",
+        "name": "國三N063K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAC040",
+        "name": "拉拉山",
+        "type": "合作站"
       }
     ]
   },
   "宜蘭縣": {
     "宜蘭市": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "宜蘭市",
-        "stationName": "宜蘭",
-        "stationType": "局屬有人站"
+        "id": "467080",
+        "name": "宜蘭",
+        "type": "有人站"
       }
     ],
     "員山鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "員山鄉",
-        "stationName": "雙連埤",
-        "stationType": "局屬自動站"
+        "id": "C0U520",
+        "name": "雙連埤",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "員山鄉",
-        "stationName": "內城",
-        "stationType": "局屬自動站"
+        "id": "C0U900",
+        "name": "內城",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "員山鄉",
-        "stationName": "員山",
-        "stationType": "局屬自動站"
+        "id": "C0U990",
+        "name": "員山",
+        "type": "自動站"
       }
     ],
     "礁溪鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "礁溪鄉",
-        "stationName": "礁溪",
-        "stationType": "局屬自動站"
+        "id": "C0U600",
+        "name": "礁溪",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "礁溪鄉",
-        "stationName": "大礁溪",
-        "stationType": "局屬自動站"
+        "id": "C0U870",
+        "name": "大礁溪",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "礁溪鄉",
-        "stationName": "淡江大學蘭陽校園",
-        "stationType": "局屬自動站"
+        "id": "C0UB00",
+        "name": "淡江大學蘭陽校園",
+        "type": "自動站"
       }
     ],
     "大同鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "玉蘭",
-        "stationType": "局屬自動站"
+        "id": "C0U650",
+        "name": "玉蘭",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "太平山",
-        "stationType": "局屬自動站"
+        "id": "C0U710",
+        "name": "太平山",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "南山",
-        "stationType": "局屬自動站"
+        "id": "C0U720",
+        "name": "南山",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "翠峰湖",
-        "stationType": "局屬自動站"
+        "id": "C0U960",
+        "name": "翠峰湖",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "土場",
-        "stationType": "局屬自動站"
+        "id": "C0UA00",
+        "name": "土場",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "鴛鴦湖",
-        "stationType": "局屬自動站"
+        "id": "C0UA10",
+        "name": "鴛鴦湖",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "多加屯",
-        "stationType": "局屬自動站"
+        "id": "C0UA20",
+        "name": "多加屯",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "白嶺",
-        "stationType": "局屬自動站"
+        "id": "C0UA30",
+        "name": "白嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "牛鬥",
-        "stationType": "局屬自動站"
+        "id": "C1U501",
+        "name": "牛鬥",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "大同鄉",
-        "stationName": "思源",
-        "stationType": "局屬自動站"
+        "id": "C1U920",
+        "name": "思源",
+        "type": "自動站"
       }
     ],
     "頭城鎮": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "龜山島",
-        "stationType": "局屬自動站"
+        "id": "C0U750",
+        "name": "龜山島",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "頭城",
-        "stationType": "局屬自動站"
+        "id": "C0U860",
+        "name": "頭城",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "北關",
-        "stationType": "局屬自動站"
+        "id": "C0U880",
+        "name": "北關",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "鶯子嶺",
-        "stationType": "局屬自動站"
+        "id": "C0U950",
+        "name": "鶯子嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "坪林石牌",
-        "stationType": "局屬自動站"
+        "id": "C0U980",
+        "name": "坪林石牌",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "桃源谷",
-        "stationType": "局屬自動站"
+        "id": "C0UA70",
+        "name": "桃源谷",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "大溪漁港",
-        "stationType": "局屬自動站"
+        "id": "C0UA80",
+        "name": "大溪漁港",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "頭城鎮",
-        "stationName": "石城",
-        "stationType": "局屬自動站"
+        "id": "C0UA90",
+        "name": "石城",
+        "type": "自動站"
       }
     ],
     "南澳鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "東澳",
-        "stationType": "局屬自動站"
+        "id": "C0U760",
+        "name": "東澳",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "南澳",
-        "stationType": "局屬自動站"
+        "id": "C0U770",
+        "name": "南澳",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "西德山",
-        "stationType": "局屬自動站"
+        "id": "C0UA40",
+        "name": "西德山",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "西帽山",
-        "stationType": "局屬自動站"
+        "id": "C0UA50",
+        "name": "西帽山",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "樟樹山",
-        "stationType": "局屬自動站"
+        "id": "C0UA60",
+        "name": "樟樹山",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "東澳嶺",
-        "stationType": "局屬自動站"
+        "id": "C1U840",
+        "name": "東澳嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "南澳鄉",
-        "stationName": "觀音海岸",
-        "stationType": "局屬自動站"
+        "id": "C1U850",
+        "name": "觀音海岸",
+        "type": "自動站"
       }
     ],
     "五結鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "五結鄉",
-        "stationName": "五結",
-        "stationType": "局屬自動站"
+        "id": "C0U780",
+        "name": "五結",
+        "type": "自動站"
+      },
+      {
+        "id": "B2U990",
+        "name": "畜試東區分所",
+        "type": "農業站"
       }
     ],
     "三星鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "三星鄉",
-        "stationName": "三星",
-        "stationType": "局屬自動站"
+        "id": "C0U890",
+        "name": "三星",
+        "type": "自動站"
+      },
+      {
+        "id": "72U480",
+        "name": "花改蘭陽分場",
+        "type": "農業站"
       }
     ],
     "冬山鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "冬山鄉",
-        "stationName": "冬山",
-        "stationType": "局屬自動站"
+        "id": "C0U910",
+        "name": "冬山",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "冬山鄉",
-        "stationName": "寒溪",
-        "stationType": "局屬自動站"
+        "id": "C1U670",
+        "name": "寒溪",
+        "type": "自動站"
       }
     ],
     "羅東鎮": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "羅東鎮",
-        "stationName": "羅東",
-        "stationType": "局屬自動站"
+        "id": "C0U940",
+        "name": "羅東",
+        "type": "自動站"
       }
     ],
     "壯圍鄉": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "壯圍鄉",
-        "stationName": "大福",
-        "stationType": "局屬自動站"
+        "id": "C0U970",
+        "name": "大福",
+        "type": "自動站"
       },
       {
-        "locationName": "宜蘭縣",
-        "districtName": "壯圍鄉",
-        "stationName": "壯圍",
-        "stationType": "局屬自動站"
+        "id": "C0UB20",
+        "name": "壯圍",
+        "type": "自動站"
       }
     ],
     "蘇澳鎮": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "蘇澳鎮",
-        "stationName": "蘇澳",
-        "stationType": "局屬自動站"
+        "id": "C0UB10",
+        "name": "蘇澳",
+        "type": "自動站"
       }
     ],
     "宜蘭縣蘇澳鎮": [
       {
-        "locationName": "宜蘭縣",
-        "districtName": "宜蘭縣蘇澳鎮",
-        "stationName": "粉鳥林",
-        "stationType": "局屬自動站"
+        "id": "C1U930",
+        "name": "粉鳥林",
+        "type": "自動站"
       }
     ]
   },
   "金門縣": {
     "金城鎮": [
       {
-        "locationName": "金門縣",
-        "districtName": "金城鎮",
-        "stationName": "金門",
-        "stationType": "局屬有人站"
+        "id": "467110",
+        "name": "金門",
+        "type": "有人站"
       }
     ],
     "金沙鎮": [
       {
-        "locationName": "金門縣",
-        "districtName": "金沙鎮",
-        "stationName": "金沙",
-        "stationType": "局屬自動站"
+        "id": "C0W140",
+        "name": "金沙",
+        "type": "自動站"
       }
     ],
     "金寧鄉": [
       {
-        "locationName": "金門縣",
-        "districtName": "金寧鄉",
-        "stationName": "金寧",
-        "stationType": "局屬自動站"
+        "id": "C0W150",
+        "name": "金寧",
+        "type": "自動站"
       }
     ],
     "烏坵鄉": [
       {
-        "locationName": "金門縣",
-        "districtName": "烏坵鄉",
-        "stationName": "烏坵",
-        "stationType": "局屬自動站"
+        "id": "C0W160",
+        "name": "烏坵",
+        "type": "自動站"
+      }
+    ],
+    "金湖鎮": [
+      {
+        "id": "A0W030",
+        "name": "金門農試所",
+        "type": "合作站"
+      }
+    ],
+    "烈嶼鄉": [
+      {
+        "id": "A0W100",
+        "name": "九宮",
+        "type": "合作站"
       }
     ]
   },
   "彰化縣": {
     "田中鎮": [
       {
-        "locationName": "彰化縣",
-        "districtName": "田中鎮",
-        "stationName": "田中",
-        "stationType": "局屬有人站"
+        "id": "467270",
+        "name": "田中",
+        "type": "有人站"
       }
     ],
     "芬園鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "芬園鄉",
-        "stationName": "芬園",
-        "stationType": "局屬自動站"
+        "id": "C0G620",
+        "name": "芬園",
+        "type": "自動站"
       }
     ],
     "鹿港鎮": [
       {
-        "locationName": "彰化縣",
-        "districtName": "鹿港鎮",
-        "stationName": "鹿港",
-        "stationType": "局屬自動站"
+        "id": "C0G640",
+        "name": "鹿港",
+        "type": "自動站"
       }
     ],
     "員林市": [
       {
-        "locationName": "彰化縣",
-        "districtName": "員林市",
-        "stationName": "員林",
-        "stationType": "局屬自動站"
+        "id": "C0G650",
+        "name": "員林",
+        "type": "自動站"
       }
     ],
     "溪湖鎮": [
       {
-        "locationName": "彰化縣",
-        "districtName": "溪湖鎮",
-        "stationName": "溪湖",
-        "stationType": "局屬自動站"
+        "id": "C0G660",
+        "name": "溪湖",
+        "type": "自動站"
       }
     ],
     "溪州鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "溪州鄉",
-        "stationName": "溪州",
-        "stationType": "局屬自動站"
+        "id": "C0G720",
+        "name": "溪州",
+        "type": "自動站"
       },
       {
-        "locationName": "彰化縣",
-        "districtName": "溪州鄉",
-        "stationName": "下水埔",
-        "stationType": "局屬自動站"
+        "id": "C1G691",
+        "name": "下水埔",
+        "type": "自動站"
       }
     ],
     "二林鎮": [
       {
-        "locationName": "彰化縣",
-        "districtName": "二林鎮",
-        "stationName": "二林",
-        "stationType": "局屬自動站"
+        "id": "C0G730",
+        "name": "二林",
+        "type": "自動站"
       }
     ],
     "大城鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "大城鄉",
-        "stationName": "大城",
-        "stationType": "局屬自動站"
+        "id": "C0G740",
+        "name": "大城",
+        "type": "自動站"
       },
       {
-        "locationName": "彰化縣",
-        "districtName": "大城鄉",
-        "stationName": "三豐",
-        "stationType": "局屬自動站"
+        "id": "C0G970",
+        "name": "三豐",
+        "type": "自動站"
       }
     ],
     "福興鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "福興鄉",
-        "stationName": "福興",
-        "stationType": "局屬自動站"
+        "id": "C0G770",
+        "name": "福興",
+        "type": "自動站"
       },
       {
-        "locationName": "彰化縣",
-        "districtName": "福興鄉",
-        "stationName": "福寶",
-        "stationType": "局屬自動站"
+        "id": "C0G960",
+        "name": "福寶",
+        "type": "自動站"
       }
     ],
     "秀水鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "秀水鄉",
-        "stationName": "秀水",
-        "stationType": "局屬自動站"
+        "id": "C0G780",
+        "name": "秀水",
+        "type": "自動站"
       }
     ],
     "埔鹽鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "埔鹽鄉",
-        "stationName": "埔鹽",
-        "stationType": "局屬自動站"
+        "id": "C0G800",
+        "name": "埔鹽",
+        "type": "自動站"
       }
     ],
     "埔心鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "埔心鄉",
-        "stationName": "埔心",
-        "stationType": "局屬自動站"
+        "id": "C0G810",
+        "name": "埔心",
+        "type": "自動站"
       }
     ],
     "田尾鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "田尾鄉",
-        "stationName": "田尾",
-        "stationType": "局屬自動站"
+        "id": "C0G820",
+        "name": "田尾",
+        "type": "自動站"
       }
     ],
     "埤頭鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "埤頭鄉",
-        "stationName": "埤頭",
-        "stationType": "局屬自動站"
+        "id": "C0G830",
+        "name": "埤頭",
+        "type": "自動站"
       }
     ],
     "北斗鎮": [
       {
-        "locationName": "彰化縣",
-        "districtName": "北斗鎮",
-        "stationName": "北斗",
-        "stationType": "局屬自動站"
+        "id": "C0G840",
+        "name": "北斗",
+        "type": "自動站"
       }
     ],
     "社頭鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "社頭鄉",
-        "stationName": "社頭",
-        "stationType": "局屬自動站"
+        "id": "C0G860",
+        "name": "社頭",
+        "type": "自動站"
       }
     ],
     "芳苑鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "芳苑鄉",
-        "stationName": "芳苑",
-        "stationType": "局屬自動站"
+        "id": "C0G870",
+        "name": "芳苑",
+        "type": "自動站"
+      },
+      {
+        "id": "CAG100",
+        "name": "王功漁港",
+        "type": "農業站"
       }
     ],
     "二水鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "二水鄉",
-        "stationName": "二水",
-        "stationType": "局屬自動站"
+        "id": "C0G880",
+        "name": "二水",
+        "type": "自動站"
       }
     ],
     "伸港鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "伸港鄉",
-        "stationName": "伸港",
-        "stationType": "局屬自動站"
+        "id": "C0G890",
+        "name": "伸港",
+        "type": "自動站"
       },
       {
-        "locationName": "彰化縣",
-        "districtName": "伸港鄉",
-        "stationName": "防潮門",
-        "stationType": "局屬自動站"
+        "id": "C0G950",
+        "name": "防潮門",
+        "type": "自動站"
       }
     ],
     "線西鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "線西鄉",
-        "stationName": "線西",
-        "stationType": "局屬自動站"
+        "id": "C0G900",
+        "name": "線西",
+        "type": "自動站"
       }
     ],
     "彰化縣花壇鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "彰化縣花壇鄉",
-        "stationName": "花壇",
-        "stationType": "局屬自動站"
+        "id": "C0G910",
+        "name": "花壇",
+        "type": "自動站"
       }
     ],
     "永靖鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "永靖鄉",
-        "stationName": "永靖",
-        "stationType": "局屬自動站"
+        "id": "C0G920",
+        "name": "永靖",
+        "type": "自動站"
       }
     ],
     "竹塘鄉": [
       {
-        "locationName": "彰化縣",
-        "districtName": "竹塘鄉",
-        "stationName": "竹塘",
-        "stationType": "局屬自動站"
+        "id": "C0G940",
+        "name": "竹塘",
+        "type": "自動站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "彰化縣",
-        "districtName": "",
-        "stationName": "國一S218K",
-        "stationType": "局屬自動站"
+        "id": "C1G9D0",
+        "name": "國一S218K",
+        "type": "自動站"
+      },
+      {
+        "id": "CAG010",
+        "name": "國一N198K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG030",
+        "name": "國一S207K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG040",
+        "name": "國三N191K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG050",
+        "name": "國三N196K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG060",
+        "name": "國三S202K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG070",
+        "name": "西濱S173K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG080",
+        "name": "西濱S189K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAG090",
+        "name": "西濱N210K",
+        "type": "合作站"
+      }
+    ],
+    "大村鄉": [
+      {
+        "id": "72G600",
+        "name": "臺中農改場",
+        "type": "農業站"
       }
     ]
   },
   "澎湖縣": {
     "望安鄉": [
       {
-        "locationName": "澎湖縣",
-        "districtName": "望安鄉",
-        "stationName": "東吉島",
-        "stationType": "局屬有人站"
+        "id": "467300",
+        "name": "東吉島",
+        "type": "有人站"
       },
       {
-        "locationName": "澎湖縣",
-        "districtName": "望安鄉",
-        "stationName": "花嶼",
-        "stationType": "局屬自動站"
+        "id": "C0W130",
+        "name": "花嶼",
+        "type": "自動站"
       }
     ],
     "馬公市": [
       {
-        "locationName": "澎湖縣",
-        "districtName": "馬公市",
-        "stationName": "澎湖",
-        "stationType": "局屬有人站"
+        "id": "467350",
+        "name": "澎湖",
+        "type": "有人站"
       }
     ],
     "西嶼鄉": [
       {
-        "locationName": "澎湖縣",
-        "districtName": "西嶼鄉",
-        "stationName": "西嶼",
-        "stationType": "局屬自動站"
+        "id": "C0W120",
+        "name": "西嶼",
+        "type": "自動站"
+      }
+    ],
+    "白沙鄉": [
+      {
+        "id": "A0W080",
+        "name": "吉貝",
+        "type": "合作站"
       }
     ]
   },
   "臺南市": {
     "中西區": [
       {
-        "locationName": "臺南市",
-        "districtName": "中西區",
-        "stationName": "臺南",
-        "stationType": "局屬有人站"
+        "id": "467410",
+        "name": "臺南",
+        "type": "有人站"
       }
     ],
     "永康區": [
       {
-        "locationName": "臺南市",
-        "districtName": "永康區",
-        "stationName": "永康",
-        "stationType": "局屬有人站"
+        "id": "467420",
+        "name": "永康",
+        "type": "有人站"
       }
     ],
     "將軍區": [
       {
-        "locationName": "臺南市",
-        "districtName": "將軍區",
-        "stationName": "鯤鯓國小",
-        "stationType": "局屬自動站"
+        "id": "C0N010",
+        "name": "鯤鯓國小",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "將軍區",
-        "stationName": "將軍",
-        "stationType": "局屬自動站"
+        "id": "C0X280",
+        "name": "將軍",
+        "type": "自動站"
       }
     ],
     "安南區": [
       {
-        "locationName": "臺南市",
-        "districtName": "安南區",
-        "stationName": "城西",
-        "stationType": "局屬自動站"
+        "id": "C0N020",
+        "name": "城西",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "安南區",
-        "stationName": "四草",
-        "stationType": "局屬自動站"
+        "id": "C0N030",
+        "name": "四草",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "安南區",
-        "stationName": "安南",
-        "stationType": "局屬自動站"
+        "id": "C0O950",
+        "name": "安南",
+        "type": "自動站"
       }
     ],
     "北門區": [
       {
-        "locationName": "臺南市",
-        "districtName": "北門區",
-        "stationName": "蘆竹溝",
-        "stationType": "局屬自動站"
+        "id": "C0N040",
+        "name": "蘆竹溝",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "北門區",
-        "stationName": "蚵寮",
-        "stationType": "局屬自動站"
+        "id": "C0N050",
+        "name": "蚵寮",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "北門區",
-        "stationName": "北門",
-        "stationType": "局屬自動站"
+        "id": "C0X290",
+        "name": "北門",
+        "type": "自動站"
       }
     ],
     "楠西區": [
       {
-        "locationName": "臺南市",
-        "districtName": "楠西區",
-        "stationName": "曾文",
-        "stationType": "局屬自動站"
+        "id": "C0O810",
+        "name": "曾文",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "楠西區",
-        "stationName": "楠西",
-        "stationType": "局屬自動站"
+        "id": "C1O921",
+        "name": "楠西",
+        "type": "自動站"
       }
     ],
     "南化區": [
       {
-        "locationName": "臺南市",
-        "districtName": "南化區",
-        "stationName": "北寮",
-        "stationType": "局屬自動站"
+        "id": "C0O830",
+        "name": "北寮",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "南化區",
-        "stationName": "關山",
-        "stationType": "局屬自動站"
+        "id": "C1O880",
+        "name": "關山",
+        "type": "自動站"
       }
     ],
     "六甲區": [
       {
-        "locationName": "臺南市",
-        "districtName": "六甲區",
-        "stationName": "王爺宮",
-        "stationType": "局屬自動站"
+        "id": "C0O840",
+        "name": "王爺宮",
+        "type": "自動站"
       }
     ],
     "大內區": [
       {
-        "locationName": "臺南市",
-        "districtName": "大內區",
-        "stationName": "大內",
-        "stationType": "局屬自動站"
+        "id": "C0O860",
+        "name": "大內",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "大內區",
-        "stationName": "環湖",
-        "stationType": "局屬自動站"
+        "id": "C1O850",
+        "name": "環湖",
+        "type": "自動站"
       }
     ],
     "善化區": [
       {
-        "locationName": "臺南市",
-        "districtName": "善化區",
-        "stationName": "善化",
-        "stationType": "局屬自動站"
+        "id": "C0O900",
+        "name": "善化",
+        "type": "自動站"
       }
     ],
     "玉井區": [
       {
-        "locationName": "臺南市",
-        "districtName": "玉井區",
-        "stationName": "玉井",
-        "stationType": "局屬自動站"
+        "id": "C0O930",
+        "name": "玉井",
+        "type": "自動站"
       }
     ],
     "龍崎區": [
       {
-        "locationName": "臺南市",
-        "districtName": "龍崎區",
-        "stationName": "崎頂",
-        "stationType": "局屬自動站"
+        "id": "C0O960",
+        "name": "崎頂",
+        "type": "自動站"
       }
     ],
     "新化區": [
       {
-        "locationName": "臺南市",
-        "districtName": "新化區",
-        "stationName": "虎頭埤",
-        "stationType": "局屬自動站"
+        "id": "C0O970",
+        "name": "虎頭埤",
+        "type": "自動站"
+      },
+      {
+        "id": "72N100",
+        "name": "臺南農改場",
+        "type": "農業站"
+      },
+      {
+        "id": "B2N890",
+        "name": "畜產試驗所",
+        "type": "農業站"
       }
     ],
     "新市": [
       {
-        "locationName": "臺南市",
-        "districtName": "新市",
-        "stationName": "新市",
-        "stationType": "局屬自動站"
+        "id": "C0O980",
+        "name": "新市",
+        "type": "自動站"
       }
     ],
     "歸仁區": [
       {
-        "locationName": "臺南市",
-        "districtName": "歸仁區",
-        "stationName": "媽廟",
-        "stationType": "局屬自動站"
+        "id": "C0O990",
+        "name": "媽廟",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "歸仁區",
-        "stationName": "沙崙",
-        "stationType": "局屬自動站"
+        "id": "C1N001",
+        "name": "沙崙",
+        "type": "自動站"
       }
     ],
     "東山區": [
       {
-        "locationName": "臺南市",
-        "districtName": "東山區",
-        "stationName": "東河",
-        "stationType": "局屬自動站"
+        "id": "C0X050",
+        "name": "東河",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "東山區",
-        "stationName": "東原",
-        "stationType": "局屬自動站"
+        "id": "C1X040",
+        "name": "東原",
+        "type": "自動站"
       }
     ],
     "下營區": [
       {
-        "locationName": "臺南市",
-        "districtName": "下營區",
-        "stationName": "下營",
-        "stationType": "局屬自動站"
+        "id": "C0X060",
+        "name": "下營",
+        "type": "自動站"
       }
     ],
     "佳里區": [
       {
-        "locationName": "臺南市",
-        "districtName": "佳里區",
-        "stationName": "佳里",
-        "stationType": "局屬自動站"
+        "id": "C0X080",
+        "name": "佳里",
+        "type": "自動站"
       }
     ],
     "北區": [
       {
-        "locationName": "臺南市",
-        "districtName": "北區",
-        "stationName": "臺南市北區",
-        "stationType": "局屬自動站"
+        "id": "C0X100",
+        "name": "臺南市北區",
+        "type": "自動站"
       }
     ],
     "南區": [
       {
-        "locationName": "臺南市",
-        "districtName": "南區",
-        "stationName": "臺南市南區",
-        "stationType": "局屬自動站"
+        "id": "C0X110",
+        "name": "臺南市南區",
+        "type": "自動站"
       }
     ],
     "麻豆區": [
       {
-        "locationName": "臺南市",
-        "districtName": "麻豆區",
-        "stationName": "麻豆",
-        "stationType": "局屬自動站"
+        "id": "C0X120",
+        "name": "麻豆",
+        "type": "自動站"
       }
     ],
     "官田區": [
       {
-        "locationName": "臺南市",
-        "districtName": "官田區",
-        "stationName": "官田",
-        "stationType": "局屬自動站"
+        "id": "C0X130",
+        "name": "官田",
+        "type": "自動站"
       }
     ],
     "西港區": [
       {
-        "locationName": "臺南市",
-        "districtName": "西港區",
-        "stationName": "西港",
-        "stationType": "局屬自動站"
+        "id": "C0X140",
+        "name": "西港",
+        "type": "自動站"
       }
     ],
     "安定區": [
       {
-        "locationName": "臺南市",
-        "districtName": "安定區",
-        "stationName": "安定",
-        "stationType": "局屬自動站"
+        "id": "C0X150",
+        "name": "安定",
+        "type": "自動站"
       }
     ],
     "仁德區": [
       {
-        "locationName": "臺南市",
-        "districtName": "仁德區",
-        "stationName": "仁德",
-        "stationType": "局屬自動站"
+        "id": "C0X160",
+        "name": "仁德",
+        "type": "自動站"
       }
     ],
     "關廟區": [
       {
-        "locationName": "臺南市",
-        "districtName": "關廟區",
-        "stationName": "關廟",
-        "stationType": "局屬自動站"
+        "id": "C0X170",
+        "name": "關廟",
+        "type": "自動站"
       }
     ],
     "山上區": [
       {
-        "locationName": "臺南市",
-        "districtName": "山上區",
-        "stationName": "山上",
-        "stationType": "局屬自動站"
+        "id": "C0X180",
+        "name": "山上",
+        "type": "自動站"
       }
     ],
     "安平區": [
       {
-        "locationName": "臺南市",
-        "districtName": "安平區",
-        "stationName": "安平",
-        "stationType": "局屬自動站"
+        "id": "C0X190",
+        "name": "安平",
+        "type": "自動站"
       }
     ],
     "左鎮": [
       {
-        "locationName": "臺南市",
-        "districtName": "左鎮",
-        "stationName": "左鎮",
-        "stationType": "局屬自動站"
+        "id": "C0X200",
+        "name": "左鎮",
+        "type": "自動站"
       }
     ],
     "白河區": [
       {
-        "locationName": "臺南市",
-        "districtName": "白河區",
-        "stationName": "白河",
-        "stationType": "局屬自動站"
+        "id": "C0X210",
+        "name": "白河",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "白河區",
-        "stationName": "關子嶺",
-        "stationType": "局屬自動站"
+        "id": "C0X240",
+        "name": "關子嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "白河區",
-        "stationName": "鹿寮",
-        "stationType": "局屬自動站"
+        "id": "C0X300",
+        "name": "鹿寮",
+        "type": "自動站"
       },
       {
-        "locationName": "臺南市",
-        "districtName": "白河區",
-        "stationName": "大棟山",
-        "stationType": "局屬自動站"
+        "id": "C1O870",
+        "name": "大棟山",
+        "type": "自動站"
       }
     ],
     "學甲區": [
       {
-        "locationName": "臺南市",
-        "districtName": "學甲區",
-        "stationName": "學甲",
-        "stationType": "局屬自動站"
+        "id": "C0X220",
+        "name": "學甲",
+        "type": "自動站"
       }
     ],
     "鹽水區": [
       {
-        "locationName": "臺南市",
-        "districtName": "鹽水區",
-        "stationName": "鹽水",
-        "stationType": "局屬自動站"
+        "id": "C0X230",
+        "name": "鹽水",
+        "type": "自動站"
       }
     ],
     "新營區": [
       {
-        "locationName": "臺南市",
-        "districtName": "新營區",
-        "stationName": "新營",
-        "stationType": "局屬自動站"
+        "id": "C0X250",
+        "name": "新營",
+        "type": "自動站"
       }
     ],
     "後壁區": [
       {
-        "locationName": "臺南市",
-        "districtName": "後壁區",
-        "stationName": "後壁",
-        "stationType": "局屬自動站"
+        "id": "C0X260",
+        "name": "後壁",
+        "type": "自動站"
+      },
+      {
+        "id": "A2N290",
+        "name": "臺南蘭花園區",
+        "type": "農業站"
       }
     ],
     "七股區": [
       {
-        "locationName": "臺南市",
-        "districtName": "七股區",
-        "stationName": "七股",
-        "stationType": "局屬自動站"
+        "id": "C0X310",
+        "name": "七股",
+        "type": "自動站"
+      },
+      {
+        "id": "72N240",
+        "name": "七股研究中心",
+        "type": "農業站"
+      },
+      {
+        "id": "CAN130",
+        "name": "水試所海水繁養殖中心",
+        "type": "農業站"
       }
     ],
     "臺南市": [
       {
-        "locationName": "臺南市",
-        "districtName": "臺南市",
-        "stationName": "柳營",
-        "stationType": "局屬自動站"
+        "id": "C0X320",
+        "name": "柳營",
+        "type": "自動站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "臺南市",
-        "districtName": "",
-        "stationName": "東山服務區",
-        "stationType": "局屬自動站"
+        "id": "C1O940",
+        "name": "東山服務區",
+        "type": "自動站"
+      },
+      {
+        "id": "CAN140",
+        "name": "六官養殖協會",
+        "type": "農業站"
+      },
+      {
+        "id": "CAN010",
+        "name": "國一N288K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN020",
+        "name": "國一S306K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN030",
+        "name": "國一N316K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN040",
+        "name": "國一N323K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN050",
+        "name": "國一N335K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN060",
+        "name": "國三S311K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN070",
+        "name": "國三S329K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN080",
+        "name": "國三N336K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN090",
+        "name": "國三S342K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN100",
+        "name": "國三S366K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN110",
+        "name": "西濱S280K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAN120",
+        "name": "西濱N304K",
+        "type": "合作站"
       }
     ]
   },
   "高雄市": {
     "楠梓區": [
       {
-        "locationName": "高雄市",
-        "districtName": "楠梓區",
-        "stationName": "高雄",
-        "stationType": "局屬有人站"
+        "id": "467441",
+        "name": "高雄",
+        "type": "有人站"
       }
     ],
     "桃源區": [
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "復興",
-        "stationType": "局屬自動站"
+        "id": "C0V210",
+        "name": "復興",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "排雲",
-        "stationType": "局屬自動站"
+        "id": "C1V170",
+        "name": "排雲",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "南天池",
-        "stationType": "局屬自動站"
+        "id": "C1V190",
+        "name": "南天池",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "梅山",
-        "stationType": "局屬自動站"
+        "id": "C1V200",
+        "name": "梅山",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "小關山",
-        "stationType": "局屬自動站"
+        "id": "C1V220",
+        "name": "小關山",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "高中",
-        "stationType": "局屬自動站"
+        "id": "C1V231",
+        "name": "高中",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "御油山",
-        "stationType": "局屬自動站"
+        "id": "C1V300",
+        "name": "御油山",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "溪南(特生中心)",
-        "stationType": "局屬自動站"
+        "id": "C1V580",
+        "name": "溪南(特生中心)",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "桃源區",
-        "stationName": "藤枝",
-        "stationType": "局屬自動站"
+        "id": "C1V600",
+        "name": "藤枝",
+        "type": "自動站"
       }
     ],
     "甲仙區": [
       {
-        "locationName": "高雄市",
-        "districtName": "甲仙區",
-        "stationName": "甲仙",
-        "stationType": "局屬自動站"
+        "id": "C0V250",
+        "name": "甲仙",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "甲仙區",
-        "stationName": "小林",
-        "stationType": "局屬自動站"
+        "id": "C0V820",
+        "name": "小林",
+        "type": "自動站"
       }
     ],
     "杉林區": [
       {
-        "locationName": "高雄市",
-        "districtName": "杉林區",
-        "stationName": "月眉",
-        "stationType": "局屬自動站"
+        "id": "C0V260",
+        "name": "月眉",
+        "type": "自動站"
       }
     ],
     "美濃區": [
       {
-        "locationName": "高雄市",
-        "districtName": "美濃區",
-        "stationName": "美濃",
-        "stationType": "局屬自動站"
+        "id": "C0V310",
+        "name": "美濃",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "美濃區",
-        "stationName": "吉東",
-        "stationType": "局屬自動站"
+        "id": "C1V570",
+        "name": "吉東",
+        "type": "自動站"
       }
     ],
     "大樹區": [
       {
-        "locationName": "高雄市",
-        "districtName": "大樹區",
-        "stationName": "溪埔",
-        "stationType": "局屬自動站"
+        "id": "C0V350",
+        "name": "溪埔",
+        "type": "自動站"
       }
     ],
     "內門區": [
       {
-        "locationName": "高雄市",
-        "districtName": "內門區",
-        "stationName": "內門",
-        "stationType": "局屬自動站"
+        "id": "C0V360",
+        "name": "內門",
+        "type": "自動站"
       }
     ],
     "田寮區": [
       {
-        "locationName": "高雄市",
-        "districtName": "田寮區",
-        "stationName": "古亭坑",
-        "stationType": "局屬自動站"
+        "id": "C0V370",
+        "name": "古亭坑",
+        "type": "自動站"
       }
     ],
     "燕巢區": [
       {
-        "locationName": "高雄市",
-        "districtName": "燕巢區",
-        "stationName": "阿公店",
-        "stationType": "局屬自動站"
+        "id": "C0V400",
+        "name": "阿公店",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "燕巢區",
-        "stationName": "尖山",
-        "stationType": "局屬自動站"
+        "id": "C1V390",
+        "name": "尖山",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "燕巢區",
-        "stationName": "國三S383K",
-        "stationType": "局屬自動站"
+        "id": "C1V830",
+        "name": "國三S383K",
+        "type": "自動站"
       }
     ],
     "鳳山區": [
       {
-        "locationName": "高雄市",
-        "districtName": "鳳山區",
-        "stationName": "鳳山",
-        "stationType": "局屬自動站"
+        "id": "C0V440",
+        "name": "鳳山",
+        "type": "自動站"
+      },
+      {
+        "id": "G2P820",
+        "name": "農試鳳山分所",
+        "type": "農業站"
       }
     ],
     "小港區": [
       {
-        "locationName": "高雄市",
-        "districtName": "小港區",
-        "stationName": "鳳森",
-        "stationType": "局屬自動站"
+        "id": "C0V450",
+        "name": "鳳森",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "小港區",
-        "stationName": "鳳鼻頭",
-        "stationType": "局屬自動站"
+        "id": "C0V840",
+        "name": "鳳鼻頭",
+        "type": "自動站"
       }
     ],
     "新興區": [
       {
-        "locationName": "高雄市",
-        "districtName": "新興區",
-        "stationName": "新興",
-        "stationType": "局屬自動站"
+        "id": "C0V490",
+        "name": "新興",
+        "type": "自動站"
       }
     ],
     "阿蓮區": [
       {
-        "locationName": "高雄市",
-        "districtName": "阿蓮區",
-        "stationName": "阿蓮",
-        "stationType": "局屬自動站"
+        "id": "C0V530",
+        "name": "阿蓮",
+        "type": "自動站"
       }
     ],
     "梓官區": [
       {
-        "locationName": "高雄市",
-        "districtName": "梓官區",
-        "stationName": "梓官",
-        "stationType": "局屬自動站"
+        "id": "C0V610",
+        "name": "梓官",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "梓官區",
-        "stationName": "蚵仔寮",
-        "stationType": "局屬自動站"
+        "id": "C0V850",
+        "name": "蚵仔寮",
+        "type": "自動站"
       }
     ],
     "永安區": [
       {
-        "locationName": "高雄市",
-        "districtName": "永安區",
-        "stationName": "永安",
-        "stationType": "局屬自動站"
+        "id": "C0V620",
+        "name": "永安",
+        "type": "自動站"
       }
     ],
     "茄萣區": [
       {
-        "locationName": "高雄市",
-        "districtName": "茄萣區",
-        "stationName": "茄萣",
-        "stationType": "局屬自動站"
+        "id": "C0V630",
+        "name": "茄萣",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "茄萣區",
-        "stationName": "興達",
-        "stationType": "局屬自動站"
+        "id": "C0V880",
+        "name": "興達",
+        "type": "自動站"
       }
     ],
     "湖內區": [
       {
-        "locationName": "高雄市",
-        "districtName": "湖內區",
-        "stationName": "湖內",
-        "stationType": "局屬自動站"
+        "id": "C0V640",
+        "name": "湖內",
+        "type": "自動站"
       }
     ],
     "彌陀區": [
       {
-        "locationName": "高雄市",
-        "districtName": "彌陀區",
-        "stationName": "彌陀",
-        "stationType": "局屬自動站"
+        "id": "C0V650",
+        "name": "彌陀",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "彌陀區",
-        "stationName": "南寮",
-        "stationType": "局屬自動站"
+        "id": "C0V860",
+        "name": "南寮",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "彌陀區",
-        "stationName": "文安",
-        "stationType": "局屬自動站"
+        "id": "C0V870",
+        "name": "文安",
+        "type": "自動站"
       }
     ],
     "岡山區": [
       {
-        "locationName": "高雄市",
-        "districtName": "岡山區",
-        "stationName": "岡山",
-        "stationType": "局屬自動站"
+        "id": "C0V660",
+        "name": "岡山",
+        "type": "自動站"
       }
     ],
     "仁武區": [
       {
-        "locationName": "高雄市",
-        "districtName": "仁武區",
-        "stationName": "仁武",
-        "stationType": "局屬自動站"
+        "id": "C0V680",
+        "name": "仁武",
+        "type": "自動站"
       }
     ],
     "鼓山區": [
       {
-        "locationName": "高雄市",
-        "districtName": "鼓山區",
-        "stationName": "鼓山",
-        "stationType": "局屬自動站"
+        "id": "C0V690",
+        "name": "鼓山",
+        "type": "自動站"
       }
     ],
     "三民區": [
       {
-        "locationName": "高雄市",
-        "districtName": "三民區",
-        "stationName": "三民",
-        "stationType": "局屬自動站"
+        "id": "C0V700",
+        "name": "三民",
+        "type": "自動站"
       }
     ],
     "苓雅區": [
       {
-        "locationName": "高雄市",
-        "districtName": "苓雅區",
-        "stationName": "苓雅",
-        "stationType": "局屬自動站"
+        "id": "C0V710",
+        "name": "苓雅",
+        "type": "自動站"
       }
     ],
     "林園區": [
       {
-        "locationName": "高雄市",
-        "districtName": "林園區",
-        "stationName": "林園",
-        "stationType": "局屬自動站"
+        "id": "C0V720",
+        "name": "林園",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "林園區",
-        "stationName": "汕尾",
-        "stationType": "局屬自動站"
+        "id": "C0V900",
+        "name": "汕尾",
+        "type": "自動站"
       }
     ],
     "大寮區": [
       {
-        "locationName": "高雄市",
-        "districtName": "大寮區",
-        "stationName": "大寮",
-        "stationType": "局屬自動站"
+        "id": "C0V730",
+        "name": "大寮",
+        "type": "自動站"
       }
     ],
     "旗山區": [
       {
-        "locationName": "高雄市",
-        "districtName": "旗山區",
-        "stationName": "旗山",
-        "stationType": "局屬自動站"
+        "id": "C0V740",
+        "name": "旗山",
+        "type": "自動站"
+      },
+      {
+        "id": "72V140",
+        "name": "高改旗南分場",
+        "type": "農業站"
       }
     ],
     "路竹區": [
       {
-        "locationName": "高雄市",
-        "districtName": "路竹區",
-        "stationName": "路竹",
-        "stationType": "局屬自動站"
+        "id": "C0V750",
+        "name": "路竹",
+        "type": "自動站"
       }
     ],
     "橋頭區": [
       {
-        "locationName": "高雄市",
-        "districtName": "橋頭區",
-        "stationName": "橋頭",
-        "stationType": "局屬自動站"
+        "id": "C0V760",
+        "name": "橋頭",
+        "type": "自動站"
       }
     ],
     "大社區": [
       {
-        "locationName": "高雄市",
-        "districtName": "大社區",
-        "stationName": "大社",
-        "stationType": "局屬自動站"
+        "id": "C0V770",
+        "name": "大社",
+        "type": "自動站"
       }
     ],
     "茂林區": [
       {
-        "locationName": "高雄市",
-        "districtName": "茂林區",
-        "stationName": "萬山",
-        "stationType": "局屬自動站"
+        "id": "C0V790",
+        "name": "萬山",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "茂林區",
-        "stationName": "多納林道",
-        "stationType": "局屬自動站"
+        "id": "C1V780",
+        "name": "多納林道",
+        "type": "自動站"
+      },
+      {
+        "id": "E2P990",
+        "name": "林試扇平站",
+        "type": "農業站"
       }
     ],
     "六龜區": [
       {
-        "locationName": "高雄市",
-        "districtName": "六龜區",
-        "stationName": "六龜",
-        "stationType": "局屬自動站"
+        "id": "C0V800",
+        "name": "六龜",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "六龜區",
-        "stationName": "大津",
-        "stationType": "局屬自動站"
+        "id": "C1V340",
+        "name": "大津",
+        "type": "自動站"
       },
       {
-        "locationName": "高雄市",
-        "districtName": "六龜區",
-        "stationName": "新發",
-        "stationType": "局屬自動站"
+        "id": "C1V590",
+        "name": "新發",
+        "type": "自動站"
+      },
+      {
+        "id": "E2P980",
+        "name": "林試六龜中心",
+        "type": "農業站"
       }
     ],
     "左營區": [
       {
-        "locationName": "高雄市",
-        "districtName": "左營區",
-        "stationName": "左營",
-        "stationType": "局屬自動站"
+        "id": "C0V810",
+        "name": "左營",
+        "type": "自動站"
       }
     ],
     "前鎮": [
       {
-        "locationName": "高雄市",
-        "districtName": "前鎮",
-        "stationName": "前鎮",
-        "stationType": "局屬自動站"
+        "id": "C0V890",
+        "name": "前鎮",
+        "type": "自動站"
       }
     ],
     "那瑪夏區": [
       {
-        "locationName": "高雄市",
-        "districtName": "那瑪夏區",
-        "stationName": "達卡努瓦",
-        "stationType": "局屬自動站"
+        "id": "C1V160",
+        "name": "達卡努瓦",
+        "type": "自動站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAP010",
+        "name": "國一S342K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAP020",
+        "name": "國一S346K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAP030",
+        "name": "國一N351K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAP040",
+        "name": "國一N361K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAP050",
+        "name": "國三N372K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAP060",
+        "name": "國三S385K",
+        "type": "合作站"
+      }
+    ],
+    "旗津區": [
+      {
+        "id": "CAP070",
+        "name": "高雄燈塔",
+        "type": "合作站"
       }
     ]
   },
   "嘉義市": {
     "西區": [
       {
-        "locationName": "嘉義市",
-        "districtName": "西區",
-        "stationName": "嘉義",
-        "stationType": "局屬有人站"
+        "id": "467480",
+        "name": "嘉義",
+        "type": "有人站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "嘉義市",
-        "districtName": "",
-        "stationName": "嘉義市東區",
-        "stationType": "局屬自動站"
+        "id": "C0M730",
+        "name": "嘉義市東區",
+        "type": "自動站"
+      },
+      {
+        "id": "G2L020",
+        "name": "農試嘉義分所",
+        "type": "農業站"
+      },
+      {
+        "id": "CAL070",
+        "name": "國三N295K",
+        "type": "合作站"
       }
     ]
   },
   "臺中市": {
     "北區": [
       {
-        "locationName": "臺中市",
-        "districtName": "北區",
-        "stationName": "臺中",
-        "stationType": "局屬有人站"
+        "id": "467490",
+        "name": "臺中",
+        "type": "有人站"
       }
     ],
     "和平區": [
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "雪山圈谷",
-        "stationType": "局屬自動站"
+        "id": "C0F0A0",
+        "name": "雪山圈谷",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "中坑",
-        "stationType": "局屬自動站"
+        "id": "C0F0C0",
+        "name": "中坑",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "審馬陣",
-        "stationType": "局屬自動站"
+        "id": "C0F0D0",
+        "name": "審馬陣",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "南湖圈谷",
-        "stationType": "局屬自動站"
+        "id": "C0F0E0",
+        "name": "南湖圈谷",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "梨山",
-        "stationType": "局屬自動站"
+        "id": "C0F861",
+        "name": "梨山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "桃山",
-        "stationType": "局屬自動站"
+        "id": "C0F9Y0",
+        "name": "桃山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "雪山東峰",
-        "stationType": "局屬自動站"
+        "id": "C0F9Z0",
+        "name": "雪山東峰",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "烏石坑",
-        "stationType": "局屬自動站"
+        "id": "C0FA00",
+        "name": "烏石坑",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "上谷關",
-        "stationType": "局屬自動站"
+        "id": "C1F871",
+        "name": "上谷關",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "稍來",
-        "stationType": "局屬自動站"
+        "id": "C1F891",
+        "name": "稍來",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "雪嶺",
-        "stationType": "局屬自動站"
+        "id": "C1F941",
+        "name": "雪嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "白冷",
-        "stationType": "局屬自動站"
+        "id": "C1F9C1",
+        "name": "白冷",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "和平區",
-        "stationName": "德基",
-        "stationType": "局屬自動站"
+        "id": "C1F9W0",
+        "name": "德基",
+        "type": "自動站"
+      },
+      {
+        "id": "A0F010",
+        "name": "武陵",
+        "type": "合作站"
       }
     ],
     "石岡區": [
       {
-        "locationName": "臺中市",
-        "districtName": "石岡區",
-        "stationName": "石岡",
-        "stationType": "局屬自動站"
+        "id": "C0F0B0",
+        "name": "石岡",
+        "type": "自動站"
       }
     ],
     "東勢區": [
       {
-        "locationName": "臺中市",
-        "districtName": "東勢區",
-        "stationName": "東勢",
-        "stationType": "局屬自動站"
+        "id": "C0F850",
+        "name": "東勢",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "東勢區",
-        "stationName": "新伯公",
-        "stationType": "局屬自動站"
+        "id": "C1F911",
+        "name": "新伯公",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "東勢區",
-        "stationName": "伯公龍",
-        "stationType": "局屬自動站"
+        "id": "C1F9F1",
+        "name": "伯公龍",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "東勢區",
-        "stationName": "慶福山",
-        "stationType": "局屬自動站"
+        "id": "C1F9G1",
+        "name": "慶福山",
+        "type": "自動站"
       }
     ],
     "大甲區": [
       {
-        "locationName": "臺中市",
-        "districtName": "大甲區",
-        "stationName": "大甲",
-        "stationType": "局屬自動站"
+        "id": "C0F930",
+        "name": "大甲",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "大甲區",
-        "stationName": "松柏",
-        "stationType": "局屬自動站"
+        "id": "C0FA10",
+        "name": "松柏",
+        "type": "自動站"
       }
     ],
     "北屯區": [
       {
-        "locationName": "臺中市",
-        "districtName": "北屯區",
-        "stationName": "大坑",
-        "stationType": "局屬自動站"
+        "id": "C0F970",
+        "name": "大坑",
+        "type": "自動站"
       }
     ],
     "太平區": [
       {
-        "locationName": "臺中市",
-        "districtName": "太平區",
-        "stationName": "中竹林",
-        "stationType": "局屬自動站"
+        "id": "C0F9A0",
+        "name": "中竹林",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "太平區",
-        "stationName": "清水林",
-        "stationType": "局屬自動站"
+        "id": "C1F9J1",
+        "name": "清水林",
+        "type": "自動站"
       }
     ],
     "神岡區": [
       {
-        "locationName": "臺中市",
-        "districtName": "神岡區",
-        "stationName": "神岡",
-        "stationType": "局屬自動站"
+        "id": "C0F9I0",
+        "name": "神岡",
+        "type": "自動站"
       }
     ],
     "大安區": [
       {
-        "locationName": "臺中市",
-        "districtName": "大安區",
-        "stationName": "大安",
-        "stationType": "局屬自動站"
+        "id": "C0F9K0",
+        "name": "大安",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "大安區",
-        "stationName": "溫寮",
-        "stationType": "局屬自動站"
+        "id": "C0FA20",
+        "name": "溫寮",
+        "type": "自動站"
       }
     ],
     "后里區": [
       {
-        "locationName": "臺中市",
-        "districtName": "后里區",
-        "stationName": "后里",
-        "stationType": "局屬自動站"
+        "id": "C0F9L0",
+        "name": "后里",
+        "type": "自動站"
       }
     ],
     "豐原區": [
       {
-        "locationName": "臺中市",
-        "districtName": "豐原區",
-        "stationName": "豐原",
-        "stationType": "局屬自動站"
+        "id": "C0F9M0",
+        "name": "豐原",
+        "type": "自動站"
       }
     ],
     "大里區": [
       {
-        "locationName": "臺中市",
-        "districtName": "大里區",
-        "stationName": "大里",
-        "stationType": "局屬自動站"
+        "id": "C0F9N0",
+        "name": "大里",
+        "type": "自動站"
       }
     ],
     "潭子區": [
       {
-        "locationName": "臺中市",
-        "districtName": "潭子區",
-        "stationName": "潭子",
-        "stationType": "局屬自動站"
+        "id": "C0F9O0",
+        "name": "潭子",
+        "type": "自動站"
       }
     ],
     "清水區": [
       {
-        "locationName": "臺中市",
-        "districtName": "清水區",
-        "stationName": "清水",
-        "stationType": "局屬自動站"
+        "id": "C0F9P0",
+        "name": "清水",
+        "type": "自動站"
       }
     ],
     "外埔區": [
       {
-        "locationName": "臺中市",
-        "districtName": "外埔區",
-        "stationName": "外埔",
-        "stationType": "局屬自動站"
+        "id": "C0F9Q0",
+        "name": "外埔",
+        "type": "自動站"
       }
     ],
     "龍井區": [
       {
-        "locationName": "臺中市",
-        "districtName": "龍井區",
-        "stationName": "龍井",
-        "stationType": "局屬自動站"
+        "id": "C0F9R0",
+        "name": "龍井",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "龍井區",
-        "stationName": "臺中電廠",
-        "stationType": "局屬自動站"
+        "id": "C0FA40",
+        "name": "臺中電廠",
+        "type": "自動站"
       }
     ],
     "烏日區": [
       {
-        "locationName": "臺中市",
-        "districtName": "烏日區",
-        "stationName": "烏日",
-        "stationType": "局屬自動站"
+        "id": "C0F9S0",
+        "name": "烏日",
+        "type": "自動站"
       }
     ],
     "西屯區": [
       {
-        "locationName": "臺中市",
-        "districtName": "西屯區",
-        "stationName": "西屯",
-        "stationType": "局屬自動站"
+        "id": "C0F9T0",
+        "name": "西屯",
+        "type": "自動站"
       }
     ],
     "南屯區": [
       {
-        "locationName": "臺中市",
-        "districtName": "南屯區",
-        "stationName": "南屯",
-        "stationType": "局屬自動站"
+        "id": "C0F9U0",
+        "name": "南屯",
+        "type": "自動站"
       }
     ],
     "新社區": [
       {
-        "locationName": "臺中市",
-        "districtName": "新社區",
-        "stationName": "新社",
-        "stationType": "局屬自動站"
+        "id": "C0F9V0",
+        "name": "新社",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "新社區",
-        "stationName": "白毛台",
-        "stationType": "局屬自動站"
+        "id": "C1F9D1",
+        "name": "白毛台",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "新社區",
-        "stationName": "龍安",
-        "stationType": "局屬自動站"
+        "id": "C1F9E1",
+        "name": "龍安",
+        "type": "自動站"
+      },
+      {
+        "id": "K2F750",
+        "name": "種苗改良場",
+        "type": "農業站"
       }
     ],
     "大雅區": [
       {
-        "locationName": "臺中市",
-        "districtName": "大雅區",
-        "stationName": "大雅(中科園區)",
-        "stationType": "局屬自動站"
+        "id": "C0F9X0",
+        "name": "大雅(中科園區)",
+        "type": "自動站"
       }
     ],
     "梧棲區": [
       {
-        "locationName": "臺中市",
-        "districtName": "梧棲區",
-        "stationName": "梧棲",
-        "stationType": "局屬自動站"
+        "id": "C0FA30",
+        "name": "梧棲",
+        "type": "自動站"
       }
     ],
     "霧峰區": [
       {
-        "locationName": "臺中市",
-        "districtName": "霧峰區",
-        "stationName": "霧峰",
-        "stationType": "局屬自動站"
+        "id": "C0FA50",
+        "name": "霧峰",
+        "type": "自動站"
       },
       {
-        "locationName": "臺中市",
-        "districtName": "霧峰區",
-        "stationName": "桐林",
-        "stationType": "局屬自動站"
+        "id": "C1F9B1",
+        "name": "桐林",
+        "type": "自動站"
+      },
+      {
+        "id": "G2F820",
+        "name": "農試所(霧峰)",
+        "type": "農業站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAF010",
+        "name": "國一N174K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF020",
+        "name": "國一S162K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF030",
+        "name": "國一S169K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF040",
+        "name": "國一S188K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF050",
+        "name": "國三N208K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF060",
+        "name": "國三S168K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF070",
+        "name": "國三S173K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF080",
+        "name": "國三S178K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAF090",
+        "name": "國四E5K",
+        "type": "合作站"
       }
     ]
   },
   "嘉義縣": {
     "阿里山鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "阿里山鄉",
-        "stationName": "阿里山",
-        "stationType": "局屬有人站"
+        "id": "467530",
+        "name": "阿里山",
+        "type": "有人站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "阿里山鄉",
-        "stationName": "茶山",
-        "stationType": "局屬自動站"
+        "id": "C0M800",
+        "name": "茶山",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "阿里山鄉",
-        "stationName": "里佳",
-        "stationType": "局屬自動站"
+        "id": "C0M810",
+        "name": "里佳",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "阿里山鄉",
-        "stationName": "達邦",
-        "stationType": "局屬自動站"
+        "id": "C0M820",
+        "name": "達邦",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "阿里山鄉",
-        "stationName": "十字",
-        "stationType": "局屬自動站"
+        "id": "C1M640",
+        "name": "十字",
+        "type": "自動站"
       }
     ],
     "大埔鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "大埔鄉",
-        "stationName": "馬頭山",
-        "stationType": "局屬自動站"
+        "id": "C0M410",
+        "name": "馬頭山",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "大埔鄉",
-        "stationName": "表湖",
-        "stationType": "局屬自動站"
+        "id": "C0M850",
+        "name": "表湖",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "大埔鄉",
-        "stationName": "菜瓜坪",
-        "stationType": "局屬自動站"
+        "id": "C1M400",
+        "name": "菜瓜坪",
+        "type": "自動站"
       }
     ],
     "義竹鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "義竹鄉",
-        "stationName": "東後寮",
-        "stationType": "局屬自動站"
+        "id": "C0M520",
+        "name": "東後寮",
+        "type": "自動站"
+      },
+      {
+        "id": "72M360",
+        "name": "南改義竹分場",
+        "type": "農業站"
       }
     ],
     "竹崎鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "竹崎鄉",
-        "stationName": "奮起湖",
-        "stationType": "局屬自動站"
+        "id": "C0M530",
+        "name": "奮起湖",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "竹崎鄉",
-        "stationName": "竹崎",
-        "stationType": "局屬自動站"
+        "id": "C0M700",
+        "name": "竹崎",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "竹崎鄉",
-        "stationName": "獨立山",
-        "stationType": "局屬自動站"
+        "id": "C1M480",
+        "name": "獨立山",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "竹崎鄉",
-        "stationName": "石磐龍",
-        "stationType": "局屬自動站"
+        "id": "C1M610",
+        "name": "石磐龍",
+        "type": "自動站"
       }
     ],
     "中埔鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "中埔鄉",
-        "stationName": "中埔",
-        "stationType": "局屬自動站"
+        "id": "C0M640",
+        "name": "中埔",
+        "type": "自動站"
       }
     ],
     "朴子市": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "朴子市",
-        "stationName": "朴子",
-        "stationType": "局屬自動站"
+        "id": "C0M650",
+        "name": "朴子",
+        "type": "自動站"
       }
     ],
     "溪口鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "溪口鄉",
-        "stationName": "溪口",
-        "stationType": "局屬自動站"
+        "id": "C0M660",
+        "name": "溪口",
+        "type": "自動站"
+      },
+      {
+        "id": "G2M350",
+        "name": "農試溪口農場",
+        "type": "農業站"
       }
     ],
     "大林鎮": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "大林鎮",
-        "stationName": "大林",
-        "stationType": "局屬自動站"
+        "id": "C0M670",
+        "name": "大林",
+        "type": "自動站"
       }
     ],
     "太保市": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "太保市",
-        "stationName": "太保",
-        "stationType": "局屬自動站"
+        "id": "C0M680",
+        "name": "太保",
+        "type": "自動站"
       }
     ],
     "水上鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "水上鄉",
-        "stationName": "水上",
-        "stationType": "局屬自動站"
+        "id": "C0M690",
+        "name": "水上",
+        "type": "自動站"
       }
     ],
     "東石鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "東石鄉",
-        "stationName": "東石",
-        "stationType": "局屬自動站"
+        "id": "C0M710",
+        "name": "東石",
+        "type": "自動站"
       }
     ],
     "番路鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "番路鄉",
-        "stationName": "番路",
-        "stationType": "局屬自動站"
+        "id": "C0M720",
+        "name": "番路",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "番路鄉",
-        "stationName": "龍美",
-        "stationType": "局屬自動站"
+        "id": "C1M390",
+        "name": "龍美",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "番路鄉",
-        "stationName": "頭凍",
-        "stationType": "局屬自動站"
+        "id": "C1M600",
+        "name": "頭凍",
+        "type": "自動站"
       }
     ],
     "六腳鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "六腳鄉",
-        "stationName": "六腳",
-        "stationType": "局屬自動站"
+        "id": "C0M740",
+        "name": "六腳",
+        "type": "自動站"
       }
     ],
     "布袋鎮": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "布袋鎮",
-        "stationName": "布袋",
-        "stationType": "局屬自動站"
+        "id": "C0M750",
+        "name": "布袋",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "布袋鎮",
-        "stationName": "好美里",
-        "stationType": "局屬自動站"
+        "id": "C0M880",
+        "name": "好美里",
+        "type": "自動站"
+      },
+      {
+        "id": "CAL110",
+        "name": "布袋國中",
+        "type": "農業站"
       }
     ],
     "民雄鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "民雄鄉",
-        "stationName": "民雄",
-        "stationType": "局屬自動站"
+        "id": "C0M760",
+        "name": "民雄",
+        "type": "自動站"
       }
     ],
     "梅山鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "梅山鄉",
-        "stationName": "嘉義梅山",
-        "stationType": "局屬自動站"
+        "id": "C0M770",
+        "name": "嘉義梅山",
+        "type": "自動站"
       },
       {
-        "locationName": "嘉義縣",
-        "districtName": "梅山鄉",
-        "stationName": "瑞里",
-        "stationType": "局屬自動站"
+        "id": "C1M620",
+        "name": "瑞里",
+        "type": "自動站"
       }
     ],
     "鹿草鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "鹿草鄉",
-        "stationName": "鹿草",
-        "stationType": "局屬自動站"
+        "id": "C0M780",
+        "name": "鹿草",
+        "type": "自動站"
+      },
+      {
+        "id": "72M700",
+        "name": "南改鹿草分場",
+        "type": "農業站"
       }
     ],
     "新港鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "新港鄉",
-        "stationName": "新港",
-        "stationType": "局屬自動站"
+        "id": "C0M790",
+        "name": "新港",
+        "type": "自動站"
       }
     ],
     "嘉義縣阿里山鄉": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "嘉義縣阿里山鄉",
-        "stationName": "新美",
-        "stationType": "局屬自動站"
+        "id": "C0M860",
+        "name": "新美",
+        "type": "自動站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "嘉義縣",
-        "districtName": "",
-        "stationName": "國三N285K",
-        "stationType": "局屬自動站"
+        "id": "C1M870",
+        "name": "國三N285K",
+        "type": "自動站"
+      },
+      {
+        "id": "CAL010",
+        "name": "國一N250K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL020",
+        "name": "國一S262K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL030",
+        "name": "國一N268K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL040",
+        "name": "國一N273K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL050",
+        "name": "國三N279K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL060",
+        "name": "國三S286K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL080",
+        "name": "國三N303K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAL090",
+        "name": "西濱S257K",
+        "type": "合作站"
       }
     ]
   },
   "臺東縣": {
     "大武鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "大武鄉",
-        "stationName": "大武",
-        "stationType": "局屬有人站"
+        "id": "467540",
+        "name": "大武",
+        "type": "有人站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "大武鄉",
-        "stationName": "加津林",
-        "stationType": "局屬自動站"
+        "id": "C0S970",
+        "name": "加津林",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "大武鄉",
-        "stationName": "山豬窟",
-        "stationType": "局屬自動站"
+        "id": "C0S990",
+        "name": "山豬窟",
+        "type": "自動站"
       }
     ],
     "成功鎮": [
       {
-        "locationName": "臺東縣",
-        "districtName": "成功鎮",
-        "stationName": "成功",
-        "stationType": "局屬有人站"
+        "id": "467610",
+        "name": "成功",
+        "type": "有人站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "成功鎮",
-        "stationName": "都歷",
-        "stationType": "局屬自動站"
+        "id": "C0SA30",
+        "name": "都歷",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "成功鎮",
-        "stationName": "南美山",
-        "stationType": "局屬自動站"
+        "id": "C1S870",
+        "name": "南美山",
+        "type": "自動站"
       }
     ],
     "蘭嶼鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "蘭嶼鄉",
-        "stationName": "蘭嶼",
-        "stationType": "局屬有人站"
+        "id": "467620",
+        "name": "蘭嶼",
+        "type": "有人站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "蘭嶼鄉",
-        "stationName": "蘭嶼高中",
-        "stationType": "局屬自動站"
+        "id": "C0S900",
+        "name": "蘭嶼高中",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "蘭嶼鄉",
-        "stationName": "蘭嶼燈塔",
-        "stationType": "局屬自動站"
+        "id": "C0S910",
+        "name": "蘭嶼燈塔",
+        "type": "自動站"
       }
     ],
     "臺東市": [
       {
-        "locationName": "臺東縣",
-        "districtName": "臺東市",
-        "stationName": "臺東",
-        "stationType": "局屬有人站"
+        "id": "467660",
+        "name": "臺東",
+        "type": "有人站"
       }
     ],
     "海端鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "海端鄉",
-        "stationName": "下馬",
-        "stationType": "局屬自動站"
+        "id": "C0S660",
+        "name": "下馬",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "海端鄉",
-        "stationName": "向陽",
-        "stationType": "局屬自動站"
+        "id": "C0S750",
+        "name": "向陽",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "海端鄉",
-        "stationName": "紅石",
-        "stationType": "局屬自動站"
+        "id": "C0S760",
+        "name": "紅石",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "海端鄉",
-        "stationName": "摩天",
-        "stationType": "局屬自動站"
+        "id": "C1S670",
+        "name": "摩天",
+        "type": "自動站"
       }
     ],
     "太麻里鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "太麻里鄉",
-        "stationName": "太麻里",
-        "stationType": "局屬自動站"
+        "id": "C0S690",
+        "name": "太麻里",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "太麻里鄉",
-        "stationName": "大溪山",
-        "stationType": "局屬自動站"
+        "id": "C0S770",
+        "name": "大溪山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "太麻里鄉",
-        "stationName": "金崙",
-        "stationType": "局屬自動站"
+        "id": "C0S790",
+        "name": "金崙",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "太麻里鄉",
-        "stationName": "香蘭",
-        "stationType": "局屬自動站"
+        "id": "C0S960",
+        "name": "香蘭",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "太麻里鄉",
-        "stationName": "金崙山",
-        "stationType": "局屬自動站"
+        "id": "C0SA20",
+        "name": "金崙山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "太麻里鄉",
-        "stationName": "華源",
-        "stationType": "局屬自動站"
+        "id": "C1S800",
+        "name": "華源",
+        "type": "自動站"
+      },
+      {
+        "id": "E2S960",
+        "name": "林試太麻里2",
+        "type": "農業站"
+      },
+      {
+        "id": "E2S980",
+        "name": "林試太麻里1",
+        "type": "農業站"
       }
     ],
     "卑南鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "卑南鄉",
-        "stationName": "知本",
-        "stationType": "局屬自動站"
+        "id": "C0S700",
+        "name": "知本",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "卑南鄉",
-        "stationName": "檳榔四格山",
-        "stationType": "局屬自動站"
+        "id": "C0SA10",
+        "name": "檳榔四格山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "卑南鄉",
-        "stationName": "利嘉",
-        "stationType": "局屬自動站"
+        "id": "C1S860",
+        "name": "利嘉",
+        "type": "自動站"
+      },
+      {
+        "id": "72S200",
+        "name": "東改班鳩分場",
+        "type": "農業站"
+      },
+      {
+        "id": "72S590",
+        "name": "東改賓朗果園",
+        "type": "農業站"
       }
     ],
     "鹿野鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "鹿野鄉",
-        "stationName": "鹿野",
-        "stationType": "局屬自動站"
+        "id": "C0S710",
+        "name": "鹿野",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "鹿野鄉",
-        "stationName": "瑞和",
-        "stationType": "局屬自動站"
+        "id": "C0SA40",
+        "name": "瑞和",
+        "type": "自動站"
+      },
+      {
+        "id": "82S580",
+        "name": "茶改東部分場",
+        "type": "農業站"
       }
     ],
     "綠島鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "綠島鄉",
-        "stationName": "綠島",
-        "stationType": "局屬自動站"
+        "id": "C0S730",
+        "name": "綠島",
+        "type": "自動站"
       }
     ],
     "池上鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "池上鄉",
-        "stationName": "池上",
-        "stationType": "局屬自動站"
+        "id": "C0S740",
+        "name": "池上",
+        "type": "自動站"
       }
     ],
     "東河鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "東河鄉",
-        "stationName": "東河",
-        "stationType": "局屬自動站"
+        "id": "C0S810",
+        "name": "東河",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "東河鄉",
-        "stationName": "七塊厝",
-        "stationType": "局屬自動站"
+        "id": "C0S950",
+        "name": "七塊厝",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "東河鄉",
-        "stationName": "都蘭",
-        "stationType": "局屬自動站"
+        "id": "C1SA70",
+        "name": "都蘭",
+        "type": "自動站"
       }
     ],
     "長濱鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "長濱鄉",
-        "stationName": "長濱",
-        "stationType": "局屬自動站"
+        "id": "C0S830",
+        "name": "長濱",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "長濱鄉",
-        "stationName": "石寧山",
-        "stationType": "局屬自動站"
+        "id": "C0S940",
+        "name": "石寧山",
+        "type": "自動站"
       }
     ],
     "達仁鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "達仁鄉",
-        "stationName": "南田",
-        "stationType": "局屬自動站"
+        "id": "C0S840",
+        "name": "南田",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "達仁鄉",
-        "stationName": "勝林山",
-        "stationType": "局屬自動站"
+        "id": "C0S980",
+        "name": "勝林山",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "達仁鄉",
-        "stationName": "土坂",
-        "stationType": "局屬自動站"
+        "id": "C0SA80",
+        "name": "土坂",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "達仁鄉",
-        "stationName": "壽卡",
-        "stationType": "局屬自動站"
+        "id": "C1S880",
+        "name": "壽卡",
+        "type": "自動站"
       }
     ],
     "關山鎮": [
       {
-        "locationName": "臺東縣",
-        "districtName": "關山鎮",
-        "stationName": "關山",
-        "stationType": "局屬自動站"
+        "id": "C0S890",
+        "name": "關山",
+        "type": "自動站"
       }
     ],
     "金峰鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "金峰鄉",
-        "stationName": "金峰嘉蘭",
-        "stationType": "局屬自動站"
+        "id": "C0S920",
+        "name": "金峰嘉蘭",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "金峰鄉",
-        "stationName": "歷坵",
-        "stationType": "局屬自動站"
+        "id": "C0SA00",
+        "name": "歷坵",
+        "type": "自動站"
       },
       {
-        "locationName": "臺東縣",
-        "districtName": "金峰鄉",
-        "stationName": "金峰",
-        "stationType": "局屬自動站"
+        "id": "C1S820",
+        "name": "金峰",
+        "type": "自動站"
       }
     ],
     "臺東縣延平鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "臺東縣延平鄉",
-        "stationName": "延平",
-        "stationType": "局屬自動站"
+        "id": "C0S930",
+        "name": "延平",
+        "type": "自動站"
       }
     ],
     "臺東縣臺東市": [
       {
-        "locationName": "臺東縣",
-        "districtName": "臺東縣臺東市",
-        "stationName": "知本（水試所）",
-        "stationType": "局屬自動站"
+        "id": "C0SA60",
+        "name": "知本（水試所）",
+        "type": "自動站"
       }
     ],
     "臺東縣達仁鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "臺東縣達仁鄉",
-        "stationName": "達仁林場",
-        "stationType": "局屬自動站"
+        "id": "C0SA90",
+        "name": "達仁林場",
+        "type": "自動站"
       }
     ],
     "臺東縣卑南鄉": [
       {
-        "locationName": "臺東縣",
-        "districtName": "臺東縣卑南鄉",
-        "stationName": "利嘉林道",
-        "stationType": "局屬自動站"
+        "id": "C1SA50",
+        "name": "利嘉林道",
+        "type": "自動站"
       }
     ]
   },
   "南投縣": {
     "信義鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "玉山",
-        "stationType": "局屬有人站"
+        "id": "467550",
+        "name": "玉山",
+        "type": "有人站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "神木村",
-        "stationType": "局屬自動站"
+        "id": "C0H9A0",
+        "name": "神木村",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "信義",
-        "stationType": "局屬自動站"
+        "id": "C0I080",
+        "name": "信義",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "玉山風口",
-        "stationType": "局屬自動站"
+        "id": "C0I520",
+        "name": "玉山風口",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "丹大",
-        "stationType": "局屬自動站"
+        "id": "C1I050",
+        "name": "丹大",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "和社",
-        "stationType": "局屬自動站"
+        "id": "C1I070",
+        "name": "和社",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "卡奈托灣",
-        "stationType": "局屬自動站"
+        "id": "C1I140",
+        "name": "卡奈托灣",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "青雲",
-        "stationType": "局屬自動站"
+        "id": "C1I150",
+        "name": "青雲",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "豐丘",
-        "stationType": "局屬自動站"
+        "id": "C1I290",
+        "name": "豐丘",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "西巒",
-        "stationType": "局屬自動站"
+        "id": "C1I310",
+        "name": "西巒",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "新興橋",
-        "stationType": "局屬自動站"
+        "id": "C1I340",
+        "name": "新興橋",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "新高口",
-        "stationType": "局屬自動站"
+        "id": "C1I440",
+        "name": "新高口",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "信義鄉",
-        "stationName": "望鄉山",
-        "stationType": "局屬自動站"
+        "id": "C1I450",
+        "name": "望鄉山",
+        "type": "自動站"
+      },
+      {
+        "id": "U2HA30",
+        "name": "臺大和社",
+        "type": "農業站"
+      },
+      {
+        "id": "U2HA40",
+        "name": "臺大內茅埔",
+        "type": "農業站"
       }
     ],
     "魚池鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "魚池鄉",
-        "stationName": "日月潭",
-        "stationType": "局屬有人站"
+        "id": "467650",
+        "name": "日月潭",
+        "type": "有人站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "魚池鄉",
-        "stationName": "魚池",
-        "stationType": "局屬自動站"
+        "id": "C0I370",
+        "name": "魚池",
+        "type": "自動站"
+      },
+      {
+        "id": "72HA00",
+        "name": "中改埔里分場",
+        "type": "農業站"
+      },
+      {
+        "id": "82H320",
+        "name": "茶改中部分場",
+        "type": "農業站"
+      },
+      {
+        "id": "E2H360",
+        "name": "蓮華池",
+        "type": "農業站"
       }
     ],
     "埔里鎮": [
       {
-        "locationName": "南投縣",
-        "districtName": "埔里鎮",
-        "stationName": "埔里",
-        "stationType": "局屬自動站"
+        "id": "C0H890",
+        "name": "埔里",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "埔里鎮",
-        "stationName": "外大坪",
-        "stationType": "局屬自動站"
+        "id": "C1I240",
+        "name": "外大坪",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "埔里鎮",
-        "stationName": "鯉潭",
-        "stationType": "局屬自動站"
+        "id": "C1I250",
+        "name": "鯉潭",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "埔里鎮",
-        "stationName": "北坑",
-        "stationType": "局屬自動站"
+        "id": "C1I260",
+        "name": "北坑",
+        "type": "自動站"
       }
     ],
     "中寮鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "中寮鄉",
-        "stationName": "中寮",
-        "stationType": "局屬自動站"
+        "id": "C0H950",
+        "name": "中寮",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "中寮鄉",
-        "stationName": "蘆竹湳",
-        "stationType": "局屬自動站"
+        "id": "C1I211",
+        "name": "蘆竹湳",
+        "type": "自動站"
       }
     ],
     "草屯鎮": [
       {
-        "locationName": "南投縣",
-        "districtName": "草屯鎮",
-        "stationName": "草屯",
-        "stationType": "局屬自動站"
+        "id": "C0H960",
+        "name": "草屯",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "草屯鎮",
-        "stationName": "雙冬",
-        "stationType": "局屬自動站"
+        "id": "C1H941",
+        "name": "雙冬",
+        "type": "自動站"
       }
     ],
     "仁愛鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "昆陽",
-        "stationType": "局屬自動站"
+        "id": "C0H990",
+        "name": "昆陽",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "合歡山",
-        "stationType": "局屬自動站"
+        "id": "C0H9C0",
+        "name": "合歡山",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "廬山",
-        "stationType": "局屬自動站"
+        "id": "C0I010",
+        "name": "廬山",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "仁愛",
-        "stationType": "局屬自動站"
+        "id": "C0I390",
+        "name": "仁愛",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "梅峰",
-        "stationType": "局屬自動站"
+        "id": "C0I480",
+        "name": "梅峰",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "萬大林道",
-        "stationType": "局屬自動站"
+        "id": "C0I490",
+        "name": "萬大林道",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "小奇萊",
-        "stationType": "局屬自動站"
+        "id": "C0I530",
+        "name": "小奇萊",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "奇萊稜線",
-        "stationType": "局屬自動站"
+        "id": "C0I540",
+        "name": "奇萊稜線",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "翠峰",
-        "stationType": "局屬自動站"
+        "id": "C1H000",
+        "name": "翠峰",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "瑞岩",
-        "stationType": "局屬自動站"
+        "id": "C1H860",
+        "name": "瑞岩",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "清流",
-        "stationType": "局屬自動站"
+        "id": "C1H900",
+        "name": "清流",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "阿眉",
-        "stationType": "局屬自動站"
+        "id": "C1H9B1",
+        "name": "阿眉",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "萬大",
-        "stationType": "局屬自動站"
+        "id": "C1I020",
+        "name": "萬大",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "武界",
-        "stationType": "局屬自動站"
+        "id": "C1I030",
+        "name": "武界",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "奧萬大",
-        "stationType": "局屬自動站"
+        "id": "C1I320",
+        "name": "奧萬大",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "楓樹林",
-        "stationType": "局屬自動站"
+        "id": "C1I330",
+        "name": "楓樹林",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "凌霄",
-        "stationType": "局屬自動站"
+        "id": "C1I400",
+        "name": "凌霄",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "翠華",
-        "stationType": "局屬自動站"
+        "id": "C1I430",
+        "name": "翠華",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "仁愛鄉",
-        "stationName": "大尖山",
-        "stationType": "局屬自動站"
+        "id": "C1I500",
+        "name": "大尖山",
+        "type": "自動站"
+      },
+      {
+        "id": "42HA10",
+        "name": "萬大發電廠",
+        "type": "農業站"
+      },
+      {
+        "id": "E2HA20",
+        "name": "林試畢祿溪站",
+        "type": "農業站"
       }
     ],
     "鹿谷鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "鹿谷鄉",
-        "stationName": "鳳凰",
-        "stationType": "局屬自動站"
+        "id": "C0I090",
+        "name": "鳳凰",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "鹿谷鄉",
-        "stationName": "溪頭",
-        "stationType": "局屬自動站"
+        "id": "C1I101",
+        "name": "溪頭",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "鹿谷鄉",
-        "stationName": "線浸林道",
-        "stationType": "局屬自動站"
+        "id": "C1I510",
+        "name": "線浸林道",
+        "type": "自動站"
+      },
+      {
+        "id": "82H840",
+        "name": "茶改南部分場",
+        "type": "農業站"
+      },
+      {
+        "id": "U2H480",
+        "name": "溪頭",
+        "type": "農業站"
       }
     ],
     "竹山鎮": [
       {
-        "locationName": "南投縣",
-        "districtName": "竹山鎮",
-        "stationName": "竹山",
-        "stationType": "局屬自動站"
+        "id": "C0I110",
+        "name": "竹山",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "竹山鎮",
-        "stationName": "大鞍",
-        "stationType": "局屬自動站"
+        "id": "C1I121",
+        "name": "大鞍",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "竹山鎮",
-        "stationName": "桶頭",
-        "stationType": "局屬自動站"
+        "id": "C1I131",
+        "name": "桶頭",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "竹山鎮",
-        "stationName": "中心崙",
-        "stationType": "局屬自動站"
+        "id": "C1I201",
+        "name": "中心崙",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "竹山鎮",
-        "stationName": "杉林溪",
-        "stationType": "局屬自動站"
+        "id": "C1I470",
+        "name": "杉林溪",
+        "type": "自動站"
+      },
+      {
+        "id": "U2HA50",
+        "name": "臺大竹山",
+        "type": "農業站"
+      },
+      {
+        "id": "CAHA00",
+        "name": "消防署訓練中心",
+        "type": "合作站"
       }
     ],
     "水里鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "水里鄉",
-        "stationName": "水里",
-        "stationType": "局屬自動站"
+        "id": "C0I360",
+        "name": "水里",
+        "type": "自動站"
       }
     ],
     "集集鎮": [
       {
-        "locationName": "南投縣",
-        "districtName": "集集鎮",
-        "stationName": "集集",
-        "stationType": "局屬自動站"
+        "id": "C0I380",
+        "name": "集集",
+        "type": "自動站"
       }
     ],
     "名間鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "名間鄉",
-        "stationName": "名間",
-        "stationType": "局屬自動站"
+        "id": "C0I410",
+        "name": "名間",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "名間鄉",
-        "stationName": "埔中",
-        "stationType": "局屬自動站"
+        "id": "C1I280",
+        "name": "埔中",
+        "type": "自動站"
+      },
+      {
+        "id": "CAH030",
+        "name": "茶改場竹圍站",
+        "type": "農業站"
       }
     ],
     "國姓鄉": [
       {
-        "locationName": "南投縣",
-        "districtName": "國姓鄉",
-        "stationName": "國姓",
-        "stationType": "局屬自動站"
+        "id": "C0I420",
+        "name": "國姓",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "國姓鄉",
-        "stationName": "長豐",
-        "stationType": "局屬自動站"
+        "id": "C1H920",
+        "name": "長豐",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "國姓鄉",
-        "stationName": "樟湖",
-        "stationType": "局屬自動站"
+        "id": "C1I220",
+        "name": "樟湖",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "國姓鄉",
-        "stationName": "九份二山",
-        "stationType": "局屬自動站"
+        "id": "C1I230",
+        "name": "九份二山",
+        "type": "自動站"
       }
     ],
     "南投市": [
       {
-        "locationName": "南投縣",
-        "districtName": "南投市",
-        "stationName": "南投",
-        "stationType": "局屬自動站"
+        "id": "C0I460",
+        "name": "南投",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "南投市",
-        "stationName": "六分寮",
-        "stationType": "局屬自動站"
+        "id": "C1H971",
+        "name": "六分寮",
+        "type": "自動站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "南投縣",
-        "districtName": "",
-        "stationName": "國三N238K",
-        "stationType": "局屬自動站"
+        "id": "C1H840",
+        "name": "國三N238K",
+        "type": "自動站"
       },
       {
-        "locationName": "南投縣",
-        "districtName": "",
-        "stationName": "國六W023K",
-        "stationType": "局屬自動站"
+        "id": "C1I550",
+        "name": "國六W023K",
+        "type": "自動站"
+      },
+      {
+        "id": "CAH010",
+        "name": "國三N223K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAH020",
+        "name": "國三S217K",
+        "type": "合作站"
       }
     ]
   },
   "新竹縣": {
     "竹北市": [
       {
-        "locationName": "新竹縣",
-        "districtName": "竹北市",
-        "stationName": "新竹",
-        "stationType": "局屬有人站"
+        "id": "467571",
+        "name": "新竹",
+        "type": "有人站"
       }
     ],
     "尖石鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "尖石鄉",
-        "stationName": "梅花",
-        "stationType": "局屬自動站"
+        "id": "C0D360",
+        "name": "梅花",
+        "type": "自動站"
       },
       {
-        "locationName": "新竹縣",
-        "districtName": "尖石鄉",
-        "stationName": "鳥嘴山",
-        "stationType": "局屬自動站"
+        "id": "C1D400",
+        "name": "鳥嘴山",
+        "type": "自動站"
       }
     ],
     "峨眉鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "峨眉鄉",
-        "stationName": "峨眉",
-        "stationType": "局屬自動站"
+        "id": "C0D430",
+        "name": "峨眉",
+        "type": "自動站"
       }
     ],
     "新埔鎮": [
       {
-        "locationName": "新竹縣",
-        "districtName": "新埔鎮",
-        "stationName": "打鐵坑",
-        "stationType": "局屬自動站"
+        "id": "C0D480",
+        "name": "打鐵坑",
+        "type": "自動站"
       },
       {
-        "locationName": "新竹縣",
-        "districtName": "新埔鎮",
-        "stationName": "新埔",
-        "stationType": "局屬自動站"
+        "id": "C1D380",
+        "name": "新埔",
+        "type": "自動站"
+      },
+      {
+        "id": "72D680",
+        "name": "桃改新埔分場",
+        "type": "農業站"
       }
     ],
     "橫山鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "橫山鄉",
-        "stationName": "橫山",
-        "stationType": "局屬自動站"
+        "id": "C0D540",
+        "name": "橫山",
+        "type": "自動站"
       }
     ],
     "五峰鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "五峰鄉",
-        "stationName": "雪霸",
-        "stationType": "局屬自動站"
+        "id": "C0D550",
+        "name": "雪霸",
+        "type": "自動站"
       },
       {
-        "locationName": "新竹縣",
-        "districtName": "五峰鄉",
-        "stationName": "白蘭",
-        "stationType": "局屬自動站"
+        "id": "C1D410",
+        "name": "白蘭",
+        "type": "自動站"
       },
       {
-        "locationName": "新竹縣",
-        "districtName": "五峰鄉",
-        "stationName": "太閣南",
-        "stationType": "局屬自動站"
+        "id": "C1D420",
+        "name": "太閣南",
+        "type": "自動站"
+      },
+      {
+        "id": "72D080",
+        "name": "桃改五峰分場",
+        "type": "農業站"
       }
     ],
     "竹東鎮": [
       {
-        "locationName": "新竹縣",
-        "districtName": "竹東鎮",
-        "stationName": "竹東",
-        "stationType": "局屬自動站"
+        "id": "C0D560",
+        "name": "竹東",
+        "type": "自動站"
       }
     ],
     "寶山鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "寶山鄉",
-        "stationName": "寶山",
-        "stationType": "局屬自動站"
+        "id": "C0D580",
+        "name": "寶山",
+        "type": "自動站"
       }
     ],
     "新豐鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "新豐鄉",
-        "stationName": "新豐",
-        "stationType": "局屬自動站"
+        "id": "C0D590",
+        "name": "新豐",
+        "type": "自動站"
       },
       {
-        "locationName": "新竹縣",
-        "districtName": "新豐鄉",
-        "stationName": "外湖",
-        "stationType": "局屬自動站"
+        "id": "C0D690",
+        "name": "外湖",
+        "type": "自動站"
       }
     ],
     "湖口鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "湖口鄉",
-        "stationName": "湖口",
-        "stationType": "局屬自動站"
+        "id": "C0D650",
+        "name": "湖口",
+        "type": "自動站"
       }
     ],
     "新竹縣關西鎮": [
       {
-        "locationName": "新竹縣",
-        "districtName": "新竹縣關西鎮",
-        "stationName": "關西",
-        "stationType": "局屬自動站"
+        "id": "C0D700",
+        "name": "關西",
+        "type": "自動站"
       }
     ],
     "芎林鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "芎林鄉",
-        "stationName": "飛鳳山",
-        "stationType": "局屬自動站"
+        "id": "C1D630",
+        "name": "飛鳳山",
+        "type": "自動站"
       }
     ],
     "北埔鄉": [
       {
-        "locationName": "新竹縣",
-        "districtName": "北埔鄉",
-        "stationName": "外坪(五指山)",
-        "stationType": "局屬自動站"
+        "id": "C1D640",
+        "name": "外坪(五指山)",
+        "type": "自動站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAD010",
+        "name": "國一S105K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD020",
+        "name": "國一N077K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD030",
+        "name": "國一S082K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD040",
+        "name": "國一S088K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD060",
+        "name": "國一S098K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD070",
+        "name": "國三N076K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD080",
+        "name": "國三N085K",
+        "type": "合作站"
       }
     ]
   },
   "屏東縣": {
     "恆春鎮": [
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "恆春",
-        "stationType": "局屬有人站"
+        "id": "467590",
+        "name": "恆春",
+        "type": "有人站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "墾丁雷達站",
-        "stationType": "局屬有人站"
+        "id": "467790",
+        "name": "墾丁雷達站",
+        "type": "有人站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "貓鼻頭",
-        "stationType": "局屬自動站"
+        "id": "C0R350",
+        "name": "貓鼻頭",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "墾雷",
-        "stationType": "局屬自動站"
+        "id": "C0R620",
+        "name": "墾雷",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "墾丁",
-        "stationType": "局屬自動站"
+        "id": "C0R690",
+        "name": "墾丁",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "後壁湖",
-        "stationType": "局屬自動站"
+        "id": "C0R880",
+        "name": "後壁湖",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "恆春鎮",
-        "stationName": "山海",
-        "stationType": "局屬自動站"
+        "id": "C0R890",
+        "name": "山海",
+        "type": "自動站"
+      },
+      {
+        "id": "B2Q810",
+        "name": "畜試南區分所",
+        "type": "農業站"
       }
     ],
     "三地門鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "三地門鄉",
-        "stationName": "尾寮山",
-        "stationType": "局屬自動站"
+        "id": "C0R100",
+        "name": "尾寮山",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "三地門鄉",
-        "stationName": "口社",
-        "stationType": "局屬自動站"
+        "id": "C1R110",
+        "name": "口社",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "三地門鄉",
-        "stationName": "上德文",
-        "stationType": "局屬自動站"
+        "id": "C1R120",
+        "name": "上德文",
+        "type": "自動站"
       }
     ],
     "霧台鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "霧台鄉",
-        "stationName": "阿禮",
-        "stationType": "局屬自動站"
+        "id": "C0R130",
+        "name": "阿禮",
+        "type": "自動站"
       }
     ],
     "瑪家鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "瑪家鄉",
-        "stationName": "瑪家",
-        "stationType": "局屬自動站"
+        "id": "C0R140",
+        "name": "瑪家",
+        "type": "自動站"
       }
     ],
     "內埔鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "內埔鄉",
-        "stationName": "三地門",
-        "stationType": "局屬自動站"
+        "id": "C0R150",
+        "name": "三地門",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "內埔鄉",
-        "stationName": "龍泉",
-        "stationType": "局屬自動站"
+        "id": "C1R630",
+        "name": "龍泉",
+        "type": "自動站"
       }
     ],
     "屏東縣鹽埔鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣鹽埔鄉",
-        "stationName": "鹽埔",
-        "stationType": "局屬自動站"
+        "id": "C0R160",
+        "name": "鹽埔",
+        "type": "自動站"
       }
     ],
     "屏東市": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東市",
-        "stationName": "屏東",
-        "stationType": "局屬自動站"
+        "id": "C0R170",
+        "name": "屏東",
+        "type": "自動站"
       }
     ],
     "萬巒鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "萬巒鄉",
-        "stationName": "赤山",
-        "stationType": "局屬自動站"
+        "id": "C0R190",
+        "name": "赤山",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "萬巒鄉",
-        "stationName": "來義",
-        "stationType": "局屬自動站"
+        "id": "C0R240",
+        "name": "來義",
+        "type": "自動站"
       }
     ],
     "潮州鎮": [
       {
-        "locationName": "屏東縣",
-        "districtName": "潮州鎮",
-        "stationName": "潮州",
-        "stationType": "局屬自動站"
+        "id": "C0R220",
+        "name": "潮州",
+        "type": "自動站"
       }
     ],
     "春日鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "春日鄉",
-        "stationName": "春日",
-        "stationType": "局屬自動站"
+        "id": "C0R260",
+        "name": "春日",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "春日鄉",
-        "stationName": "大漢山",
-        "stationType": "局屬自動站"
+        "id": "C0R440",
+        "name": "大漢山",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "春日鄉",
-        "stationName": "力里",
-        "stationType": "局屬自動站"
+        "id": "C1R250",
+        "name": "力里",
+        "type": "自動站"
       }
     ],
     "琉球鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "琉球鄉",
-        "stationName": "琉球嶼",
-        "stationType": "局屬自動站"
+        "id": "C0R270",
+        "name": "琉球嶼",
+        "type": "自動站"
       }
     ],
     "滿州鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "滿州鄉",
-        "stationName": "檳榔",
-        "stationType": "局屬自動站"
+        "id": "C0R280",
+        "name": "檳榔",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "滿州鄉",
-        "stationName": "佳樂水",
-        "stationType": "局屬自動站"
+        "id": "C0R680",
+        "name": "佳樂水",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "滿州鄉",
-        "stationName": "鼻頭",
-        "stationType": "局屬自動站"
+        "id": "C0R860",
+        "name": "鼻頭",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "滿州鄉",
-        "stationName": "興海",
-        "stationType": "局屬自動站"
+        "id": "C0R870",
+        "name": "興海",
+        "type": "自動站"
       }
     ],
     "車城鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "車城鄉",
-        "stationName": "車城",
-        "stationType": "局屬自動站"
+        "id": "C0R320",
+        "name": "車城",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "車城鄉",
-        "stationName": "竹坑",
-        "stationType": "局屬自動站"
+        "id": "C0R900",
+        "name": "竹坑",
+        "type": "自動站"
+      },
+      {
+        "id": "12Q980",
+        "name": "恆春工作站",
+        "type": "農業站"
       }
     ],
-    "": [
+    "other": [
       {
-        "locationName": "屏東縣",
-        "districtName": "",
-        "stationName": "牡丹",
-        "stationType": "局屬自動站"
+        "id": "C0R341",
+        "name": "牡丹",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "",
-        "stationName": "龍磐",
-        "stationType": "局屬自動站"
+        "id": "C0R710",
+        "name": "龍磐",
+        "type": "自動站"
+      },
+      {
+        "id": "CAQ010",
+        "name": "國三N425K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAQ020",
+        "name": "國三S415K",
+        "type": "合作站"
       }
     ],
     "高樹鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "高樹鄉",
-        "stationName": "高樹",
-        "stationType": "局屬自動站"
+        "id": "C0R470",
+        "name": "高樹",
+        "type": "自動站"
       }
     ],
     "長治鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "長治鄉",
-        "stationName": "長治",
-        "stationType": "局屬自動站"
+        "id": "C0R480",
+        "name": "長治",
+        "type": "自動站"
+      },
+      {
+        "id": "72Q010",
+        "name": "高雄農改場",
+        "type": "農業站"
       }
     ],
     "九如鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "九如鄉",
-        "stationName": "九如",
-        "stationType": "局屬自動站"
+        "id": "C0R490",
+        "name": "九如",
+        "type": "自動站"
       }
     ],
     "崁頂鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "崁頂鄉",
-        "stationName": "崁頂",
-        "stationType": "局屬自動站"
+        "id": "C0R520",
+        "name": "崁頂",
+        "type": "自動站"
       }
     ],
     "佳冬鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "佳冬鄉",
-        "stationName": "佳冬",
-        "stationType": "局屬自動站"
+        "id": "C0R540",
+        "name": "佳冬",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "佳冬鄉",
-        "stationName": "塭仔",
-        "stationType": "局屬自動站"
+        "id": "C0R920",
+        "name": "塭仔",
+        "type": "自動站"
       }
     ],
     "新埤鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "新埤鄉",
-        "stationName": "新埤",
-        "stationType": "局屬自動站"
+        "id": "C0R550",
+        "name": "新埤",
+        "type": "自動站"
       }
     ],
     "新園鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "新園鄉",
-        "stationName": "新園",
-        "stationType": "局屬自動站"
+        "id": "C0R560",
+        "name": "新園",
+        "type": "自動站"
       }
     ],
     "麟洛鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "麟洛鄉",
-        "stationName": "麟洛",
-        "stationType": "局屬自動站"
+        "id": "C0R570",
+        "name": "麟洛",
+        "type": "自動站"
       }
     ],
     "南州鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "南州鄉",
-        "stationName": "南州",
-        "stationType": "局屬自動站"
+        "id": "C0R580",
+        "name": "南州",
+        "type": "自動站"
       }
     ],
     "里港鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "里港鄉",
-        "stationName": "里港",
-        "stationType": "局屬自動站"
+        "id": "C0R590",
+        "name": "里港",
+        "type": "自動站"
       }
     ],
     "泰武鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "泰武鄉",
-        "stationName": "舊泰武",
-        "stationType": "局屬自動站"
+        "id": "C0R600",
+        "name": "舊泰武",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "泰武鄉",
-        "stationName": "西大武山",
-        "stationType": "局屬自動站"
+        "id": "C1R610",
+        "name": "西大武山",
+        "type": "自動站"
       }
     ],
     "東港鎮": [
       {
-        "locationName": "屏東縣",
-        "districtName": "東港鎮",
-        "stationName": "東港",
-        "stationType": "局屬自動站"
+        "id": "C0R640",
+        "name": "東港",
+        "type": "自動站"
+      },
+      {
+        "id": "12Q970",
+        "name": "東港工作站",
+        "type": "農業站"
       }
     ],
     "竹田鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "竹田鄉",
-        "stationName": "竹田",
-        "stationType": "局屬自動站"
+        "id": "C0R650",
+        "name": "竹田",
+        "type": "自動站"
       }
     ],
     "枋寮鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "枋寮鄉",
-        "stationName": "枋寮",
-        "stationType": "局屬自動站"
+        "id": "C0R660",
+        "name": "枋寮",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "枋寮鄉",
-        "stationName": "下寮",
-        "stationType": "局屬自動站"
+        "id": "C0R910",
+        "name": "下寮",
+        "type": "自動站"
       }
     ],
     "枋山鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "枋山鄉",
-        "stationName": "楓港",
-        "stationType": "局屬自動站"
+        "id": "C0R670",
+        "name": "楓港",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "枋山鄉",
-        "stationName": "枋山",
-        "stationType": "局屬自動站"
+        "id": "C0R700",
+        "name": "枋山",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "枋山鄉",
-        "stationName": "加祿堂",
-        "stationType": "局屬自動站"
+        "id": "C0R940",
+        "name": "加祿堂",
+        "type": "自動站"
       }
     ],
     "牡丹鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "牡丹鄉",
-        "stationName": "旭海",
-        "stationType": "局屬自動站"
+        "id": "C0R720",
+        "name": "旭海",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "牡丹鄉",
-        "stationName": "石門山",
-        "stationType": "局屬自動站"
+        "id": "C1R290",
+        "name": "石門山",
+        "type": "自動站"
       }
     ],
     "屏東縣恆春鎮": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣恆春鎮",
-        "stationName": "大坪頂",
-        "stationType": "局屬自動站"
+        "id": "C0R730",
+        "name": "大坪頂",
+        "type": "自動站"
       }
     ],
     "屏東縣獅子鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣獅子鄉",
-        "stationName": "獅子",
-        "stationType": "局屬自動站"
+        "id": "C0R740",
+        "name": "獅子",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣獅子鄉",
-        "stationName": "丹路",
-        "stationType": "局屬自動站"
+        "id": "C0R800",
+        "name": "丹路",
+        "type": "自動站"
       }
     ],
     "屏東縣牡丹鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣牡丹鄉",
-        "stationName": "四林格山",
-        "stationType": "局屬自動站"
+        "id": "C0R750",
+        "name": "四林格山",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣牡丹鄉",
-        "stationName": "九棚",
-        "stationType": "局屬自動站"
+        "id": "C0R790",
+        "name": "九棚",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣牡丹鄉",
-        "stationName": "高士",
-        "stationType": "局屬自動站"
+        "id": "C0R830",
+        "name": "高士",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣牡丹鄉",
-        "stationName": "牡丹池山",
-        "stationType": "局屬自動站"
+        "id": "C0R840",
+        "name": "牡丹池山",
+        "type": "自動站"
       }
     ],
     "屏東縣滿州鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣滿州鄉",
-        "stationName": "南仁湖",
-        "stationType": "局屬自動站"
+        "id": "C0R760",
+        "name": "南仁湖",
+        "type": "自動站"
       },
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣滿州鄉",
-        "stationName": "滿州",
-        "stationType": "局屬自動站"
+        "id": "C0R780",
+        "name": "滿州",
+        "type": "自動站"
       }
     ],
     "屏東縣車城鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣車城鄉",
-        "stationName": "保力",
-        "stationType": "局屬自動站"
+        "id": "C0R770",
+        "name": "保力",
+        "type": "自動站"
       }
     ],
     "獅子鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "獅子鄉",
-        "stationName": "內獅",
-        "stationType": "局屬自動站"
+        "id": "C0R810",
+        "name": "內獅",
+        "type": "自動站"
       }
     ],
     "屏東縣來義鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "屏東縣來義鄉",
-        "stationName": "白鷺",
-        "stationType": "局屬自動站"
+        "id": "C0R820",
+        "name": "白鷺",
+        "type": "自動站"
       }
     ],
     "林邊鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "林邊鄉",
-        "stationName": "林邊",
-        "stationType": "局屬自動站"
+        "id": "C0R850",
+        "name": "林邊",
+        "type": "自動站"
+      },
+      {
+        "id": "CAQ030",
+        "name": "崎峰國小",
+        "type": "農業站"
       }
     ],
     "萬丹鄉": [
       {
-        "locationName": "屏東縣",
-        "districtName": "萬丹鄉",
-        "stationName": "萬丹",
-        "stationType": "局屬自動站"
+        "id": "C0R930",
+        "name": "萬丹",
+        "type": "自動站"
       }
     ]
   },
   "連江縣": {
     "南竿鄉": [
       {
-        "locationName": "連江縣",
-        "districtName": "南竿鄉",
-        "stationName": "馬祖",
-        "stationType": "局屬有人站"
+        "id": "467990",
+        "name": "馬祖",
+        "type": "有人站"
       }
     ],
     "莒光鄉": [
       {
-        "locationName": "連江縣",
-        "districtName": "莒光鄉",
-        "stationName": "東莒",
-        "stationType": "局屬自動站"
+        "id": "C0W110",
+        "name": "東莒",
+        "type": "自動站"
       }
     ]
   },
   "新竹市": {
     "東區": [
       {
-        "locationName": "新竹市",
-        "districtName": "東區",
-        "stationName": "新竹市東區",
-        "stationType": "局屬自動站"
+        "id": "C0D660",
+        "name": "新竹市東區",
+        "type": "自動站"
       }
     ],
     "北區": [
       {
-        "locationName": "新竹市",
-        "districtName": "北區",
-        "stationName": "海天一線",
-        "stationType": "局屬自動站"
+        "id": "C0D670",
+        "name": "海天一線",
+        "type": "自動站"
       }
     ],
     "香山區": [
       {
-        "locationName": "新竹市",
-        "districtName": "香山區",
-        "stationName": "香山濕地",
-        "stationType": "局屬自動站"
+        "id": "C0D680",
+        "name": "香山濕地",
+        "type": "自動站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAD050",
+        "name": "國一N094K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAD090",
+        "name": "國三S103K",
+        "type": "合作站"
       }
     ]
   },
   "苗栗縣": {
     "竹南鎮": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "竹南鎮",
-        "stationName": "竹南",
-        "stationType": "局屬自動站"
+        "id": "C0E420",
+        "name": "竹南",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "竹南鎮",
-        "stationName": "龍鳳",
-        "stationType": "局屬自動站"
+        "id": "C0E930",
+        "name": "龍鳳",
+        "type": "自動站"
       }
     ],
     "南庄鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "南庄鄉",
-        "stationName": "南庄",
-        "stationType": "局屬自動站"
+        "id": "C0E430",
+        "name": "南庄",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "南庄鄉",
-        "stationName": "鳳美",
-        "stationType": "局屬自動站"
+        "id": "C1E480",
+        "name": "鳳美",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "南庄鄉",
-        "stationName": "南礦",
-        "stationType": "局屬自動站"
+        "id": "C1E670",
+        "name": "南礦",
+        "type": "自動站"
       }
     ],
     "大湖鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "大湖鄉",
-        "stationName": "大湖",
-        "stationType": "局屬自動站"
+        "id": "C0E520",
+        "name": "大湖",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "大湖鄉",
-        "stationName": "新開",
-        "stationType": "局屬自動站"
+        "id": "C1E511",
+        "name": "新開",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "大湖鄉",
-        "stationName": "南湖",
-        "stationType": "局屬自動站"
+        "id": "C1E691",
+        "name": "南湖",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "大湖鄉",
-        "stationName": "馬拉邦山",
-        "stationType": "局屬自動站"
+        "id": "C1E711",
+        "name": "馬拉邦山",
+        "type": "自動站"
+      },
+      {
+        "id": "K2E710",
+        "name": "苗改生物防治研究中心",
+        "type": "農業站"
       }
     ],
     "後龍鎮": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "後龍鎮",
-        "stationName": "後龍",
-        "stationType": "局屬自動站"
+        "id": "C0E540",
+        "name": "後龍",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "後龍鎮",
-        "stationName": "高鐵苗栗",
-        "stationType": "局屬自動站"
+        "id": "C0E870",
+        "name": "高鐵苗栗",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "後龍鎮",
-        "stationName": "海埔",
-        "stationType": "局屬自動站"
+        "id": "C0E910",
+        "name": "海埔",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "後龍鎮",
-        "stationName": "南勢",
-        "stationType": "局屬自動站"
+        "id": "C1E601",
+        "name": "南勢",
+        "type": "自動站"
       }
     ],
     "頭屋鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "頭屋鄉",
-        "stationName": "明德",
-        "stationType": "局屬自動站"
+        "id": "C0E550",
+        "name": "明德",
+        "type": "自動站"
       }
     ],
     "通霄鎮": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "通霄鎮",
-        "stationName": "通霄",
-        "stationType": "局屬自動站"
+        "id": "C0E590",
+        "name": "通霄",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "通霄鎮",
-        "stationName": "通霄漁港",
-        "stationType": "局屬自動站"
+        "id": "C0E920",
+        "name": "通霄漁港",
+        "type": "自動站"
       }
     ],
     "泰安鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "泰安鄉",
-        "stationName": "馬都安",
-        "stationType": "局屬自動站"
+        "id": "C0E610",
+        "name": "馬都安",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "泰安鄉",
-        "stationName": "象鼻",
-        "stationType": "局屬自動站"
+        "id": "C1E451",
+        "name": "象鼻",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "泰安鄉",
-        "stationName": "松安",
-        "stationType": "局屬自動站"
+        "id": "C1E461",
+        "name": "松安",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "泰安鄉",
-        "stationName": "南勢山",
-        "stationType": "局屬自動站"
+        "id": "C1E681",
+        "name": "南勢山",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "泰安鄉",
-        "stationName": "八卦",
-        "stationType": "局屬自動站"
+        "id": "C1E701",
+        "name": "八卦",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "泰安鄉",
-        "stationName": "泰安",
-        "stationType": "局屬自動站"
+        "id": "C1E721",
+        "name": "泰安",
+        "type": "自動站"
       }
     ],
     "頭份市": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "頭份市",
-        "stationName": "頭份",
-        "stationType": "局屬自動站"
+        "id": "C0E730",
+        "name": "頭份",
+        "type": "自動站"
       }
     ],
     "造橋鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "造橋鄉",
-        "stationName": "造橋",
-        "stationType": "局屬自動站"
+        "id": "C0E740",
+        "name": "造橋",
+        "type": "自動站"
       }
     ],
     "苗栗市": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "苗栗市",
-        "stationName": "苗栗",
-        "stationType": "局屬自動站"
+        "id": "C0E750",
+        "name": "苗栗",
+        "type": "自動站"
       }
     ],
     "銅鑼鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "銅鑼鄉",
-        "stationName": "銅鑼",
-        "stationType": "局屬自動站"
+        "id": "C0E780",
+        "name": "銅鑼",
+        "type": "自動站"
       }
     ],
     "卓蘭鎮": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "卓蘭鎮",
-        "stationName": "卓蘭",
-        "stationType": "局屬自動站"
+        "id": "C0E791",
+        "name": "卓蘭",
+        "type": "自動站"
       }
     ],
     "西湖鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "西湖鄉",
-        "stationName": "西湖",
-        "stationType": "局屬自動站"
+        "id": "C0E810",
+        "name": "西湖",
+        "type": "自動站"
+      },
+      {
+        "id": "B2E890",
+        "name": "畜試北區分所",
+        "type": "農業站"
       }
     ],
     "獅潭鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "獅潭鄉",
-        "stationName": "獅潭",
-        "stationType": "局屬自動站"
+        "id": "C0E820",
+        "name": "獅潭",
+        "type": "自動站"
       }
     ],
     "苑裡鎮": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "苑裡鎮",
-        "stationName": "苑裡",
-        "stationType": "局屬自動站"
+        "id": "C0E830",
+        "name": "苑裡",
+        "type": "自動站"
       }
     ],
     "三灣鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "三灣鄉",
-        "stationName": "大河",
-        "stationType": "局屬自動站"
+        "id": "C0E850",
+        "name": "大河",
+        "type": "自動站"
       }
     ],
     "苗栗縣三義鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "苗栗縣三義鄉",
-        "stationName": "三義",
-        "stationType": "局屬自動站"
+        "id": "C0E880",
+        "name": "三義",
+        "type": "自動站"
       }
     ],
     "公館鄉": [
       {
-        "locationName": "苗栗縣",
-        "districtName": "公館鄉",
-        "stationName": "公館",
-        "stationType": "局屬自動站"
-      }
-    ],
-    "": [
-      {
-        "locationName": "苗栗縣",
-        "districtName": "",
-        "stationName": "國三N149K",
-        "stationType": "局屬自動站"
+        "id": "C1E770",
+        "name": "公館",
+        "type": "自動站"
       },
       {
-        "locationName": "苗栗縣",
-        "districtName": "",
-        "stationName": "國一N128K",
-        "stationType": "局屬自動站"
+        "id": "K2E360",
+        "name": "苗栗農改場",
+        "type": "農業站"
+      }
+    ],
+    "other": [
+      {
+        "id": "C1E890",
+        "name": "國三N149K",
+        "type": "自動站"
+      },
+      {
+        "id": "C1E900",
+        "name": "國一N128K",
+        "type": "自動站"
+      },
+      {
+        "id": "CAE010",
+        "name": "國一N142K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE020",
+        "name": "國一S114K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE030",
+        "name": "國一S123K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE040",
+        "name": "國一S132K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE050",
+        "name": "國一S152K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE060",
+        "name": "國三N119K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE070",
+        "name": "國三N151K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE080",
+        "name": "國三S140K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAE090",
+        "name": "國三S156K",
+        "type": "合作站"
       }
     ]
   },
   "雲林縣": {
     "古坑鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "古坑鄉",
-        "stationName": "草嶺",
-        "stationType": "局屬自動站"
+        "id": "C0K240",
+        "name": "草嶺",
+        "type": "自動站"
       },
       {
-        "locationName": "雲林縣",
-        "districtName": "古坑鄉",
-        "stationName": "棋山",
-        "stationType": "局屬自動站"
+        "id": "C0K560",
+        "name": "棋山",
+        "type": "自動站"
+      },
+      {
+        "id": "A2K570",
+        "name": "古坑(花卉中心)",
+        "type": "合作站"
       }
     ],
     "崙背鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "崙背鄉",
-        "stationName": "崙背",
-        "stationType": "局屬自動站"
+        "id": "C0K250",
+        "name": "崙背",
+        "type": "自動站"
       }
     ],
     "四湖鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "四湖鄉",
-        "stationName": "四湖",
-        "stationType": "局屬自動站"
+        "id": "C0K280",
+        "name": "四湖",
+        "type": "自動站"
+      },
+      {
+        "id": "E2K600",
+        "name": "四湖植物園",
+        "type": "農業站"
       }
     ],
     "口湖鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "口湖鄉",
-        "stationName": "宜梧",
-        "stationType": "局屬自動站"
+        "id": "C0K291",
+        "name": "宜梧",
+        "type": "自動站"
       },
       {
-        "locationName": "雲林縣",
-        "districtName": "口湖鄉",
-        "stationName": "箔子寮",
-        "stationType": "局屬自動站"
+        "id": "C0K600",
+        "name": "箔子寮",
+        "type": "自動站"
       },
       {
-        "locationName": "雲林縣",
-        "districtName": "口湖鄉",
-        "stationName": "口湖",
-        "stationType": "局屬自動站"
+        "id": "C1K540",
+        "name": "口湖",
+        "type": "自動站"
+      },
+      {
+        "id": "12J990",
+        "name": "口湖工作站",
+        "type": "農業站"
+      },
+      {
+        "id": "CAJ050",
+        "name": "海口故事園區",
+        "type": "農業站"
       }
     ],
     "虎尾鎮": [
       {
-        "locationName": "雲林縣",
-        "districtName": "虎尾鎮",
-        "stationName": "虎尾",
-        "stationType": "局屬自動站"
+        "id": "C0K330",
+        "name": "虎尾",
+        "type": "自動站"
       },
       {
-        "locationName": "雲林縣",
-        "districtName": "虎尾鎮",
-        "stationName": "高鐵雲林",
-        "stationType": "局屬自動站"
+        "id": "C0K580",
+        "name": "高鐵雲林",
+        "type": "自動站"
+      },
+      {
+        "id": "A2K630",
+        "name": "臺大雲林校區",
+        "type": "農業站"
       }
     ],
     "土庫鎮": [
       {
-        "locationName": "雲林縣",
-        "districtName": "土庫鎮",
-        "stationName": "土庫",
-        "stationType": "局屬自動站"
+        "id": "C0K390",
+        "name": "土庫",
+        "type": "自動站"
       }
     ],
     "斗六市": [
       {
-        "locationName": "雲林縣",
-        "districtName": "斗六市",
-        "stationName": "斗六",
-        "stationType": "局屬自動站"
+        "id": "C0K400",
+        "name": "斗六",
+        "type": "自動站"
       }
     ],
     "北港鎮": [
       {
-        "locationName": "雲林縣",
-        "districtName": "北港鎮",
-        "stationName": "北港",
-        "stationType": "局屬自動站"
+        "id": "C0K410",
+        "name": "北港",
+        "type": "自動站"
       }
     ],
     "西螺鎮": [
       {
-        "locationName": "雲林縣",
-        "districtName": "西螺鎮",
-        "stationName": "西螺",
-        "stationType": "局屬自動站"
+        "id": "C0K420",
+        "name": "西螺",
+        "type": "自動站"
       }
     ],
     "褒忠鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "褒忠鄉",
-        "stationName": "褒忠",
-        "stationType": "局屬自動站"
+        "id": "C0K430",
+        "name": "褒忠",
+        "type": "自動站"
       }
     ],
     "二崙鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "二崙鄉",
-        "stationName": "二崙",
-        "stationType": "局屬自動站"
+        "id": "C0K440",
+        "name": "二崙",
+        "type": "自動站"
+      },
+      {
+        "id": "V2K610",
+        "name": "大庄合作社",
+        "type": "農業站"
       }
     ],
     "大埤鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "大埤鄉",
-        "stationName": "大埤",
-        "stationType": "局屬自動站"
+        "id": "C0K450",
+        "name": "大埤",
+        "type": "自動站"
       }
     ],
     "斗南鎮": [
       {
-        "locationName": "雲林縣",
-        "districtName": "斗南鎮",
-        "stationName": "斗南",
-        "stationType": "局屬自動站"
+        "id": "C0K460",
+        "name": "斗南",
+        "type": "自動站"
+      },
+      {
+        "id": "72K220",
+        "name": "南改斗南分場",
+        "type": "農業站"
       }
     ],
     "林內鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "林內鄉",
-        "stationName": "林內",
-        "stationType": "局屬自動站"
+        "id": "C0K470",
+        "name": "林內",
+        "type": "自動站"
       }
     ],
     "莿桐鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "莿桐鄉",
-        "stationName": "莿桐",
-        "stationType": "局屬自動站"
+        "id": "C0K480",
+        "name": "莿桐",
+        "type": "自動站"
       }
     ],
     "元長鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "元長鄉",
-        "stationName": "元長",
-        "stationType": "局屬自動站"
+        "id": "C0K500",
+        "name": "元長",
+        "type": "自動站"
       }
     ],
     "水林鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "水林鄉",
-        "stationName": "水林",
-        "stationType": "局屬自動站"
+        "id": "C0K510",
+        "name": "水林",
+        "type": "自動站"
       },
       {
-        "locationName": "雲林縣",
-        "districtName": "水林鄉",
-        "stationName": "蔦松",
-        "stationType": "局屬自動站"
+        "id": "C0K550",
+        "name": "蔦松",
+        "type": "自動站"
       }
     ],
     "台西鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "台西鄉",
-        "stationName": "臺西",
-        "stationType": "局屬自動站"
+        "id": "C0K530",
+        "name": "臺西",
+        "type": "自動站"
       }
     ],
     "東勢鄉": [
       {
-        "locationName": "雲林縣",
-        "districtName": "東勢鄉",
-        "stationName": "雲林東勢",
-        "stationType": "局屬自動站"
+        "id": "C0K590",
+        "name": "雲林東勢",
+        "type": "自動站"
+      }
+    ],
+    "臺西鄉": [
+      {
+        "id": "A2K360",
+        "name": "水試臺西試驗場",
+        "type": "農業站"
+      }
+    ],
+    "麥寮鄉": [
+      {
+        "id": "V2K620",
+        "name": "麥寮合作社",
+        "type": "農業站"
+      },
+      {
+        "id": "A0K420",
+        "name": "麥寮",
+        "type": "合作站"
+      }
+    ],
+    "other": [
+      {
+        "id": "CAJ010",
+        "name": "國三N252K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAJ020",
+        "name": "國一N234K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAJ030",
+        "name": "西濱N222K",
+        "type": "合作站"
+      },
+      {
+        "id": "CAJ040",
+        "name": "西濱S241K",
+        "type": "合作站"
+      }
+    ]
+  },
+  "台北市": {
+    "北投區": [
+      {
+        "id": "G2AI50",
+        "name": "關渡",
+        "type": "農業站"
       }
     ]
   }

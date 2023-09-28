@@ -52,46 +52,6 @@ const Container = styled.article`
 `;
 
 
-// const ScreenSize = () => {
-//   const body = document.getElementsByTagName('body')[0];
-//   const [size, setSize] = useState({
-//     screen: [window.screen.width, window.screen.height],
-//     window: [window.innerWidth, window.innerHeight],
-//     doc: [document.documentElement.clientWidth, document.documentElement.clientHeight],
-//     body: [body.clientWidth, body.clientHeight],
-//   });
-
-//   const resize = () => {
-//     setSize({
-//       screen: [window.screen.width, window.screen.height],
-//       window: [window.innerWidth, window.innerHeight],
-//       doc: [document.documentElement.clientWidth, document.documentElement.clientHeight],
-//       body: [body.clientWidth, body.clientHeight],
-//     })
-//   };
-  
-//   useEffect(() => {
-//     window.addEventListener("resize", resize);
-//     return () =>
-//        window.removeEventListener("resize", resize);
-//   }, [])
-
-//   return (
-//     <div style={{
-//         position: "fixed",
-//         top: "60px",
-//         left: "50px",
-//         zIndex: "2",
-//         color: `${({ theme }) => theme.textColor}`,
-//       }}>
-//       window.screen: {size.screen[0]} / {size.screen[1]} <br />
-//       window.inner: {size.window[0]} / {size.window[1]} <br />
-//       documentElement: {size.doc[0]} / {size.doc[1]} <br />
-//       body: {size.body[0]} / {size.body[1]}
-//     </div>
-//   )
-// }
-
 
 const App = () => {
   // Get the city is day or night.
@@ -169,7 +129,6 @@ const App = () => {
   useMemo(() => addCardEvent(), []);
   return (
     <ThemeProvider theme={theme[currentTheme]}>
-      {/* <ScreenSize /> */}
       <Header
         currentTheme={currentTheme}
         changeThemeMode={changeThemeMode}

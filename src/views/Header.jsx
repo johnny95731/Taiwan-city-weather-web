@@ -6,7 +6,7 @@ import { ReactComponent as List } from "./../images/list.svg";
 import { hex2Decimal } from "./../utils/helpers";
 
 // Components
-const HeaderWrapper = styled.nav`
+const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;

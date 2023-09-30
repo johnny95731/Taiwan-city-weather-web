@@ -41,16 +41,15 @@ const theme = {
 const Container = styled.article`
   display: flex;
   flex-wrap: wrap;
-  padding-top: 60px; /**Height of header */
-  place-content: space-evenly space-evenly;
+  padding-top: 100px; /**Height of header */
+  align-content: start;
+  justify-content: center;
   background-color: ${({ theme }) => theme.backgroundColor};
   width: 100%;
-  min-height: 100%;
+  min-height: 200%;
   height: auto;
-  box-sizing: border-box;
   overflow-y: auto;
 `;
-
 
 
 const App = () => {
@@ -73,57 +72,83 @@ const App = () => {
 
   // Card number
   const [cards, setCards] = useState(() => [])
-
-  const cardsRearrange = (idx) => {
+  
+  const cardsRearrange = useCallback((idx) => {
     // Rearrange after delete a card.
+    // for (let i = idx; i < cards.length - 1; i += 1) {
+    //   localStorage.setItem(`city${i}`, localStorage.getItem(`city${i+1}`) )
+    //   localStorage.setItem(`town${i}`, localStorage.getItem(`town${i+1}`) )
+    // }
     setCards((prevState) => {
       const newCards = [...prevState];
-      newCards.splice(idx, 1);
-      return newCards
+      const target = newCards.findIndex((cards, i) => cards.key == idx);
+      newCards.splice(target, 1); // 移除指定的卡
+      return newCards;
     });
-  };
+  }, []);
 
   const addCardEvent = useCallback(() => {
     if (!cards.length){
-      setCards((prevState) => ([
-        ...prevState,
+      setCards([
         <WeatherCard
-          key={cards.length}
-          cardNum={cards.length}
+          key={0}
+          cardNum={0}
           moment={moment}
           cardsRearrange={cardsRearrange}
         />
-      ]));
+      ]);
       return
     };
+    // setCards((prevState) => {
+    //   const newCards = prevState.map((card, i) => {
+    //     // 重新連接cardsRearrange
+    //     return <WeatherCard
+    //       key={card.key}
+    //       cardNum={i}
+    //       moment={moment}
+    //       cardsRearrange={cardsRearrange}
+    //     />
+    //   });
+    //   newCards.push( // 增加新的卡
+    //     <WeatherCard
+    //       key={newCards.length}
+    //       cardNum={newCards.length}
+    //       moment={moment}
+    //       cardsRearrange={cardsRearrange}
+    //     />
+    //   );
+    //   return newCards;
+    // });
     const allKeys = cards.map((card) => parseInt(card.key));
     allKeys.sort((a, b) => a-b);
-    if (allKeys[allKeys.length-1] === allKeys.length-1){
+    const newCards = cards.map((card, i) => {
+      // 重新連接cardsRearrange
+      return <WeatherCard
+        key={card.key}
+        cardNum={card.key}
+        moment={moment}
+        cardsRearrange={cardsRearrange}
+      />
+    });
+    let idx;
+    if (allKeys[allKeys.length-1] === allKeys.length-1) {
       // No card exists or cards be deleted from the middle.
       // If the card always be deleted from last, the if-else statement will
       // enter this part.
-      setCards((prevState) => ([
-        ...prevState,
-        <WeatherCard
-          key={cards.length}
-          cardNum={cards.length}
-          moment={moment}
-          cardsRearrange={cardsRearrange}
-        />
-      ]));
+      idx = cards.length
     } else { // If some cards be deleted Last key is not matching length.
       // Find the missing key (card be deleted).
-      const idx = allKeys.slice(0,-1).find((key, i) => allKeys[i+1]-key > 1)+1;
-      setCards((prevState) => ([
-        ...prevState,
-        <WeatherCard
-          key={idx}
-          cardNum={idx}
-          moment={moment}
-          cardsRearrange={cardsRearrange}
-        />
-      ]));
+      idx = allKeys.slice(0,-1).find((key, i) => allKeys[i+1]-key > 1)+1;
     };
+    newCards.push(
+      <WeatherCard
+        key={idx}
+        cardNum={idx}
+        moment={moment}
+        cardsRearrange={cardsRearrange}
+      />
+    );
+    setCards(newCards);
   }, [cards, moment]);
 
   useMemo(() => addCardEvent(), []);

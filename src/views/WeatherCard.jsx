@@ -231,17 +231,17 @@ const WeatherCard = ({
 }) => {
   // Displayed city name and observation location name.
   const [currentCity, setCurrentCity] = useState(() =>
-    localStorage.getItem(`cityName${cardNum}`) || "臺北市"
+    localStorage.getItem(`city${cardNum}`) || "臺北市"
   );
   const [currentTown, setCurrentTown] = useState(() =>
-    localStorage.getItem(`townName${cardNum}`) || "---"
+    localStorage.getItem(`town${cardNum}`) || "---"
   );
   const currentStation = useMemo(() => getLocation(currentCity).repStationID,
    [currentCity]);
 
   // fetch weather info from API.
   const [weatherElement, fetchData] = useWeatherAPI({
-    locationName: currentStation,
+    repStationID: currentStation,
     cityName: currentCity,
     townName: currentTown,
     authorizationKey: AUTHORIZATION_KEY,
@@ -262,15 +262,15 @@ const WeatherCard = ({
 
   const cityChanged = (e) => {
     const locationName = e.target.value;
-    localStorage.setItem(`townName${cardNum}`, "---");
-    setCurrentTown("---");
-    localStorage.setItem(`cityName${cardNum}`, locationName);
+    localStorage.setItem(`city${cardNum}`, locationName);
     setCurrentCity(locationName);
+    localStorage.setItem(`town${cardNum}`, "---");
+    setCurrentTown("---");
   };
 
   const townChanged = (e) => {
     const townName = e.target.value;
-    localStorage.setItem(`townName${cardNum}`, townName);
+    localStorage.setItem(`town${cardNum}`, townName);
     setCurrentTown(townName);
   };
 
@@ -291,13 +291,13 @@ const WeatherCard = ({
     }
   });
 
-  const mouseDown = (e) => {
+  const mouseDown = useCallback((e) => {
     setStart({
       x: Number(cardPos.x.slice(0, -2)) - e.clientX,
       y: Number(cardPos.y.slice(0, -2)) - e.clientY,
     });
     SetIsDragging(true);
-  };
+  }, []);
 
   const mouseMove = useCallback((e) => {
     if (isDragging) {
@@ -364,9 +364,9 @@ const WeatherCard = ({
           <Temperature>
             {Math.round(temperature)} <Celsius>°C</Celsius>
           </Temperature>
-          <DangerIndex id={"Tooltip-1"}>
+          <DangerIndex id={"DangerIndex"}>
             <Tooltip
-              id={"Tooltip-1"}
+              id={"DangerIndex"}
               content={"熱傷害指數"}
             />
             <DangerIcon />
@@ -374,16 +374,16 @@ const WeatherCard = ({
           </DangerIndex>
         </TempNDanger>
         <Info>
-          <AirFlow id={"Tooltip-2"}>
+          <AirFlow id={"AirFlow"}>
             <Tooltip
-              id={"Tooltip-2"}
+              id={"AirFlow"}
               content={"風速"}
             />
             <AirFlowIcon /> {windSpeed} m/h
           </AirFlow>
-          <Rain id={"Tooltip-3"}>
+          <Rain id={"Rain"}>
             <Tooltip
-              id={"Tooltip-3"}
+              id={"Rain"}
               content={"12小時內降雨機率"}
             />
             <RainIcon /> {rainPossibility}%

@@ -5,7 +5,7 @@ const fetchCurrentWeather = ({ authorizationKey, stationID }) => {
   /**
    * 抓取氣象站資料
    */
-  const code = stationID.startsWith("C") ? "O-A0001-001" : "O-A0003-001"
+  const code = stationID.startsWith("C") ? "O-A0001-001" : "O-A0003-001";
   return fetch(
     `https://opendata.cwa.gov.tw/api/v1/rest/datastore/${code}?Authorization=${authorizationKey}&stationId=${stationID}`
   )
@@ -122,7 +122,7 @@ const fetchWBGT = ({
 
 
 const useWeatherAPI = ({
-  locationName: repStationID,
+  repStationID,
   cityName,
   townName,
   authorizationKey

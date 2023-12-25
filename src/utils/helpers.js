@@ -1,4 +1,4 @@
-import sunriseAndSunsetData from './sunrise-sunset.json';
+import sunriseAndSunsetData from "./sunrise-sunset.json";
 import locations from './locations.json';
 
 export const getLocation = (cityName) => {
@@ -74,8 +74,7 @@ export const getMoment = (locationName) => {
     : 'night';
 };
 
-const rgbScale = [0.299, 0.587, 0.114];
-
+const rgbCoeff = [0.299, 0.587, 0.114];
 export const hex2Decimal = (hex) => {
   /**
    * Convert hex rgb color to gray scale number.
@@ -85,12 +84,12 @@ export const hex2Decimal = (hex) => {
   }
   if ( hex.length === 3 ) {
     const strs = hex.split("");
-    const vals = strs.map((str, i) => parseInt(str+str, 16) * rgbScale[i]);
+    const vals = strs.map((str, i) => parseInt(str+str, 16) * rgbCoeff[i]);
     return vals.reduce((cummul, val) => cummul += val, 0);
   } else if ( hex.length === 6 ) {
-    return parseInt(hex.substr(0, 2), 16) * rgbScale[0]
-         + parseInt(hex.substr(2, 2), 16) * rgbScale[1]
-         + parseInt(hex.substr(4, 2), 16) * rgbScale[2]
+    return parseInt(hex.substr(0, 2), 16) * rgbCoeff[0]
+         + parseInt(hex.substr(2, 2), 16) * rgbCoeff[1]
+         + parseInt(hex.substr(4, 2), 16) * rgbCoeff[2]
   }
   return null
 };

@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useMemo, useCallback } from "react";
+import {useState, useMemo, useCallback} from "react";
 import styled from "@emotion/styled";
-import { ThemeProvider } from "@emotion/react";
+import {ThemeProvider} from "@emotion/react";
 
-import { getMoment } from "./utils/helpers"
+import {getMoment} from "./utils/helpers";
 import WeatherCard from "./views/WeatherCard.jsx";
 import Header from "./views/Header.jsx";
 
@@ -44,7 +44,7 @@ const Container = styled.article`
   padding-top: 100px; /**Height of header */
   align-content: start;
   justify-content: center;
-  background-color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({theme}) => theme.backgroundColor};
   width: 100%;
   min-height: 200%;
   height: auto;
@@ -56,11 +56,11 @@ const App = () => {
   // Get the city is day or night.
   const moment = useMemo(() => getMoment("臺北市"), []);
 
-  // Web theme: { light, dark }
+  // Web theme: {light, dark}
   const [currentTheme, setCurrentTheme] = useState(() => {
     const themeMode = localStorage.getItem("theme") || "light";
     document.body.style.backgroundColor = theme[themeMode].backgroundColor;
-    return themeMode
+    return themeMode;
   });
 
   const changeThemeMode = useCallback(() => {
@@ -71,8 +71,8 @@ const App = () => {
   }, [currentTheme]);
 
   // Card number
-  const [cards, setCards] = useState(() => [])
-  
+  const [cards, setCards] = useState(() => []);
+
   const cardsRearrange = useCallback((idx) => {
     // Rearrange after delete a card.
     // for (let i = idx; i < cards.length - 1; i += 1) {
@@ -81,46 +81,25 @@ const App = () => {
     // }
     setCards((prevState) => {
       const newCards = [...prevState];
-      const target = newCards.findIndex((cards, i) => cards.key == idx);
+      const target = newCards.findIndex((cards, i) => cards.key === idx);
       newCards.splice(target, 1); // 移除指定的卡
       return newCards;
     });
   }, []);
 
   const addCardEvent = useCallback(() => {
-    if (!cards.length){
+    if (!cards.length) {
       setCards([
         <WeatherCard
           key={0}
           cardNum={0}
           moment={moment}
           cardsRearrange={cardsRearrange}
-        />
+        />,
       ]);
-      return
-    };
-    // setCards((prevState) => {
-    //   const newCards = prevState.map((card, i) => {
-    //     // 重新連接cardsRearrange
-    //     return <WeatherCard
-    //       key={card.key}
-    //       cardNum={i}
-    //       moment={moment}
-    //       cardsRearrange={cardsRearrange}
-    //     />
-    //   });
-    //   newCards.push( // 增加新的卡
-    //     <WeatherCard
-    //       key={newCards.length}
-    //       cardNum={newCards.length}
-    //       moment={moment}
-    //       cardsRearrange={cardsRearrange}
-    //     />
-    //   );
-    //   return newCards;
-    // });
+      return;
+    }
     const allKeys = cards.map((card) => parseInt(card.key));
-    allKeys.sort((a, b) => a-b);
     const newCards = cards.map((card, i) => {
       // 重新連接cardsRearrange
       return <WeatherCard
@@ -128,25 +107,26 @@ const App = () => {
         cardNum={card.key}
         moment={moment}
         cardsRearrange={cardsRearrange}
-      />
+      />;
     });
     let idx;
-    if (allKeys[allKeys.length-1] === allKeys.length-1) {
+    if (Math.max(...allKeys) === allKeys.length-1) {
       // No card exists or cards be deleted from the middle.
       // If the card always be deleted from last, the if-else statement will
       // enter this part.
-      idx = cards.length
-    } else { // If some cards be deleted Last key is not matching length.
+      idx = cards.length;
+    } else {// If some cards be deleted Last key is not matching length.
       // Find the missing key (card be deleted).
-      idx = allKeys.slice(0,-1).find((key, i) => allKeys[i+1]-key > 1)+1;
-    };
+      allKeys.sort((a, b) => a-b);
+      idx = allKeys.slice(0, -1).find((key, i) => allKeys[i+1]-key > 1) + 1;
+    }
     newCards.push(
-      <WeatherCard
-        key={idx}
-        cardNum={idx}
-        moment={moment}
-        cardsRearrange={cardsRearrange}
-      />
+        <WeatherCard
+          key={idx}
+          cardNum={idx}
+          moment={moment}
+          cardsRearrange={cardsRearrange}
+        />,
     );
     setCards(newCards);
   }, [cards, moment]);

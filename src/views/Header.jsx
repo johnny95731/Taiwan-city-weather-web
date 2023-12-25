@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
-import { useState, useEffect } from "react";
+import React, {useCallback} from "react";
+import {useState, useEffect} from "react";
 import styled from "@emotion/styled";
 
-import { ReactComponent as List } from "./../images/list.svg";
-import { hex2Decimal } from "./../utils/helpers";
+import {ReactComponent as List} from "./../images/list.svg";
+import {hex2Decimal} from "./../utils/helpers";
 
 // Components
 const HeaderWrapper = styled.header`
@@ -12,11 +12,11 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   position: fixed;
   left: 0px;
-  top: ${({ isVisible }) => isVisible ? "0px" : "-60px"};
+  top: ${({isVisible}) => isVisible ? "0px" : "-60px"};
   z-index: 1;
   width: 100%;
   height: 60px;
-  background-color: ${({ theme }) => theme.headerColor};
+  background-color: ${({theme}) => theme.headerColor};
   padding: 10px 3% 10px 3%;
   box-sizing: border-box;
   -webkit-transition: all 0.5s ease;
@@ -35,7 +35,7 @@ const HeaderWrapper = styled.header`
 const Title = styled.h1`
   font-size: 21px;
   font-weight: 600;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({theme}) => theme.textColor};
 
   @media (max-width: 500px), (max-height: 600px) {
     font-size: 18px;
@@ -47,7 +47,7 @@ const OptionMenu = styled.div`
   display: inline-block;
   width: 35px;
   height: 35px;
-  background-color: ${({ theme }) => theme.optionMenuColor};
+  background-color: ${({theme}) => theme.optionMenuColor};
 
   @media (max-width: 500px), (max-height: 600px) {
     width: 25px;
@@ -55,8 +55,8 @@ const OptionMenu = styled.div`
   }
 
   &:hover {
-    /* background-color: ${({ theme }) => theme.optionMenuHoverColor}; */
-    box-shadow: ${({ theme }) => theme.optionMenuShadow};
+    /* background-color: ${({theme}) => theme.optionMenuHoverColor}; */
+    box-shadow: ${({theme}) => theme.optionMenuShadow};
   }
 `;
 
@@ -65,12 +65,12 @@ const OptionButton = styled(List)`
   height: 35px;
   cursor: pointer;
   ${
-    // 原圖檔為黑色。
-    // 背景亮度高則維持黑色，亮度低則反轉為白色。
-    ({ theme }) => hex2Decimal(theme.foregroundColor) > 127 ?
-    "" : 
+  // 原圖檔為黑色。
+  // 背景亮度高則維持黑色，亮度低則反轉為白色。
+  ({theme}) => hex2Decimal(theme.foregroundColor) > 127 ?
+    "" :
     "-webkit-filter: invert(100%); filter: invert(100%);"
-  }
+}
 
   @media (max-width: 500px), (max-height: 600px) {
     width: 25px;
@@ -90,13 +90,13 @@ const OptionContent = styled.div`
   z-index: 1;
   button {
     width: 100%;
-    background-color: ${({ theme }) => theme.foregroundColor};
+    background-color: ${({theme}) => theme.foregroundColor};
     font-size: 14px;
     font-weight: 600;
-    color: ${({ theme }) => theme.textColor};
+    color: ${({theme}) => theme.textColor};
     padding: 5px 10px;
     border-width: 1px 0;
-    border-color: ${({ theme }) => theme.foregroundColor};
+    border-color: ${({theme}) => theme.foregroundColor};
     &:hover {
       text-decoration: underline;
     }
@@ -104,33 +104,33 @@ const OptionContent = styled.div`
 `;
 
 
-const Header = ({ 
+const Header = ({
   currentTheme,
   changeThemeMode,
-  addCard
+  addCard,
 }) => {
   // Hide Header when scrolling more than heightToHideFrom.
   const [isVisible, setIsVisible] = useState(true);
 
   const listenToScroll = useCallback(() => {
-    let heightToHideFrom = 400;
+    const heightToHideFrom = 400;
     const winScroll = document.body.scrollTop ||
         document.documentElement.scrollTop;
-  
+
     if (winScroll > heightToHideFrom) {
-       isVisible && // to limit setting state only the first time
+      isVisible && // to limit setting state only the first time
          setIsVisible(false);
     } else {
-         setIsVisible(true);
+      setIsVisible(true);
     }
   }, [isVisible]);
 
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
     return () =>
-       window.removeEventListener("scroll", listenToScroll);
-  }, [listenToScroll])
-  
+      window.removeEventListener("scroll", listenToScroll);
+  }, [listenToScroll]);
+
   const clickOption = (e) => {
     const element = document.getElementById("OptionContents");
     if (element.style.display === "none") {
@@ -139,7 +139,7 @@ const Header = ({
       element.style.display = "none";
     }
   };
-  
+
   return (
     <HeaderWrapper isVisible={isVisible}>
       <Title>縣市天氣即時資訊</Title>
@@ -147,18 +147,18 @@ const Header = ({
       <OptionMenu onClick={clickOption} id="OptionMenu">
         {/* <button onClick={addCard}>新增天氣卡</button>
         <button onClick={changeThemeMode}>
-          { currentTheme === "light" ? "深" : "淺" }色模式
+          {currentTheme === "light" ? "深" : "淺" }色模式
         </button> */}
         <OptionButton id="OptionButton"/>
         <OptionContent id="OptionContents">
           <button onClick={addCard}>新增天氣卡</button>
           <button onClick={changeThemeMode}>
-            { currentTheme === "light" ? "深" : "淺" }色模式
+            {currentTheme === "light" ? "深" : "淺" }色模式
           </button>
         </OptionContent>
       </OptionMenu>
     </HeaderWrapper>
-  )
+  );
 };
 
 export default Header;

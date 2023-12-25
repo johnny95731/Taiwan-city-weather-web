@@ -1,0 +1,8 @@
+// Ignore .js files not in `src` folder.
+/**/*.js
+!/src/*.js
+
+/src/setupTests.js
+/src/serviceWorkerRegistration.js
+/src/service-worker.js
+/src/reportWebVitals.js

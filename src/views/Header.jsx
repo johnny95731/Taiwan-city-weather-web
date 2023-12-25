@@ -131,7 +131,7 @@ const Header = ({
       window.removeEventListener("scroll", listenToScroll);
   }, [listenToScroll]);
 
-  const clickOption = (e) => {
+  const clickOption = () => {
     const element = document.getElementById("OptionContents");
     if (element.style.display === "none") {
       element.style.display = "block";

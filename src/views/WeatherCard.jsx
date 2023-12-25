@@ -12,7 +12,7 @@ import {ReactComponent as RainIcon} from "./../images/rain.svg";
 import {ReactComponent as RefreshIcon} from "./../images/refresh.svg";
 import {ReactComponent as DashCircleIcon} from "./../images/dash-circle.svg";
 import {
-  getLocation, getCities, getTowns, hex2Decimal,
+  getLocation, cities, getTowns, hex2Decimal,
 } from "./../utils/helpers";
 
 // Components
@@ -260,10 +260,10 @@ const WeatherCard = ({
 
   const cityChanged = (e) => {
     const locationName = e.target.value;
-    localStorage.setItem(`city${cardNum}`, locationName);
-    setCurrentCity(locationName);
     localStorage.setItem(`town${cardNum}`, "---");
     setCurrentTown("---");
+    localStorage.setItem(`city${cardNum}`, locationName);
+    setCurrentCity(locationName);
   };
 
   const townChanged = (e) => {
@@ -309,6 +309,37 @@ const WeatherCard = ({
     cardsRearrange(cardNum);
   }, [cardNum]);
 
+  // useEffect(() => {
+  //   // 檢驗資料抓取
+  //   let idxCity = 0;
+  //   let idxTown = 0;
+  //   let currentCity = cities[idxCity];
+  //   setCurrentCity(currentCity);
+  //   let towns = ["---", ...getTowns(currentCity)];
+  //   let currentTown = towns[idxTown];
+  //   const intervalId = setInterval(() => {
+  //     if (!currentCity) return;
+  //     console.log(currentCity, currentTown);
+  //     if (currentTown) {
+  //       setCurrentTown(currentTown);
+  //       idxTown += 1;
+  //       currentTown = towns[idxTown];
+  //     } else { // 切換城市
+  //       idxCity += 1;
+  //       currentCity = cities[idxCity];
+  //       if (!currentCity) return;
+  //       else {
+  //         towns = ["---", ...getTowns(currentCity)];
+  //         idxTown = 0;
+  //         currentTown = towns[idxTown];
+  //         setCurrentCity(currentCity);
+  //         setCurrentTown(currentTown);
+  //       }
+  //     }
+  //   }, 100);
+  //   return () => clearInterval(intervalId);
+  // }, []);
+
   return (
     <WeatherCardWrapper
       onMouseDown={mouseDown}
@@ -321,7 +352,7 @@ const WeatherCard = ({
         onChange={cityChanged}
         value={currentCity}
       >
-        {getCities.map((cityName) => (
+        {cities.map((cityName) => (
           <LocationOption value={cityName} key={cityName}>
             {cityName}
           </LocationOption>

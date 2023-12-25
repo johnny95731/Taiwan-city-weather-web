@@ -9,20 +9,24 @@ const fetchCurrentWeather = async ({stationID}) => {
   /**
    * 抓取氣象站資料
    */
-  const code = stationID.startsWith("C") ? "O-A0001-001" : "O-A0003-001";
+  const isUnmanned = stationID.startsWith("C"); // 無人站
+  const code = isUnmanned ? "O-A0001-001" : "O-A0003-001";
   return fetch(
       `https://opendata.cwa.gov.tw/api/v1/rest/datastore/${code}?Authorization=${AUTHORIZATION_KEY}&StationId=${stationID}`,
   )
       .then((response) => response.json())
       .then((data) => {
+        // console.log(code, stationID);
         const locationData = data.records.Station[0];
-        const weatherElements = locationData.WeatherElement;
+        const weatherElement = locationData.WeatherElement;
+        const windSpeed = isUnmanned ?
+          weatherElement.WindSpeed : weatherElement.Max10MinAverage.WindSpeed;
 
         return {
           observationTime: locationData.ObsTime.DateTime,
           locationName: locationData.StationName,
-          temperature: weatherElements.AirTemperature,
-          windSpeed: weatherElements.Max10MinAverage.WindSpeed,
+          temperature: weatherElement.AirTemperature,
+          windSpeed,
         };
       })
       .catch((e) => console.error("氣象站資料下載失敗", e));

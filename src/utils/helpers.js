@@ -19,7 +19,7 @@ export const getGov = (cityName) => {
   return locations[cityName].towns[0]
 };
 
-export const getCities = Object.keys(locations)
+export const cities = Object.keys(locations)
   /**
    * 返回所有城市
    */ 

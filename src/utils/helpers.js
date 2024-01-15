@@ -1,33 +1,36 @@
 import sunriseSunsetData from "./sunrise-sunset.json";
 import locations from './locations.json';
 
-export const getLocation = (cityName) => {
-  return locations[cityName];
+/**
+ * 取得縣市代表觀測站
+ */
+export const getStationID = (cityName) => {
+  return locations[cityName].repStationID;
 };
 
+/**
+ * 取得鄉鎮預報之代碼
+ */
 export const getCode = (cityName) => {
-  /**
-   * 返回鄉鎮預報之代碼
-   */
   return locations[cityName].code
 };
 
-export const getGov = (cityName) => {
-  /**
-   * 返回地方政府所在之區域
-   */
+/**
+ * 取得縣市第一個行政區。
+ */
+export const getFirstTown = (cityName) => {
   return locations[cityName].towns[0]
 };
 
+/**
+ * 取得所有縣市
+ */ 
 export const cities = Object.keys(locations)
-  /**
-   * 返回所有城市
-   */ 
 
+/**
+ * 取得城市的所有鄉鎮市區
+ */
 export const getTowns = (cityName) => {
-  /**
-   * 返回城市的所有鄉鎮市區
-   */
   return locations[cityName].towns
 };
 
@@ -62,10 +65,10 @@ export const getMoment = () => {
 };
 
 const RGB2GRAY_COEFF = [0.299, 0.587, 0.114];
+/**
+ * Convert hex rgb color to gray scale number.
+ */
 export const hex2Decimal = (hex) => {
-  /**
-   * Convert hex rgb color to gray scale number.
-   */
   if ( hex.startsWith("#") ) {
     hex = hex.slice(1);
   }

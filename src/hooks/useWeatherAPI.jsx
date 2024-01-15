@@ -1,14 +1,14 @@
 import {useCallback, useEffect, useState} from "react";
-import {getCode, getGov} from "./../utils/helpers";
+import {getCode, getFirstTown} from "./../utils/helpers";
 
 // Constants
 const AUTHORIZATION_KEY = "CWA-150C2D4A-E612-4AC4-BD27-3D0A604C69AA";
 
 
+/**
+ * 抓取氣象站資料
+ */
 const fetchCurrentWeather = async ({stationID}) => {
-  /**
-   * 抓取氣象站資料
-   */
   const isUnmanned = stationID.startsWith("C"); // 無人站
   const code = isUnmanned ? "O-A0001-001" : "O-A0003-001";
   return fetch(
@@ -32,10 +32,10 @@ const fetchCurrentWeather = async ({stationID}) => {
       .catch((e) => console.error("氣象站資料下載失敗", e));
 };
 
+/**
+ * 抓取縣市天氣預報資料
+ */
 const fetchWeatherForecast = async ({cityName}) => {
-  /**
-   * 抓取縣市天氣預報資料
-   */
   return fetch(
       `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${AUTHORIZATION_KEY}&locationName=${cityName}`,
   )
@@ -63,13 +63,13 @@ const fetchWeatherForecast = async ({cityName}) => {
       .catch((e) => console.error("縣市天氣預報下載失敗", e));
 };
 
+/**
+ * 抓取鄉鎮市區天氣預報資料
+ */
 const fetchTownWeatherForecast = async ({
   cityName,
   townName,
 }) => {
-  /**
-   * 抓取鄉鎮市區天氣預報資料
-   */
   const code = getCode(cityName);
   return fetch(
       `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&locationName=${townName}`,
@@ -99,14 +99,14 @@ const fetchTownWeatherForecast = async ({
       .catch((e) => console.error("鄉鎮市區天氣預報下載失敗", e));
 };
 
+/**
+ * 抓取熱傷害分級
+ */
 const fetchWBGT = async ({
   cityName,
   townName,
 }) => {
-  /**
-   * 抓取熱傷害分級
-   */
-  const townName_ = townName === "---" ? getGov(cityName) : townName;
+  const townName_ = townName === "---" ? getFirstTown(cityName) : townName;
   return fetch(
       `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${cityName}&TownName=${townName_}&sort=IssueTime`,
   )

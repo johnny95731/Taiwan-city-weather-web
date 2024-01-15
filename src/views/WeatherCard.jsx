@@ -12,7 +12,7 @@ import {ReactComponent as RainIcon} from "./../images/rain.svg";
 import {ReactComponent as RefreshIcon} from "./../images/refresh.svg";
 import {ReactComponent as DashCircleIcon} from "./../images/dash-circle.svg";
 import {
-  getLocation, cities, getTowns, hex2Decimal,
+  getStationID, cities, getTowns, hex2Decimal,
 } from "./../utils/helpers";
 
 // Components
@@ -235,7 +235,7 @@ const WeatherCard = ({
   const [currentTown, setCurrentTown] = useState(() =>
     localStorage.getItem(`town${cardNum}`) || "---",
   );
-  const currentStation = useMemo(() => getLocation(currentCity).repStationID,
+  const currentStation = useMemo(() => getStationID(currentCity).repStationID,
       [currentCity]);
 
   // fetch weather info from API.

@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useMemo} from "react";
+import React, {useState, useMemo, useRef, useCallback} from "react";
 import styled from "@emotion/styled";
 import dayjs from "dayjs";
 
@@ -19,8 +19,6 @@ import {
 const WeatherCardWrapper = styled.div`
   display: block;
   position: relative;
-  top: ${({cardPos}) => `${cardPos.y}px`};
-  left: ${({cardPos}) => `${cardPos.x}px`};
   width: 350px;
   box-shadow: ${({theme}) => theme.boxShadow};
   background-color: ${({theme}) => theme.foregroundColor};
@@ -87,23 +85,22 @@ const CloseButton = styled(DashCircleIcon)`
 `;
 
 const Description = styled.div`
-  display: block;
-  font-size: 16px;
-  color: ${({theme}) => theme.textColor};
+  width: fit-content;
   padding-left: 5px;
   margin-top: 5px;
   margin-bottom: 10px;
+  font-size: 16px;
+  color: ${({theme}) => theme.textColor};
 `;
 
 const CurrentWeather = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  height: min-content;
+  width: fit-content;
   justify-items: start;
   align-items: flex-end;
   margin-bottom: 10px;
-  svg{
+  > svg{
     height: 80px;
     width: 80px;
     flex-shrink: 0;
@@ -195,21 +192,38 @@ const Rain = styled.div`
   }
 `;
 
-const Refresh = styled.div`
+const LastUpdated = styled.div`
+  display: inline-flex;
+  align-items: center;
   position: absolute;
   right: 15px;
   bottom: 15px;
   font-size: 12px;
-  display: inline-flex;
-  align-items: center;
+  color: ${({theme}) => theme.textColor};
+`;
+
+const Refresh = styled.button`
+  margin-left: 4px;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  background-color: inherit;
   color: ${({theme}) => theme.textColor};
   svg {
-    margin-left: 10px;
     width: 15px;
     height: 15px;
-    cursor: pointer;
-    animation: rotate infinite 1.5s linear;
-    animation-duration: ${({isLoading}) => (isLoading ? "1.5s" : "0s")};
+    animation: ${({isLoading}) => (
+      isLoading ?
+      "rotate infinite 0.8s linear;" :
+      "rotate 1 0.8s linear;"
+  )};
+  }
+  &:disabled svg {
+    opacity: 0.5;
+  }
+
+  &:focus, &:hover {
+    outline: none;
   }
 
   @keyframes rotate {
@@ -224,22 +238,22 @@ const Refresh = styled.div`
 
 
 const WeatherCard = ({
-  cardNum,
+  cardIdx,
   moment,
-  cardsRearrange,
+  delCard,
 }) => {
   // Displayed city name and observation location name.
   const [currentCity, setCurrentCity] = useState(() =>
-    localStorage.getItem(`city${cardNum}`) || "臺北市",
+    localStorage.getItem(`city${cardIdx}`) || "臺北市",
   );
   const [currentTown, setCurrentTown] = useState(() =>
-    localStorage.getItem(`town${cardNum}`) || "---",
+    localStorage.getItem(`town${cardIdx}`) || "---",
   );
-  const currentStation = useMemo(() => getStationID(currentCity).repStationID,
+  const currentStation = useMemo(() => getStationID(currentCity),
       [currentCity]);
 
   // fetch weather info from API.
-  const [weatherElement, fetchData] = useWeatherAPI({
+  const [weatherElement, fetchData, isRefreshCD] = useWeatherAPI({
     repStationID: currentStation,
     cityName: currentCity,
     townName: currentTown,
@@ -260,54 +274,67 @@ const WeatherCard = ({
 
   const cityChanged = (e) => {
     const locationName = e.target.value;
-    localStorage.setItem(`town${cardNum}`, "---");
+    localStorage.setItem(`town${cardIdx}`, "---");
     setCurrentTown("---");
-    localStorage.setItem(`city${cardNum}`, locationName);
+    localStorage.setItem(`city${cardIdx}`, locationName);
     setCurrentCity(locationName);
   };
 
   const townChanged = (e) => {
     const townName = e.target.value;
-    localStorage.setItem(`town${cardNum}`, townName);
+    localStorage.setItem(`town${cardIdx}`, townName);
     setCurrentTown(townName);
   };
 
   // Drag event
-  const [isDragging, setIsDragging] = useState(() => false);
   const [cardPos, setCardPos] = useState(() => {
     return {x: 0, y: 0};
   });
-  const [start, setStart] = useState(() => {
-    return {x: 0, y: 0};
-  });
 
-  const mouseDown = useCallback((e) => {
-    setStart({
-      x: cardPos.x - e.clientX,
-      y: cardPos.y - e.clientY,
-    });
-    setIsDragging(true);
-  }, [isDragging]);
-
-  const mouseMove = useCallback((e) => {
-    if (isDragging) {
-      const xBias = start.x + e.clientX;
-      const yBias = start.y + e.clientY;
-      setCardPos({
-        x: xBias,
-        y: yBias,
-      });
+  const ref = useRef();
+  const draggingEvent = useMemo(() => {
+    let isDragging = false;
+    const startPoint = {
+      x: 0,
+      y: 0,
+    };
+    function start(e) {
+      isDragging = true;
+      const domStyle = ref.current.style;
+      // final pos = previous pos + variation
+      // variation = mousemoveEvent.clientPos - mousedownEvent.clientPos
+      // start = previous pos - mousedownEvent.clientPos.
+      startPoint.x = +domStyle.left.replace("px", "") - e.clientX;
+      startPoint.y = +domStyle.top.replace("px", "") - e.clientY;
+      window.addEventListener("mousemove", move, true);
+      window.addEventListener("mouseup", end, true);
     }
-  }, [isDragging]);
-
-  const mouseUp = useCallback(() => {
-    setIsDragging(false);
+    function move(e) {
+      if (isDragging) {
+        setCardPos({
+          x: `${startPoint.x + e.clientX}px`,
+          y: `${startPoint.y + e.clientY}px`,
+        });
+      }
+      e.stopPropagation();
+    }
+    function end(e) {
+      isDragging = false;
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseup", end);
+      e.stopPropagation();
+    }
+    return {
+      start,
+      move,
+      end,
+    };
   }, []);
 
   // Delete event
   const deleteEvent = useCallback(() =>{
-    cardsRearrange(cardNum);
-  }, [cardNum]);
+    delCard(cardIdx);
+  }, [cardIdx]);
 
   // useEffect(() => {
   //   // 檢驗資料抓取
@@ -342,15 +369,18 @@ const WeatherCard = ({
 
   return (
     <WeatherCardWrapper
-      onMouseDown={mouseDown}
-      onMouseMove={mouseMove}
-      onMouseUp={mouseUp}
-      onMouseLeave={mouseUp}
-      cardPos={cardPos}
+      ref={ref}
+      style={{
+        top: cardPos.y,
+        left: cardPos.x,
+      }}
+      onMouseDown={draggingEvent.start}
     >
       <CityMenu
         onChange={cityChanged}
         value={currentCity}
+        aria-label="縣市"
+        name="city"
       >
         {cities.map((cityName) => (
           <LocationOption value={cityName} key={cityName}>
@@ -360,7 +390,10 @@ const WeatherCard = ({
       </CityMenu>
       <TownMenu
         onChange={townChanged}
-        value={currentTown}>
+        value={currentTown}
+        aria-label="鄉鎮市區"
+        name="town"
+      >
         <LocationOption value={"---"} key={"---"}>
           ---
         </LocationOption>
@@ -411,14 +444,21 @@ const WeatherCard = ({
           </Rain>
         </Info>
       </CurrentWeather>
-      <Refresh onClick={fetchData} isLoading={isLoading}>
+      <LastUpdated>
         最後觀測時間：
         {new Intl.DateTimeFormat("zh-TW", {
           hour: "numeric",
           minute: "numeric",
         }).format(dayjs(observationTime))}{" "}
-        {isLoading ? <LoadingIcon /> : <RefreshIcon />}
-      </Refresh>
+        <Refresh
+          type="button"
+          onClick={isLoading ? undefined : fetchData}
+          isLoading={isLoading}
+          disabled={isRefreshCD || isLoading}
+        >
+          {isLoading ? <LoadingIcon /> : <RefreshIcon />}
+        </Refresh>
+      </LastUpdated>
     </WeatherCardWrapper>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import {useState, useMemo, useCallback} from "react";
 import styled from "@emotion/styled";
 import {ThemeProvider} from "@emotion/react";
@@ -12,11 +12,12 @@ import Header from "./views/Header.jsx";
 const theme = {
   light: {
     backgroundColor: "#ededed",
-    headerColor: "#aaaaaa",
+    headerColor: "#ffffff",
     foregroundColor: "#f9f9f9",
     menuHoverColor: "#eaeaea",
-    optionMenuColor: "#d0d0d0",
-    optionMenuShadow: "0px 0px 15px #606060",
+    optionMenuColor: "#ffffff",
+    optionMenuHoverColor: "#eee",
+    optionMenuShadow: "0px 0px 15px #0003",
     boxShadow: "0 1px 3px 0 #999999",
     titleColor: "#212121",
     temperatureColor: "#333",
@@ -64,37 +65,33 @@ const App = () => {
   });
 
   const changeThemeMode = useCallback(() => {
-    const themeMode = currentTheme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", themeMode);
-    setCurrentTheme(themeMode);
-    document.body.style.backgroundColor = theme[themeMode].backgroundColor;
-  }, [currentTheme]);
+    setCurrentTheme((prevTheme) => {
+      const newTheme = prevTheme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      document.body.style.backgroundColor = theme[newTheme].backgroundColor;
+      return newTheme;
+    });
+  }, []);
 
   // Card number
   const [cards, setCards] = useState(() => []);
 
-  const cardsRearrange = useCallback((idx) => {
-    // Rearrange after delete a card.
-    // for (let i = idx; i < cards.length - 1; i += 1) {
-    //   localStorage.setItem(`city${i}`, localStorage.getItem(`city${i+1}`) )
-    //   localStorage.setItem(`town${i}`, localStorage.getItem(`town${i+1}`) )
-    // }
+  const delCard = useCallback((cardIdx) => {
     setCards((prevState) => {
       const newCards = [...prevState];
-      const target = newCards.findIndex((cards, i) => cards.key === idx);
-      newCards.splice(target, 1); // 移除指定的卡
+      newCards.splice(cardIdx, 1); // 移除指定的卡
       return newCards;
     });
   }, []);
 
-  const addCardEvent = useCallback(() => {
+  const addCard = useCallback(() => {
     if (!cards.length) {
       setCards([
         <WeatherCard
           key={0}
-          cardNum={0}
+          cardIdx={0}
           moment={moment}
-          cardsRearrange={cardsRearrange}
+          delCard={delCard}
         />,
       ]);
       return;
@@ -104,40 +101,38 @@ const App = () => {
       // 重新連接cardsRearrange
       return <WeatherCard
         key={card.key}
-        cardNum={card.key}
+        cardIdx={card.key}
         moment={moment}
-        cardsRearrange={cardsRearrange}
+        delCard={delCard}
       />;
     });
-    let idx;
-    if (Math.max(...allKeys) === allKeys.length-1) {
-      // No card exists or cards be deleted from the middle.
-      // If the card always be deleted from last, the if-else statement will
-      // enter this part.
-      idx = cards.length;
-    } else {// If some cards be deleted Last key is not matching length.
-      // Find the missing key (card be deleted).
-      allKeys.sort((a, b) => a-b);
-      idx = allKeys.slice(0, -1).find((key, i) => allKeys[i+1]-key > 1) + 1;
+    // 找空缺位置
+    let newKey = cards.length;
+    allKeys.sort((a, b) => a - b);
+    for (let i = 0; i < allKeys.length + 1; i++) {
+      if (i !== allKeys[i]) {
+        newKey = i;
+        break;
+      }
     }
     newCards.push(
         <WeatherCard
-          key={idx}
-          cardNum={idx}
+          key={newKey}
+          cardIdx={newKey}
           moment={moment}
-          cardsRearrange={cardsRearrange}
+          delCard={delCard}
         />,
     );
     setCards(newCards);
   }, [cards, moment]);
 
-  useMemo(() => addCardEvent(), []);
+  useLayoutEffect(() => addCard(), []);
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <Header
         currentTheme={currentTheme}
         changeThemeMode={changeThemeMode}
-        addCard={addCardEvent}
+        addCard={addCard}
       />
       <Container>
         {cards}

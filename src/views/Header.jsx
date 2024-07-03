@@ -14,11 +14,14 @@ const HeaderWrapper = styled.header`
   left: 0px;
   top: ${({isVisible}) => isVisible ? "0px" : "-60px"};
   z-index: 1;
+
   width: 100%;
   height: 60px;
-  background-color: ${({theme}) => theme.headerColor};
-  padding: 10px 3% 10px 3%;
   box-sizing: border-box;
+  padding: 10px 3% 10px 3%;
+  border-bottom: 2px solid #0007;
+
+  background-color: ${({theme}) => theme.headerColor};
   -webkit-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -55,7 +58,7 @@ const OptionMenu = styled.div`
   }
 
   &:hover {
-    /* background-color: ${({theme}) => theme.optionMenuHoverColor}; */
+    background-color: ${({theme}) => theme.optionMenuHoverColor};
     box-shadow: ${({theme}) => theme.optionMenuShadow};
   }
 `;

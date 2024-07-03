@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "normalize.css";
+import {REFRESH_CD} from "./utils/constants";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,3 +23,17 @@ serviceWorkerRegistration.register();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// Prevent refresh for `TIME_ALLOWED` ms.
+const isPreventRefresh = {value: true};
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    isPreventRefresh.value = false;
+  }, REFRESH_CD);
+});
+window.addEventListener("beforeunload", (e) => {
+  if (isPreventRefresh.value) {
+    e.preventDefault();
+  }
+});
+

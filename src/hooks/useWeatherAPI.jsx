@@ -1,5 +1,6 @@
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import {getCode, getFirstTown} from "./../utils/helpers";
+import {REFRESH_CD} from "./../utils/constants";
 
 // Constants
 const AUTHORIZATION_KEY = "CWA-150C2D4A-E612-4AC4-BD27-3D0A604C69AA";
@@ -119,7 +120,7 @@ const fetchWBGT = async ({
         };
         return temp;
       })
-      .catch((e) => console.log("熱傷害下載失敗", e));
+      .catch((e) => console.error("熱傷害下載失敗", e));
 };
 
 
@@ -145,32 +146,51 @@ const useWeatherAPI = ({
     };
   });
 
-  const fetchData = useCallback(async () => {
-    setWeatherElement((prevState) => ({
-      ...prevState,
-      isLoading: true,
-    }));
-    const func = townName === "---" ?
-      fetchWeatherForecast : fetchTownWeatherForecast;
-    const [currentWeather, weatherForecast, heatInjury] = await Promise.all([
-      fetchCurrentWeather({stationID: repStationID}),
-      func({cityName, townName}),
-      fetchWBGT({cityName, townName}),
-    ]);
+  // Timeout for
+  const refreshTimeoutId = useRef(null);
+  const [isRefreshCD, setIsRefreshCD] = useState(false);
+  const fetchData = useMemo(() => {
+    // reset
+    if (refreshTimeoutId.current !== null) {
+      clearTimeout(refreshTimeoutId.current);
+      refreshTimeoutId.current = null;
+    }
+    let isCd = false;
+    setIsRefreshCD(isCd);
+    return async () => {
+      if (isCd) return;
+      setWeatherElement((prevState) => ({
+        ...prevState,
+        isLoading: true,
+      }));
+      const fetchTownForecast = townName === "---" ?
+        fetchWeatherForecast : fetchTownWeatherForecast;
+      const [currentWeather, weatherForecast, heatInjury] = await Promise.all([
+        fetchCurrentWeather({stationID: repStationID}),
+        fetchTownForecast({cityName, townName}),
+        fetchWBGT({cityName, townName}),
+      ]);
 
-    setWeatherElement({
-      ...currentWeather,
-      ...weatherForecast,
-      ...heatInjury,
-      isLoading: false,
-    });
-  }, [cityName, repStationID, townName]);
+      setWeatherElement({
+        ...currentWeather,
+        ...weatherForecast,
+        ...heatInjury,
+        isLoading: false,
+      });
+      setIsRefreshCD(isCd = true);
+      refreshTimeoutId.current = setTimeout(() => {
+        isCd = false;
+        setIsRefreshCD(isCd);
+        refreshTimeoutId.current = null;
+      }, REFRESH_CD);
+    };
+  }, [repStationID, townName]);
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
-  return [weatherElement, fetchData];
+  return [weatherElement, fetchData, isRefreshCD];
 };
 
 export default useWeatherAPI;

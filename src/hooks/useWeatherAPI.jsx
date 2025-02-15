@@ -17,7 +17,6 @@ const fetchCurrentWeather = async ({stationID}) => {
   )
       .then((response) => response.json())
       .then((data) => {
-        // console.log(code, stationID);
         const locationData = data.records.Station[0];
         const weatherElement = locationData.WeatherElement;
         const windSpeed = isUnmanned ?
@@ -43,27 +42,32 @@ const fetchWeatherForecast = async ({cityName}) => {
       .then((response) => response.json())
       .then((data) => {
         const locationData = data.records.location[0];
-        const weatherElements = locationData.weatherElement.reduce(
-            (neededElements, item) => {
+        const weatherEl = locationData.weatherElement.reduce(
+            (neededEl, item) => {
               if (["Wx", "PoP", "CI"].includes(item.elementName)) {
-                neededElements[item.elementName] = item.time[0].parameter;
+                neededEl[item.elementName] = item.time[0].parameter;
               }
-              return neededElements;
+              return neededEl;
             },
             {},
         );
 
         return {
           cityName: cityName,
-          description: weatherElements.Wx.parameterName,
-          weatherCode: weatherElements.Wx.parameterValue,
-          rainPossibility: weatherElements.PoP.parameterName,
-          comfortability: weatherElements.CI.parameterName,
+          description: weatherEl.Wx.parameterName,
+          weatherCode: weatherEl.Wx.parameterValue,
+          rainPossibility: weatherEl.PoP.parameterName,
+          comfortability: weatherEl.CI.parameterName,
         };
       })
       .catch((e) => console.error("縣市天氣預報下載失敗", e));
 };
 
+const townWeatherKeyLabel = {
+  "3小時降雨機率": "pop3h",
+  "天氣現象": "Wx",
+  "舒適度指數": "CI",
+};
 /**
  * 抓取鄉鎮市區天氣預報資料
  */
@@ -73,28 +77,29 @@ const fetchTownWeatherForecast = async ({
 }) => {
   const code = getCode(cityName);
   return fetch(
-      `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&locationName=${townName}`,
+      `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&LocationName=${townName}`,
   )
       .then((response) => response.json())
       .then((data) => {
-        const locationData = data.records.locations[0].location[0];
-        const weatherElements = locationData.weatherElement.reduce(
-            (neededElements, item) => {
-              if (["Wx", "PoP6h", "CI"].includes(item.elementName)) {
-                neededElements[item.elementName] = item.time[0].elementValue;
+        const locations = data.records.Locations[0].Location[0]
+            .WeatherElement;
+        const weatherElements = locations.reduce(
+            (neededEl, item) => {
+              if (item.ElementName in townWeatherKeyLabel) {
+                neededEl[townWeatherKeyLabel[item.ElementName]] =
+                  item.Time[0].ElementValue[0];
               }
-              return neededElements;
+              return neededEl;
             },
             {},
         );
-
         return {
           cityName: cityName,
           townName: townName,
-          description: weatherElements.Wx[0].value,
-          weatherCode: weatherElements.Wx[1].value,
-          rainPossibility: weatherElements.PoP6h[0].value,
-          comfortability: weatherElements.CI[1].value,
+          description: weatherElements.Wx.Weather,
+          weatherCode: weatherElements.Wx.WeatherCode,
+          rainPossibility: weatherElements.pop3h.ProbabilityOfPrecipitation,
+          comfortability: weatherElements.CI.ComfortIndexDescription,
         };
       })
       .catch((e) => console.error("鄉鎮市區天氣預報下載失敗", e));

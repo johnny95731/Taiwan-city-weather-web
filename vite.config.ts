@@ -31,7 +31,7 @@ export default defineConfig({
   plugins: [
     react(),
     viteJoinMediaQueries({
-      paths2css: ['./build'],
+      paths2css: ['./dist'],
     }),
     lightningcss(),
     svgr(),

@@ -1,18 +1,18 @@
-import React, {useCallback} from "react";
-import {useState, useEffect} from "react";
-import styled from "@emotion/styled";
+import {useCallback} from 'react';
+import {useState, useEffect} from 'react';
+import styled from '@emotion/styled';
 
-import {ReactComponent as List} from "./../images/list.svg";
-import {hex2Decimal} from "./../utils/helpers";
+import List from 'images/list.svg?react';
+import {hex2gray} from '../utils/helpers';
 
 // Components
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header<{isVisible: boolean}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
   left: 0px;
-  top: ${({isVisible}) => isVisible ? "0px" : "-60px"};
+  top: ${({isVisible}) => isVisible ? '0px' : '-60px'};
   z-index: 1;
 
   width: 100%;
@@ -70,9 +70,9 @@ const OptionButton = styled(List)`
   ${
   // 原圖檔為黑色。
   // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => hex2Decimal(theme.foregroundColor) > 127 ?
-    "" :
-    "-webkit-filter: invert(100%); filter: invert(100%);"
+  ({theme}) => hex2gray(theme.foregroundColor)! > 127 ?
+    '' :
+    '-webkit-filter: invert(100%); filter: invert(100%);'
 }
 
   @media (max-width: 500px), (max-height: 600px) {
@@ -107,11 +107,16 @@ const OptionContent = styled.div`
 `;
 
 
+export type HeaderProps = {
+  currentTheme: 'light' | 'dark',
+  changeThemeMode: ()=> void,
+  addCard: ()=> void,
+}
 const Header = ({
   currentTheme,
   changeThemeMode,
   addCard,
-}) => {
+}: HeaderProps) => {
   // Hide Header when scrolling more than heightToHideFrom.
   const [isVisible, setIsVisible] = useState(true);
 
@@ -121,25 +126,25 @@ const Header = ({
         document.documentElement.scrollTop;
 
     if (winScroll > heightToHideFrom) {
-      isVisible && // to limit setting state only the first time
-         setIsVisible(false);
+      // to limit setting state only the first time
+      if (isVisible) setIsVisible(false);
     } else {
       setIsVisible(true);
     }
   }, [isVisible]);
 
   useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
+    window.addEventListener('scroll', listenToScroll);
     return () =>
-      window.removeEventListener("scroll", listenToScroll);
+      window.removeEventListener('scroll', listenToScroll);
   }, [listenToScroll]);
 
   const clickOption = () => {
-    const element = document.getElementById("OptionContents");
-    if (element.style.display === "none") {
-      element.style.display = "block";
+    const element = document.getElementById('OptionContents') as HTMLDivElement;
+    if (element.style.display === 'none') {
+      element.style.display = 'block';
     } else {
-      element.style.display = "none";
+      element.style.display = 'none';
     }
   };
 
@@ -156,7 +161,7 @@ const Header = ({
         <OptionContent id="OptionContents">
           <button onClick={addCard}>新增天氣卡</button>
           <button onClick={changeThemeMode}>
-            {currentTheme === "light" ? "深" : "淺" }色模式
+            {currentTheme === 'light' ? '深' : '淺' }色模式
           </button>
         </OptionContent>
       </OptionMenu>

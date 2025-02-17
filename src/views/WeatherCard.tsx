@@ -1,19 +1,21 @@
-import React, {useState, useMemo, useRef, useCallback} from "react";
-import styled from "@emotion/styled";
-import dayjs from "dayjs";
+import React, {useState, useMemo, useRef, useCallback} from 'react';
+import styled from '@emotion/styled';
+import dayjs from 'dayjs';
 
-import WeatherIcon from "./../components/WeatherIcon.jsx";
-import Tooltip from "./../components/Tooltip.jsx";
-import useWeatherAPI from "./../hooks/useWeatherAPI.jsx";
-import {ReactComponent as DangerIcon_} from "./../images/danger.svg";
-import {ReactComponent as AirFlowIcon} from "./../images/airFlow.svg";
-import {ReactComponent as LoadingIcon} from "./../images/loading.svg";
-import {ReactComponent as RainIcon} from "./../images/rain.svg";
-import {ReactComponent as RefreshIcon} from "./../images/refresh.svg";
-import {ReactComponent as DashCircleIcon} from "./../images/dash-circle.svg";
+import WeatherIcon from '../components/WeatherIcon';
+import Tooltip from '../components/Tooltip';
+import useWeatherAPI from '../hooks/useWeatherAPI';
+import DangerIcon_ from 'images/danger.svg?react';
+import AirFlowIcon from 'images/airFlow.svg?react';
+import LoadingIcon from 'images/loading.svg?react';
+import RainIcon from 'images/rain.svg?react';
+import RefreshIcon from 'images/refresh.svg?react';
+import DashCircleIcon from 'images/dash-circle.svg?react';
 import {
-  getStationID, cities, getTowns, hex2Decimal,
-} from "./../utils/helpers";
+  getStationID, cities, getTowns, hex2gray
+} from '../utils/helpers';
+import type {Moment} from '../components/WeatherIcon';
+import type {City} from '../utils/helpers';
 
 // Components
 const WeatherCardWrapper = styled.div`
@@ -75,9 +77,9 @@ const CloseButton = styled(DashCircleIcon)`
   ${
   // 原圖檔為黑色。
   // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => hex2Decimal(theme.foregroundColor) > 127 ?
-    "" :
-    "-webkit-filter: invert(100%); filter: invert(100%);"
+  ({theme}) => hex2gray(theme.foregroundColor)! > 127 ?
+    '' :
+    '-webkit-filter: invert(100%); filter: invert(100%);'
 }
   @media (max-width: 500px), (max-height: 600px) {
     width: 16px;
@@ -148,9 +150,9 @@ const DangerIcon = styled(DangerIcon_)`
   ${
   // 原圖檔為黑色。
   // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => hex2Decimal(theme.foregroundColor) > 127 ?
-    "" :
-    "-webkit-filter: invert(100%); filter: invert(100%);"
+  ({theme}) => hex2gray(theme.foregroundColor)! > 127 ?
+    '' :
+    '-webkit-filter: invert(100%); filter: invert(100%);'
 }
 `;
 
@@ -202,7 +204,7 @@ const LastUpdated = styled.div`
   color: ${({theme}) => theme.textColor};
 `;
 
-const Refresh = styled.button`
+const Refresh = styled.button<{isLoading: boolean}>`
   margin-left: 4px;
   border: none;
   padding: 0;
@@ -213,9 +215,9 @@ const Refresh = styled.button`
     width: 15px;
     height: 15px;
     animation: ${({isLoading}) => (
-      isLoading ?
-      "rotate infinite 0.8s linear;" :
-      "rotate 1 0.8s linear;"
+    isLoading ?
+      'rotate infinite 0.8s linear;' :
+      'rotate 1 0.8s linear;'
   )};
   }
   &:disabled svg {
@@ -236,28 +238,32 @@ const Refresh = styled.button`
   }
 `;
 
-
+export type WeatherCardProps = {
+  cardIdx: number,
+  moment: Moment,
+  delCard: (cardIdx: number) => void,
+}
 const WeatherCard = ({
   cardIdx,
   moment,
   delCard,
-}) => {
+}: WeatherCardProps) => {
   // Displayed city name and observation location name.
-  const [currentCity, setCurrentCity] = useState(() =>
-    localStorage.getItem(`city${cardIdx}`) || "臺北市",
+  const [currentCity, setCurrentCity] = useState<City>(() =>
+    localStorage.getItem(`city${cardIdx}`) as City || '臺北市',
   );
   const [currentTown, setCurrentTown] = useState(() =>
-    localStorage.getItem(`town${cardIdx}`) || "---",
+    localStorage.getItem(`town${cardIdx}`) || '---',
   );
   const currentStation = useMemo(() => getStationID(currentCity),
-      [currentCity]);
+    [currentCity]);
 
   // fetch weather info from API.
-  const [weatherElement, fetchData, isRefreshCD] = useWeatherAPI({
-    repStationID: currentStation,
-    cityName: currentCity,
-    townName: currentTown,
-  });
+  const [weatherElement, fetchData, isRefreshCD] = useWeatherAPI(
+    currentStation,
+    currentCity,
+    currentTown,
+  );
 
   const {
     observationTime,
@@ -272,44 +278,46 @@ const WeatherCard = ({
     isLoading,
   } = weatherElement;
 
-  const cityChanged = (e) => {
-    const locationName = e.target.value;
-    localStorage.setItem(`town${cardIdx}`, "---");
-    setCurrentTown("---");
+  const cityChanged = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const locationName = e.target.value as City;
+    localStorage.setItem(`town${cardIdx}`, '---');
+    setCurrentTown('---');
     localStorage.setItem(`city${cardIdx}`, locationName);
     setCurrentCity(locationName);
   };
 
-  const townChanged = (e) => {
+  const townChanged = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const townName = e.target.value;
     localStorage.setItem(`town${cardIdx}`, townName);
     setCurrentTown(townName);
   };
 
   // Drag event
-  const [cardPos, setCardPos] = useState(() => {
+  const [cardPos, setCardPos] = useState<{
+    x: number | string, y: number | string
+  }>(() => {
     return {x: 0, y: 0};
   });
 
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
   const draggingEvent = useMemo(() => {
     let isDragging = false;
     const startPoint = {
       x: 0,
       y: 0,
     };
-    function start(e) {
+    function start(e: React.MouseEvent<HTMLDivElement>) {
       isDragging = true;
-      const domStyle = ref.current.style;
+      const domStyle = ref.current!.style;
       // final pos = previous pos + variation
       // variation = mousemoveEvent.clientPos - mousedownEvent.clientPos
       // start = previous pos - mousedownEvent.clientPos.
-      startPoint.x = +domStyle.left.replace("px", "") - e.clientX;
-      startPoint.y = +domStyle.top.replace("px", "") - e.clientY;
-      window.addEventListener("mousemove", move, true);
-      window.addEventListener("mouseup", end, true);
+      startPoint.x = +domStyle.left.replace('px', '') - e.clientX;
+      startPoint.y = +domStyle.top.replace('px', '') - e.clientY;
+      window.addEventListener('mousemove', move, true);
+      window.addEventListener('mouseup', end, true);
     }
-    function move(e) {
+    function move(e: MouseEvent) {
       if (isDragging) {
         setCardPos({
           x: `${startPoint.x + e.clientX}px`,
@@ -318,10 +326,10 @@ const WeatherCard = ({
       }
       e.stopPropagation();
     }
-    function end(e) {
+    function end(e: MouseEvent) {
       isDragging = false;
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseup", end);
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseup', end);
       e.stopPropagation();
     }
     return {
@@ -394,7 +402,7 @@ const WeatherCard = ({
         aria-label="鄉鎮市區"
         name="town"
       >
-        <LocationOption value={"---"} key={"---"}>
+        <LocationOption value={'---'} key={'---'}>
           ---
         </LocationOption>
         {getTowns(currentCity).map((districtName) => (
@@ -418,27 +426,27 @@ const WeatherCard = ({
           <Temperature>
             {Math.round(temperature)} <Celsius>°C</Celsius>
           </Temperature>
-          <DangerIndex id={"DangerIndex"}>
+          <DangerIndex id={'DangerIndex'}>
             <Tooltip
-              id={"DangerIndex"}
-              content={"熱傷害指數"}
+              id={'DangerIndex'}
+              content={'熱傷害指數'}
             />
             <DangerIcon />
             {heatInjuryIndex} {heatInjuryWarning}
           </DangerIndex>
         </TempNDanger>
         <Info>
-          <AirFlow id={"AirFlow"}>
+          <AirFlow id={'AirFlow'}>
             <Tooltip
-              id={"AirFlow"}
-              content={"風速"}
+              id={'AirFlow'}
+              content={'風速'}
             />
             <AirFlowIcon /> {windSpeed} m/h
           </AirFlow>
-          <Rain id={"Rain"}>
+          <Rain id={'Rain'}>
             <Tooltip
-              id={"Rain"}
-              content={"12小時內降雨機率"}
+              id={'Rain'}
+              content={'12小時內降雨機率'}
             />
             <RainIcon /> {rainPossibility}%
           </Rain>
@@ -446,10 +454,11 @@ const WeatherCard = ({
       </CurrentWeather>
       <LastUpdated>
         最後觀測時間：
-        {new Intl.DateTimeFormat("zh-TW", {
-          hour: "numeric",
-          minute: "numeric",
-        }).format(dayjs(observationTime))}{" "}
+        {new Intl.DateTimeFormat('zh-TW', {
+          hour: 'numeric',
+          minute: 'numeric',
+          // @ts-expect-error
+        }).format(dayjs(observationTime))}{' '}
         <Refresh
           type="button"
           onClick={isLoading ? undefined : fetchData}

@@ -2,13 +2,12 @@ import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 
-
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['**/*.tsx'],
+    files: ['**/*.{j,t}sx', ],
     plugins: {
       react: pluginReact
     },
@@ -30,9 +29,11 @@ export default [
       'require-jsdoc': 'off',
       'valid-jsdoc': 'off',
       'func-call-spacing': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
       'import/first': 'off',
-      'argsIgnorePattern': '^_'
+      // 'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
+      '@typescript-eslint/ban-ts-comment': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }]
     },
   },
 ];

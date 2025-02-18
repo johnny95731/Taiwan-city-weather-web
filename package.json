@@ -26,6 +26,7 @@
     "vite": "^6.1.0",
     "vite-join-media-queries": "^0.1.4",
     "vite-plugin-lightningcss": "^0.0.5",
+    "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-svgr": "^4.3.0"
   },
   "dependencies": {
@@ -37,19 +38,7 @@
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "reactstrap": "^9.2.0",
-    "workbox-background-sync": "^7.3.0",
-    "workbox-broadcast-update": "^7.3.0",
-    "workbox-cacheable-response": "^7.3.0",
-    "workbox-core": "^7.3.0",
-    "workbox-expiration": "^7.3.0",
-    "workbox-google-analytics": "^7.3.0",
-    "workbox-navigation-preload": "^7.3.0",
-    "workbox-precaching": "^7.3.0",
-    "workbox-range-requests": "^7.3.0",
-    "workbox-routing": "^7.3.0",
-    "workbox-strategies": "^7.3.0",
-    "workbox-streams": "^7.3.0"
+    "reactstrap": "^9.2.0"
   },
   "browserslist": {
     "production": [

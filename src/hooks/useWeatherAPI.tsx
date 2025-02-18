@@ -1,5 +1,5 @@
-import {useEffect, useMemo, useRef, useState} from 'react';
-import {getLocation} from '../utils/helpers';
+import {useEffect, useMemo, useState} from 'react';
+import {getLocation, isNullish, getOpenDataTime, getLastItem} from '../utils/helpers';
 import {REFRESH_CD} from '../utils/constants';
 import type {City} from '../utils/helpers';
 
@@ -26,12 +26,10 @@ export type WeatherElement = {
 /**
  * Filtered city weather forcast API data.
  */
-type StationData = {
-  observationTime: Date,
-  locationName: string,
-  temperature: number,
-  windSpeed: number,
-}
+type StationData =  Pick<
+  WeatherElement,
+  'observationTime' | 'locationName' | 'temperature' | 'windSpeed'
+>;
 /**
  * 抓取氣象站資料
  */
@@ -39,7 +37,7 @@ const fetchWeatherStation = async (stationID: string): Promise<StationData | voi
   const isUnmanned = stationID.startsWith('C'); // 無人站
   const code = isUnmanned ? 'O-A0001-001' : 'O-A0003-001';
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/${code}?Authorization=${AUTHORIZATION_KEY}&StationId=${stationID}`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/${code}?Authorization=${AUTHORIZATION_KEY}&StationId=${stationID}&WeatherElement=WindSpeed,AirTemperature&GeoInfo=CountyCode`,
   )
     .then((response) => response.json())
     .then((data: UnmannedWeatherStationAPIStructure | MannedWeatherStationAPIStructure) => {
@@ -51,7 +49,7 @@ const fetchWeatherStation = async (stationID: string): Promise<StationData | voi
         locationName: locationData.StationName,
         temperature: weatherElement.AirTemperature,
         windSpeed: weatherElement.WindSpeed,
-      };
+      } as const satisfies StationData;
     })
     .catch((e) => console.error('氣象站資料下載失敗', e));
 };
@@ -68,20 +66,19 @@ type CityForcastTemp = {
 /**
  * Filtered city weather forcast API data.
  */
-type CityForcastData = {
-  description: string,
-  weatherCode: string,
-  rainPossibility: string,
-  comfortability: string,
-}
+type CityForcastData =  Pick<
+  WeatherElement,
+  'description' | 'weatherCode' | 'rainPossibility' | 'comfortability'
+>;
 /**
  * 抓取縣市天氣預報資料
  */
 const fetchWeatherForecast = async (
-  city: City
+  timeTo: string,
+  city: City,
 ): Promise<CityForcastData | void> => {
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${AUTHORIZATION_KEY}&locationName=${city}`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${AUTHORIZATION_KEY}&locationName=${city}&timeTo=${timeTo}`,
   )
     .then((response) => response.json())
     .then((data: CityForecastAPIStructure) => {
@@ -89,8 +86,8 @@ const fetchWeatherForecast = async (
       const weatherEl = locationData.weatherElement.reduce(
         (neededEl, {elementName, time}) => {
           if (['Wx', 'PoP', 'CI'].includes(elementName)) {
-            // @ts-expect-error Already checked.
-            neededEl[elementName] = time[0].parameter;
+            neededEl[elementName as keyof CityForcastTemp] =
+                getLastItem(time).parameter;
           }
           return neededEl;
         },
@@ -102,7 +99,7 @@ const fetchWeatherForecast = async (
         weatherCode: weatherEl.Wx.parameterValue,
         rainPossibility: weatherEl.PoP.parameterName,
         comfortability: weatherEl.CI.parameterName,
-      };
+      } as const satisfies CityForcastData;
     })
     .catch((e) => console.error('縣市天氣預報下載失敗', e));
 };
@@ -119,28 +116,27 @@ type TownForcastTemp = {
 /**
  * Filtered town-forcast API data.
  */
-type TownForcastData = {
-  description: string,
-  weatherCode: string,
-  rainPossibility: string,
-  comfortability: string,
-}
+type TownForcastData = Pick<
+  WeatherElement,
+  'description' | 'weatherCode' | 'rainPossibility' | 'comfortability'
+>;
 const townWeatherKeyLabel = {
   '3小時降雨機率': 'pop3h',
   '天氣現象': 'Wx',
   '舒適度指數': 'CI',
 } as const;
-// &timeTo=2025-02-17T11%3A00%3A00'
+
 /**
  * 抓取鄉鎮市區天氣預報資料
  */
 const fetchTownWeatherForecast = async (
+  timeTo: string,
   city: City,
   town: string,
 ): Promise<TownForcastData | void> => {
   const code = getLocation(city).code;
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&LocationName=${town}`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&LocationName=${town}&timeTo=${timeTo}`,
   )
     .then((response) => response.json())
     .then((data: TownForecastAPIStructure) => {
@@ -151,7 +147,7 @@ const fetchTownWeatherForecast = async (
           if (ElementName in townWeatherKeyLabel) {
             // @ts-expect-error Already checked.
             neededEl[townWeatherKeyLabel[ElementName]] =
-              Time[0].ElementValue[0];
+                getLastItem(Time).ElementValue[0];
           }
           return neededEl;
         },
@@ -162,29 +158,32 @@ const fetchTownWeatherForecast = async (
         weatherCode: weatherElements.Wx.WeatherCode,
         rainPossibility: weatherElements.pop3h.ProbabilityOfPrecipitation,
         comfortability: weatherElements.CI.ComfortIndexDescription,
-      } as const;
+      } as const satisfies TownForcastData;
     })
     .catch((e) => console.error('鄉鎮市區天氣預報下載失敗', e));
 };
 
 
+type WBGTData = Pick<WeatherElement, 'heatInjuryIndex' | 'heatInjuryWarning'>;
 /**
  * 抓取熱傷害分級
  */
 const fetchWBGT = async (
+  timeTo: string,
   city: City,
   town: string,
-) => {
+): Promise<WBGTData | void> => {
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${city}&TownName=${town}&sort=IssueTime`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${city}&TownName=${town}&sort=IssueTime&timeTo=${timeTo}`,
   )
     .then((response) => response.json())
     .then((data: WBGTAPIStructure) => {
-      const locationData = data.records.Locations[0].Location[0].Time[0];
+      const locationData = data.records.Locations[0].Location[0];
+      const weatherElement = getLastItem(locationData.Time).WeatherElements;
       return {
-        heatInjuryIndex: locationData.WeatherElements.HeatInjuryIndex,
-        heatInjuryWarning: locationData.WeatherElements.HeatInjuryWarning,
-      };
+        heatInjuryIndex: weatherElement.HeatInjuryIndex,
+        heatInjuryWarning: weatherElement.HeatInjuryWarning,
+      } as const satisfies WBGTData;
     })
     .catch((e) => console.error('熱傷害下載失敗', e));
 };
@@ -211,16 +210,19 @@ const useWeatherAPI = (
     };
   });
 
-  const town = townValue === '---' ? getLocation(city).towns[0] : townValue;
+  const town = useMemo(
+    () => townValue === '---' ? getLocation(city).towns[0] : townValue,
+    [townValue]
+  );
 
   // Timeout for refresh
-  const refreshTimeoutId = useRef<number>(null);
+  let refreshTimeoutId: null | number = null;
   const [isRefreshCD, setIsRefreshCD] = useState<boolean>(false);
   const fetchData = useMemo(() => {
     // reset
-    if (refreshTimeoutId.current !== null) {
-      clearTimeout(refreshTimeoutId.current);
-      refreshTimeoutId.current = null;
+    if (!isNullish(refreshTimeoutId)) {
+      clearTimeout(refreshTimeoutId);
+      refreshTimeoutId = null;
     }
     let isCd = false;
     setIsRefreshCD(isCd);
@@ -230,12 +232,15 @@ const useWeatherAPI = (
         ...prevState,
         isLoading: true,
       }));
+
+      const ceilTime = getOpenDataTime();
+
       const fetchForecast = townValue === '---' ?
         fetchWeatherForecast : fetchTownWeatherForecast;
       const [currentWeather, weatherForecast, heatInjury] = await Promise.all([
         fetchWeatherStation(repStationID),
-        fetchForecast(city, town),
-        fetchWBGT(city, town),
+        fetchForecast(ceilTime, city, town),
+        fetchWBGT(ceilTime, city, town),
       ]);
 
       setWeatherElement({
@@ -246,10 +251,10 @@ const useWeatherAPI = (
         isLoading: false,
       });
       setIsRefreshCD(isCd = true);
-      refreshTimeoutId.current = window.setTimeout(() => {
+      refreshTimeoutId = window.setTimeout(() => {
         isCd = false;
         setIsRefreshCD(isCd);
-        refreshTimeoutId.current = null;
+        refreshTimeoutId = null;
       }, REFRESH_CD);
     };
   }, [repStationID, townValue]);

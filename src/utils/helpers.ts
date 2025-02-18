@@ -15,7 +15,22 @@ export const getLocation = (city: City) => {
   return locations[city];
 };
 
+export const ceilHour = (date: Date) => {
+  date.setHours(date.getHours() + Math.ceil(date.getMinutes()/60));
+  date.setMinutes(0, 0, 0);
+  return date;
+};
 
+/**
+ * Get a time string in the opendata API format.
+ */
+export const getOpenDataTime = () => {
+  const date = new Date(ceilHour(new Date()).toUTCString());
+  date.setHours(date.getHours() + 8);
+  const iso = date.toISOString();
+  const idx = iso.indexOf('.');
+  return iso.slice(0, idx);
+};
 
 export const getMoment = (): Moment => {
   // Get local time and fromat as yyyy-mm-dd
@@ -46,6 +61,12 @@ export const getMoment = (): Moment => {
     ? 'day'
     : 'night';
 };
+
+export const getLastItem = <T>(arr: T[]) => {
+  return arr[arr.length - 1];
+};
+
+export const isNullish = (val: unknown) => val == null;
 
 const RGB2GRAY_COEFF = [0.299, 0.587, 0.114] as const;
 /**

@@ -3,6 +3,12 @@ import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 
 export default [
+  {
+    ignores: [
+      'src/serviceWorkerRegistration.js',
+      'src/service-worker.js'
+    ],
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,

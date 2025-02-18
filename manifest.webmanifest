@@ -1,1 +1,1 @@
-{"name":"web-weather","short_name":"web-weather","start_url":"./","display":"standalone","background_color":"#ffffff","lang":"en","scope":"./"}
+{"name":"臺灣即時縣市天氣資訊","short_name":"臺灣縣市天氣","start_url":".","display":"standalone","background_color":"#1f2022","lang":"en","scope":"./","icons":[{"src":"icon@192.png","type":"image/png","sizes":"192x192"},{"src":"icon@512.png","type":"image/png","sizes":"512x512"}],"orientation":"portrait-primary","theme_color":"#1f2022"}

@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 
 import List from 'images/list.svg?react';
-import {hex2gray} from '../utils/helpers';
+import {isHexLight} from '../utils/helpers';
 
 // Components
 const HeaderWrapper = styled.header<{isVisible: boolean}>`
@@ -70,7 +70,7 @@ const OptionButton = styled(List)`
   ${
   // 原圖檔為黑色。
   // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => hex2gray(theme.foregroundColor)! > 127 ?
+  ({theme}) => isHexLight(theme.foregroundColor) ?
     '' :
     '-webkit-filter: invert(100%); filter: invert(100%);'
 }
@@ -152,7 +152,9 @@ const Header = ({
     <HeaderWrapper isVisible={isVisible}>
       <Title>縣市天氣即時資訊</Title>
 
-      <OptionMenu onClick={clickOption} id="OptionMenu">
+      <OptionMenu
+        onClick={clickOption}
+        id="OptionMenu">
         {/* <button onClick={addCard}>新增天氣卡</button>
         <button onClick={changeThemeMode}>
           {currentTheme === "light" ? "深" : "淺" }色模式

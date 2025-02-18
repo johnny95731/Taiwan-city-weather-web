@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from 'react';
-import {getLocation, isNullish, getOpenDataTime, getLastItem} from '../utils/helpers';
+import {getLocation, isNullish, getOpenDataTime} from '../utils/helpers';
 import {REFRESH_CD} from '../utils/constants';
 import type {City} from '../utils/helpers';
 
@@ -75,6 +75,7 @@ type CityForcastData =  Pick<
  */
 const fetchWeatherForecast = async (
   timeTo: string,
+  _: string,
   city: City,
 ): Promise<CityForcastData | void> => {
   return fetch(
@@ -87,7 +88,7 @@ const fetchWeatherForecast = async (
         (neededEl, {elementName, time}) => {
           if (['Wx', 'PoP', 'CI'].includes(elementName)) {
             neededEl[elementName as keyof CityForcastTemp] =
-                getLastItem(time).parameter;
+            time[0].parameter;
           }
           return neededEl;
         },
@@ -130,13 +131,14 @@ const townWeatherKeyLabel = {
  * 抓取鄉鎮市區天氣預報資料
  */
 const fetchTownWeatherForecast = async (
+  timeFrom: string,
   timeTo: string,
   city: City,
   town: string,
 ): Promise<TownForcastData | void> => {
   const code = getLocation(city).code;
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&LocationName=${town}&timeTo=${timeTo}`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&LocationName=${town}&timeFrom=${timeFrom}&timeTo=${timeTo}`,
   )
     .then((response) => response.json())
     .then((data: TownForecastAPIStructure) => {
@@ -147,7 +149,7 @@ const fetchTownWeatherForecast = async (
           if (ElementName in townWeatherKeyLabel) {
             // @ts-expect-error Already checked.
             neededEl[townWeatherKeyLabel[ElementName]] =
-                getLastItem(Time).ElementValue[0];
+                Time[0].ElementValue[0];
           }
           return neededEl;
         },
@@ -169,17 +171,18 @@ type WBGTData = Pick<WeatherElement, 'heatInjuryIndex' | 'heatInjuryWarning'>;
  * 抓取熱傷害分級
  */
 const fetchWBGT = async (
+  timeFrom: string,
   timeTo: string,
   city: City,
   town: string,
 ): Promise<WBGTData | void> => {
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${city}&TownName=${town}&sort=IssueTime&timeTo=${timeTo}`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${city}&TownName=${town}&sort=IssueTime&timeFrom=${timeFrom}&timeTo=${timeTo}`,
   )
     .then((response) => response.json())
     .then((data: WBGTAPIStructure) => {
       const locationData = data.records.Locations[0].Location[0];
-      const weatherElement = getLastItem(locationData.Time).WeatherElements;
+      const weatherElement = locationData.Time[0].WeatherElements;
       return {
         heatInjuryIndex: weatherElement.HeatInjuryIndex,
         heatInjuryWarning: weatherElement.HeatInjuryWarning,
@@ -233,14 +236,14 @@ const useWeatherAPI = (
         isLoading: true,
       }));
 
-      const ceilTime = getOpenDataTime();
+      const {nextHour_, next3Hour_} = getOpenDataTime();
 
       const fetchForecast = townValue === '---' ?
         fetchWeatherForecast : fetchTownWeatherForecast;
       const [currentWeather, weatherForecast, heatInjury] = await Promise.all([
         fetchWeatherStation(repStationID),
-        fetchForecast(ceilTime, city, town),
-        fetchWBGT(ceilTime, city, town),
+        fetchForecast(nextHour_, next3Hour_, city, town),
+        fetchWBGT(nextHour_, next3Hour_, city, town),
       ]);
 
       setWeatherElement({

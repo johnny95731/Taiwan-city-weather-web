@@ -15,21 +15,33 @@ export const getLocation = (city: City) => {
   return locations[city];
 };
 
-export const ceilHour = (date: Date) => {
-  date.setHours(date.getHours() + Math.ceil(date.getMinutes()/60));
-  date.setMinutes(0, 0, 0);
+const addHout = (date: Date, hours: number) => {
+  date.setTime(date.getTime() + hours * 3600000); // 60 * 60 * 1000
   return date;
 };
 
 /**
  * Get a time string in the opendata API format.
+ * yyyy-mm-ddThh-mm-ss
  */
-export const getOpenDataTime = () => {
-  const date = new Date(ceilHour(new Date()).toUTCString());
-  date.setHours(date.getHours() + 8);
-  const iso = date.toISOString();
-  const idx = iso.indexOf('.');
-  return iso.slice(0, idx);
+export const getOpenDataTime = (): {
+  nextHour_: string,
+  next3Hour_: string,
+} => {
+  // Time with floor hour
+  let date = new Date(Math.ceil(Date.now() / 3600000) * 3600000);
+  // to UTC+8
+  date = new Date(date.toISOString());
+  addHout(date, 8);
+
+  const from = date.toISOString();
+  addHout(date, 3);
+  const to = date.toISOString();
+  const idx = from.indexOf('.');
+  return {
+    nextHour_: from.slice(0, idx),
+    next3Hour_: to.slice(0, idx),
+  };
 };
 
 export const getMoment = (): Moment => {
@@ -70,20 +82,21 @@ export const isNullish = (val: unknown) => val == null;
 
 const RGB2GRAY_COEFF = [0.299, 0.587, 0.114] as const;
 /**
- * Convert hex rgb color to gray scale number.
+ * Convert hex to grayscale and check the number is greater than 127 or not.
+ * Default to be true.
  */
-export const hex2gray = (hex: string) => {
-  if (hex.startsWith('#')) {
-    hex = hex.slice(1);
-  }
+export const isHexLight = (hex: string): boolean => {
+  hex = hex.replace(/[^0-9A-F]/ig, '');
   if (hex.length === 3) {
-    const strs = hex.split('');
-    const vals = strs.map((str, i) => parseInt(str+str, 16) * RGB2GRAY_COEFF[i]);
-    return vals.reduce((cummul, val) => cummul += val, 0);
-  } else if ( hex.length === 6 ) {
-    return parseInt(hex.slice(0, 2), 16) * RGB2GRAY_COEFF[0]
-         + parseInt(hex.slice(2, 4), 16) * RGB2GRAY_COEFF[1]
-         + parseInt(hex.slice(4, 6), 16) * RGB2GRAY_COEFF[2];
+    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
-  return null;
+  if (hex.length === 6) {
+    const num = parseInt(hex, 16);
+    const grayscale = [num >> 16, (num >> 8) & 255, num & 255]
+      .reduce((prev, val, i) => {
+        return prev + RGB2GRAY_COEFF[i] * val;
+      }, 0);
+    return grayscale > 127;
+  }
+  return true;
 };

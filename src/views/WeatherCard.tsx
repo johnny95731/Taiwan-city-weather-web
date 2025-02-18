@@ -10,9 +10,7 @@ import LoadingIcon from 'images/loading.svg?react';
 import RainIcon from 'images/rain.svg?react';
 import RefreshIcon from 'images/refresh.svg?react';
 import DashCircleIcon from 'images/dash-circle.svg?react';
-import {
-  getLocation, cities, hex2gray
-} from '../utils/helpers';
+import { getLocation, cities, isHexLight} from '../utils/helpers';
 import type {Moment} from '../components/WeatherIcon';
 import type {City} from '../utils/helpers';
 
@@ -76,7 +74,7 @@ const CloseButton = styled(DashCircleIcon)`
   ${
   // 原圖檔為黑色。
   // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => hex2gray(theme.foregroundColor)! > 127 ?
+  ({theme}) => isHexLight(theme.foregroundColor) ?
     '' :
     '-webkit-filter: invert(100%); filter: invert(100%);'
 }
@@ -149,7 +147,7 @@ const DangerIcon = styled(DangerIcon_)`
   ${
   // 原圖檔為黑色。
   // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => hex2gray(theme.foregroundColor)! > 127 ?
+  ({theme}) => isHexLight(theme.foregroundColor) ?
     '' :
     '-webkit-filter: invert(100%); filter: invert(100%);'
 }

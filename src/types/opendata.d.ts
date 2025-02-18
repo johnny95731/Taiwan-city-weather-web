@@ -145,6 +145,7 @@ declare type MannedWeatherStationAPIStructure =
 
 /**
  * Data structure of city weather forcast API
+ * Update every 12 hours.
  */
 declare type CityForecastAPIStructure = {
   records: {
@@ -166,7 +167,8 @@ declare type CityForecastAPIStructure = {
 }
 
 /**
- * Data structure of town weather forcast API
+ * Data structure of town weather forcast API.
+ * Update every hour.
  */
 declare type TownForecastAPIStructure = {
   records: {

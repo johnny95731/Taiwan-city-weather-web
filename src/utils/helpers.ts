@@ -11,30 +11,11 @@ export const cities = Object.keys(locations) as City[];
 /**
  * 取得縣市代表觀測站
  */
-export const getStationID = (city: City) => {
-  return locations[city].repStationID;
+export const getLocation = (city: City) => {
+  return locations[city];
 };
 
-/**
- * 取得鄉鎮預報之代碼
- */
-export const getCode = (city: City) => {
-  return locations[city].code;
-};
 
-/**
- * 取得縣市第一個行政區。
- */
-export const getFirstTown = (city: City) => {
-  return locations[city].towns[0];
-};
-
-/**
- * 取得城市的所有鄉鎮市區
- */
-export const getTowns = (city: City) => {
-  return locations[city].towns;
-};
 
 export const getMoment = (): Moment => {
   // Get local time and fromat as yyyy-mm-dd

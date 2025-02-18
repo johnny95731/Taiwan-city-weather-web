@@ -1,6 +1,5 @@
 import React, {useState, useMemo, useRef, useCallback} from 'react';
 import styled from '@emotion/styled';
-import dayjs from 'dayjs';
 
 import WeatherIcon from '../components/WeatherIcon';
 import Tooltip from '../components/Tooltip';
@@ -12,7 +11,7 @@ import RainIcon from 'images/rain.svg?react';
 import RefreshIcon from 'images/refresh.svg?react';
 import DashCircleIcon from 'images/dash-circle.svg?react';
 import {
-  getStationID, cities, getTowns, hex2gray
+  getLocation, cities, hex2gray
 } from '../utils/helpers';
 import type {Moment} from '../components/WeatherIcon';
 import type {City} from '../utils/helpers';
@@ -255,12 +254,12 @@ const WeatherCard = ({
   const [currentTown, setCurrentTown] = useState(() =>
     localStorage.getItem(`town${cardIdx}`) || '---',
   );
-  const currentStation = useMemo(() => getStationID(currentCity),
+  const location = useMemo(() => getLocation(currentCity),
     [currentCity]);
 
   // fetch weather info from API.
   const [weatherElement, fetchData, isRefreshCD] = useWeatherAPI(
-    currentStation,
+    location.repStationID,
     currentCity,
     currentTown,
   );
@@ -278,6 +277,15 @@ const WeatherCard = ({
     isLoading,
   } = weatherElement;
 
+  const obsTime = useMemo(() => {
+    return `最後觀測時間：${
+      new Intl.DateTimeFormat('zh-TW', {
+        hour: 'numeric',
+        minute: 'numeric',
+      }).format(observationTime)
+    } `;
+  }, [observationTime]);
+
   const cityChanged = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const locationName = e.target.value as City;
     localStorage.setItem(`town${cardIdx}`, '---');
@@ -291,6 +299,27 @@ const WeatherCard = ({
     localStorage.setItem(`town${cardIdx}`, townName);
     setCurrentTown(townName);
   };
+  const townItems = useMemo(() => {
+    return (
+      <>
+        <LocationOption
+          value={'---'}
+          key={'---'}>
+          ---
+        </LocationOption>
+        {
+          location.towns.map((town) => (
+            <LocationOption
+              value={town}
+              key={town}>
+              {town}
+            </LocationOption>
+          ))
+        }
+      </>
+    );
+  }, [currentCity]);
+
 
   // Drag event
   const [cardPos, setCardPos] = useState<{
@@ -300,7 +329,7 @@ const WeatherCard = ({
   });
 
   const ref = useRef<HTMLDivElement>(null);
-  const draggingEvent = useMemo(() => {
+  const draggingStart = useMemo(() => {
     let isDragging = false;
     const startPoint = {
       x: 0,
@@ -312,8 +341,8 @@ const WeatherCard = ({
       // final pos = previous pos + variation
       // variation = mousemoveEvent.clientPos - mousedownEvent.clientPos
       // start = previous pos - mousedownEvent.clientPos.
-      startPoint.x = +domStyle.left.replace('px', '') - e.clientX;
-      startPoint.y = +domStyle.top.replace('px', '') - e.clientY;
+      startPoint.x = parseFloat(domStyle.left) - e.clientX;
+      startPoint.y = parseFloat(domStyle.top) - e.clientY;
       window.addEventListener('mousemove', move, true);
       window.addEventListener('mouseup', end, true);
     }
@@ -332,11 +361,7 @@ const WeatherCard = ({
       window.removeEventListener('mouseup', end);
       e.stopPropagation();
     }
-    return {
-      start,
-      move,
-      end,
-    };
+    return start;
   }, []);
 
   // Delete event
@@ -382,36 +407,34 @@ const WeatherCard = ({
         top: cardPos.y,
         left: cardPos.x,
       }}
-      onMouseDown={draggingEvent.start}
+      onMouseDown={draggingStart}
     >
       <CityMenu
-        onChange={cityChanged}
-        value={currentCity}
-        aria-label="縣市"
         name="city"
+        aria-label="縣市"
+        value={currentCity}
+        onChange={cityChanged}
       >
-        {cities.map((cityName) => (
-          <LocationOption value={cityName} key={cityName}>
-            {cityName}
-          </LocationOption>
-        ))}
+        {
+          cities.map((city) => (
+            <LocationOption
+              key={city}
+              value={city}
+            >
+              {city}
+            </LocationOption>
+          ))
+        }
       </CityMenu>
       <TownMenu
-        onChange={townChanged}
-        value={currentTown}
-        aria-label="鄉鎮市區"
         name="town"
+        aria-label="鄉鎮市區"
+        value={currentTown}
+        onChange={townChanged}
       >
-        <LocationOption value={'---'} key={'---'}>
-          ---
-        </LocationOption>
-        {getTowns(currentCity).map((districtName) => (
-          <LocationOption value={districtName} key={districtName}>
-            {districtName}
-          </LocationOption>
-        ))}
+        {townItems}
       </TownMenu>
-      <CloseButton onClick={deleteEvent}/>
+      <CloseButton onClick={deleteEvent} />
 
       <Description>
         {description} {comfortability}
@@ -453,17 +476,12 @@ const WeatherCard = ({
         </Info>
       </CurrentWeather>
       <LastUpdated>
-        最後觀測時間：
-        {new Intl.DateTimeFormat('zh-TW', {
-          hour: 'numeric',
-          minute: 'numeric',
-          // @ts-expect-error
-        }).format(dayjs(observationTime))}{' '}
+        {obsTime}
         <Refresh
           type="button"
-          onClick={isLoading ? undefined : fetchData}
           isLoading={isLoading}
           disabled={isRefreshCD || isLoading}
+          onClick={isLoading ? undefined : fetchData}
         >
           {isLoading ? <LoadingIcon /> : <RefreshIcon />}
         </Refresh>

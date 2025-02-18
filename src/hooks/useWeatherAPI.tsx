@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useRef, useState} from 'react';
-import {getCode, getFirstTown} from '../utils/helpers';
+import {getLocation} from '../utils/helpers';
 import {REFRESH_CD} from '../utils/constants';
 import type {City} from '../utils/helpers';
 
@@ -10,7 +10,7 @@ const AUTHORIZATION_KEY = 'CWA-150C2D4A-E612-4AC4-BD27-3D0A604C69AA';
 export type WeatherElement = {
   observationTime: Date,
   locationName: string,
-  cityName: string,
+  city: string,
   temperature: number,
   windSpeed: number,
   description: string,
@@ -35,7 +35,7 @@ type StationData = {
 /**
  * 抓取氣象站資料
  */
-const fetchCurrentWeather = async (stationID: string): Promise<StationData | void> => {
+const fetchWeatherStation = async (stationID: string): Promise<StationData | void> => {
   const isUnmanned = stationID.startsWith('C'); // 無人站
   const code = isUnmanned ? 'O-A0001-001' : 'O-A0003-001';
   return fetch(
@@ -69,7 +69,6 @@ type CityForcastTemp = {
  * Filtered city weather forcast API data.
  */
 type CityForcastData = {
-  cityName: City,
   description: string,
   weatherCode: string,
   rainPossibility: string,
@@ -99,7 +98,6 @@ const fetchWeatherForecast = async (
       );
 
       return {
-        cityName: city,
         description: weatherEl.Wx.parameterName,
         weatherCode: weatherEl.Wx.parameterValue,
         rainPossibility: weatherEl.PoP.parameterName,
@@ -122,8 +120,6 @@ type TownForcastTemp = {
  * Filtered town-forcast API data.
  */
 type TownForcastData = {
-  cityName: City,
-  townName: string,
   description: string,
   weatherCode: string,
   rainPossibility: string,
@@ -142,7 +138,7 @@ const fetchTownWeatherForecast = async (
   city: City,
   town: string,
 ): Promise<TownForcastData | void> => {
-  const code = getCode(city);
+  const code = getLocation(city).code;
   return fetch(
     `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-${code}?Authorization=${AUTHORIZATION_KEY}&LocationName=${town}`,
   )
@@ -162,8 +158,6 @@ const fetchTownWeatherForecast = async (
         {} as TownForcastTemp,
       );
       return {
-        cityName: city,
-        townName: town,
         description: weatherElements.Wx.Weather,
         weatherCode: weatherElements.Wx.WeatherCode,
         rainPossibility: weatherElements.pop3h.ProbabilityOfPrecipitation,
@@ -181,9 +175,8 @@ const fetchWBGT = async (
   city: City,
   town: string,
 ) => {
-  const townName_ = town === '---' ? getFirstTown(city) : town;
   return fetch(
-    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${city}&TownName=${townName_}&sort=IssueTime`,
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/M-A0085-001?Authorization=${AUTHORIZATION_KEY}&CountyName=${city}&TownName=${town}&sort=IssueTime`,
   )
     .then((response) => response.json())
     .then((data: WBGTAPIStructure) => {
@@ -199,13 +192,13 @@ const fetchWBGT = async (
 const useWeatherAPI = (
   repStationID: string,
   city: City,
-  town: string,
+  townValue: string,
 ) => {
   const [weatherElement, setWeatherElement] = useState<WeatherElement>(() => {
     return {
       observationTime: new Date(),
       locationName: '',
-      cityName: '',
+      city: '',
       temperature: 0,
       windSpeed: 0,
       description: '',
@@ -218,9 +211,11 @@ const useWeatherAPI = (
     };
   });
 
-  // Timeout for
+  const town = townValue === '---' ? getLocation(city).towns[0] : townValue;
+
+  // Timeout for refresh
   const refreshTimeoutId = useRef<number>(null);
-  const [isRefreshCD, setIsRefreshCD] = useState(false);
+  const [isRefreshCD, setIsRefreshCD] = useState<boolean>(false);
   const fetchData = useMemo(() => {
     // reset
     if (refreshTimeoutId.current !== null) {
@@ -235,11 +230,11 @@ const useWeatherAPI = (
         ...prevState,
         isLoading: true,
       }));
-      const fetchTownForecast = town === '---' ?
+      const fetchForecast = townValue === '---' ?
         fetchWeatherForecast : fetchTownWeatherForecast;
       const [currentWeather, weatherForecast, heatInjury] = await Promise.all([
-        fetchCurrentWeather(repStationID),
-        fetchTownForecast(city, town),
+        fetchWeatherStation(repStationID),
+        fetchForecast(city, town),
         fetchWBGT(city, town),
       ]);
 
@@ -247,6 +242,7 @@ const useWeatherAPI = (
         ...currentWeather!,
         ...weatherForecast!,
         ...heatInjury!,
+        city,
         isLoading: false,
       });
       setIsRefreshCD(isCd = true);
@@ -256,7 +252,7 @@ const useWeatherAPI = (
         refreshTimeoutId.current = null;
       }, REFRESH_CD);
     };
-  }, [repStationID, town]);
+  }, [repStationID, townValue]);
 
   useEffect(() => {
     fetchData();

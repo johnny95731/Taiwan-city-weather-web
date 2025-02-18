@@ -3,11 +3,12 @@ import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 
 export default [
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat['jsx-runtime'],
   {
-    files: ['**/*.{j,t}sx', ],
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     plugins: {
       react: pluginReact
     },
@@ -30,10 +31,11 @@ export default [
       'valid-jsdoc': 'off',
       'func-call-spacing': 'off',
       'import/first': 'off',
-      // 'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
       '@typescript-eslint/ban-ts-comment': 'off',
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }]
+      '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
+      'react/jsx-first-prop-new-line': ['error'],
+      'react/jsx-max-props-per-line': ['error', { 'maximum': 1 }],
     },
   },
 ];

@@ -33,7 +33,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "bootstrap": "^5.3.1",
-    "dayjs": "^1.11.9",
     "gh-pages": "^6.1.1",
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",

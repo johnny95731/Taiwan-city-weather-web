@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration.js';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import 'normalize.css';
 import {REFRESH_CD} from './utils/constants.ts';
 
@@ -18,7 +18,7 @@ root.render(
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.register();
 
-// Prevent refresh for `TIME_ALLOWED` ms.
+// Prevent refresh for `REFRESH_CD` ms.
 const isPreventRefresh = {value: true};
 window.addEventListener('load', () => {
   setTimeout(() => {

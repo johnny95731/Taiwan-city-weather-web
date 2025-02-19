@@ -15,8 +15,8 @@ export const getLocation = (city: City) => {
   return locations[city];
 };
 
-const addHout = (date: Date, hours: number) => {
-  date.setTime(date.getTime() + hours * 3600000); // 60 * 60 * 1000
+const addHour = (date: Date, hours: number) => {
+  date.setHours(date.getHours() + hours);
   return date;
 };
 
@@ -28,14 +28,13 @@ export const getOpenDataTime = (): {
   nextHour_: string,
   next3Hour_: string,
 } => {
-  // Time with floor hour
-  let date = new Date(Math.ceil(Date.now() / 3600000) * 3600000);
-  // to UTC+8
+  let date = addHour(new Date(), 1);
+  // To UTC+8. The string '.000T' in ISO format will be removed later.
   date = new Date(date.toISOString());
-  addHout(date, 8);
+  addHour(date, 8);
 
   const from = date.toISOString();
-  addHout(date, 3);
+  addHour(date, 3);
   const to = date.toISOString();
   const idx = from.indexOf('.');
   return {
@@ -44,35 +43,36 @@ export const getOpenDataTime = (): {
   };
 };
 
-export const getMoment = (): Moment => {
-  // Get local time and fromat as yyyy-mm-dd
-  const now = new Date();
-  const nowDate = Intl.DateTimeFormat('zh-TW', {
+export const getMoment = (() => {
+  const dateFormater = Intl.DateTimeFormat('zh-TW', {
     month: '2-digit',
     day: '2-digit',
-  })
-    .format(now)
-    .replace(/\//g, '-');
-  const year = now.getFullYear();
-  // Find sunrise-sunset moment of today.
-  const locationDate = sunriseSunsetData.find((time) => time.date === nowDate);
-  if (!locationDate) {
-    throw new Error(`找不到在 ${nowDate} 的日出日落資料`);
-  }
+  });
+  return (): Moment => {
+    // Get local time and fromat as yyyy-mm-dd
+    const now = new Date();
+    const nowDate = dateFormater.format(now).replace(/\//g, '-');
+    const year = now.getFullYear();
+    // Find sunrise-sunset moment of today.
+    const locationDate = sunriseSunsetData.find((time) => time.date === nowDate);
+    if (!locationDate) {
+      throw new Error(`找不到在 ${nowDate} 的日出日落資料`);
+    }
 
-  // Convert sunrise, sunset, and nowTime to TimeStamp
-  const sunriseTimestamp = new Date(
-    `${year}-${locationDate.date} ${locationDate.sunrise}`
-  ).getTime();
-  const sunsetTimestamp = new Date(
-    `${year}-${locationDate.date} ${locationDate.sunset}`
-  ).getTime();
-  const nowTimeStamp = now.getTime();
-  // Verifying current time is day or night.
-  return sunriseTimestamp <= nowTimeStamp && nowTimeStamp <= sunsetTimestamp
-    ? 'day'
-    : 'night';
-};
+    // Convert sunrise, sunset, and nowTime to TimeStamp
+    const sunriseTimestamp = new Date(
+      `${year}-${locationDate.date} ${locationDate.sunrise}`
+    ).getTime();
+    const sunsetTimestamp = new Date(
+      `${year}-${locationDate.date} ${locationDate.sunset}`
+    ).getTime();
+    const nowTimeStamp = now.getTime();
+    // Verifying current time is day or night.
+    return sunriseTimestamp <= nowTimeStamp && nowTimeStamp <= sunsetTimestamp
+      ? 'day'
+      : 'night';
+  };
+})();
 
 export const getLastItem = <T>(arr: T[]) => {
   return arr[arr.length - 1];

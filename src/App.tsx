@@ -68,7 +68,7 @@ const App = () => {
         />,
       ]);
     }
-    const allKeys = cards.map((card) => parseInt(card.key!));
+    const allKeys = cards.map((card) => +card.key!);
     const newCards = cards.map((card) => {
       // 重新連接cardsRearrange
       return <WeatherCard

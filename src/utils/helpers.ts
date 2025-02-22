@@ -1,6 +1,6 @@
 import sunriseSunsetData from './sunrise-sunset.json';
 import locations from './locations.json';
-import type {Moment} from '@/components/WeatherIcon';
+import type {Moments} from '@/components/WeatherIcon';
 
 export type City = keyof typeof locations;
 /**
@@ -48,7 +48,7 @@ export const getMoment = (() => {
     month: '2-digit',
     day: '2-digit',
   });
-  return (): Moment => {
+  return (): Moments => {
     // Get local time and fromat as yyyy-mm-dd
     const now = new Date();
     const nowDate = dateFormater.format(now).replace(/\//g, '-');
@@ -74,29 +74,130 @@ export const getMoment = (() => {
   };
 })();
 
-export const getLastItem = <T>(arr: T[]) => {
-  return arr[arr.length - 1];
-};
-
 export const isNullish = (val: unknown) => val == null;
 
-const RGB2GRAY_COEFF = [0.299, 0.587, 0.114] as const;
 /**
- * Convert hex to grayscale and check the number is greater than 127 or not.
- * Default to be true.
+ * Return whether the vale is in the closed interval [`min`, `max`] or not.
  */
-export const isHexLight = (hex: string): boolean => {
-  hex = hex.replace(/[^0-9A-F]/ig, '');
-  if (hex.length === 3) {
-    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+export const isInRange = (val: number, min: number, max: number) => {
+  return min <= val && val <= max;
+};
+
+
+export type BeaufortScale = {
+  /**
+   * 蒲福風級
+   */
+  beaufort_: number,
+  /**
+   * 描述
+   */
+  descr_: string,
+}
+export const getBeaufortScale = (
+  /**
+   * Wind speed (m/s)
+   */
+  windSpeed: number
+): BeaufortScale => {
+  let text: BeaufortScale;
+  if (windSpeed < 0.3)
+    text = {
+      beaufort_: 0,
+      descr_: '無風'
+    };
+  else if (windSpeed <= 1.5)
+    text = {
+      beaufort_: 1,
+      descr_: '軟風'
+    };
+  else if (windSpeed <= 3.3)
+    text = {
+      beaufort_: 2,
+      descr_: '輕風'
+    };
+  else if (windSpeed <= 5.4)
+    text = {
+      beaufort_: 3,
+      descr_: '微風'
+    };
+  else if (windSpeed <= 7.9)
+    text = {
+      beaufort_: 4,
+      descr_: '和風'
+    };
+  else if (windSpeed <= 10.7)
+    text = {
+      beaufort_: 5,
+      descr_: '清風'
+    };
+  else if (windSpeed <= 13.8)
+    text = {
+      beaufort_: 6,
+      descr_: '強風'
+    };
+  else if (windSpeed <= 17.1)
+    text = {
+      beaufort_: 7,
+      descr_: '疾風'
+    };
+  else if (windSpeed <= 20.7)
+    text = {
+      beaufort_: 8,
+      descr_: '大風'
+    };
+  else if (windSpeed <= 24.4)
+    text = {
+      beaufort_: 9,
+      descr_: '烈風'
+    };
+  else if (windSpeed <= 28.4)
+    text = {
+      beaufort_: 10,
+      descr_: '狂風'
+    };
+  else if (windSpeed <= 32.6)
+    text = {
+      beaufort_: 11,
+      descr_: '狂風'
+    };
+  else
+    text = {
+      beaufort_: 12,
+      descr_: '狂風'
+    };
+  return text;
+};
+
+
+export const getWindDirText = (windDir: number) => {
+  const dirIdx = Math.round(windDir / 45) % 8; // 8方位
+  let result: {dir_: string, text_: string} = {dir_: 'n', text_: '北'};
+  switch (dirIdx) {
+  case 1:
+    result = {dir_: 'ne', text_: '東北'};
+    break;
+  case 2:
+    result = {dir_: 'e', text_: '東'};
+    break;
+  case 3:
+    result = {dir_: 'se', text_: '東南'};
+    break;
+  case 4:
+    result = {dir_: 's', text_: '南'};
+    break;
+  case 5:
+    result = {dir_: 'sw', text_: '西南'};
+    break;
+  case 6:
+    result = {dir_: 'w', text_: '西'};
+    break;
+  case 7:
+    result = {dir_: 'nw', text_: '西北'};
+    break;
   }
-  if (hex.length === 6) {
-    const num = parseInt(hex, 16);
-    const grayscale = [num >> 16, (num >> 8) & 255, num & 255]
-      .reduce((prev, val, i) => {
-        return prev + RGB2GRAY_COEFF[i] * val;
-      }, 0);
-    return grayscale > 127;
-  }
-  return true;
+  return {
+    cls_: 'wi wi-wind wi-towards-' + result.dir_,
+    text_: result.text_
+  };
 };

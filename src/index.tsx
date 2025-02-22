@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App.tsx';
+// Styles
 import 'normalize.css';
+import './index.css';
+import './assets/globals.css';
+import './assets/weather-icons.css';
+import './assets/weather-icons-wind.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+// utils
 import {REFRESH_CD} from './utils/constants.ts';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);

@@ -1,243 +1,165 @@
 import React, {useState, useMemo, useRef, useCallback} from 'react';
+import type {CSSProperties} from 'react';
 import styled from '@emotion/styled';
 
 import WeatherIcon from '../components/WeatherIcon';
 import Tooltip from '../components/Tooltip';
 import useWeatherAPI from '../hooks/useWeatherAPI';
-import DangerIcon_ from 'images/danger.svg?react';
-import AirFlowIcon from 'images/airFlow.svg?react';
-import LoadingIcon from 'images/loading.svg?react';
-import RainIcon from 'images/rain.svg?react';
-import RefreshIcon from 'images/refresh.svg?react';
-import DashCircleIcon from 'images/dash-circle.svg?react';
-import { getLocation, cities, isHexLight} from '../utils/helpers';
-import type {Moment} from '../components/WeatherIcon';
+import {getLocation, cities, getWindDirText, getBeaufortScale} from '../utils/helpers';
+import type {Moments} from '../components/WeatherIcon';
 import type {City} from '../utils/helpers';
 
 // Components
-const WeatherCardWrapper = styled.div`
-  display: block;
+const CardWrapper = styled.div`
   position: relative;
-  width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px 16px 16px 8px;
+  padding: 12px;
+  padding-left: 24px;
+  width: 450px;
+  background: ${({theme}) => theme.cardGrad};
   box-shadow: ${({theme}) => theme.boxShadow};
-  background-color: ${({theme}) => theme.foregroundColor};
-  box-sizing: border-box;
-  padding: 15px 15px 30px 15px;
-  margin: 20px 30px;
-
-  @media screen and (max-height: 640px) {
-    width: 400px;
- }
+  > * + * {
+    margin-top: 4px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
+const DragableRegion = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 100%;
+  padding: 8px 4px;
+  opacity: 0.5;
+  background-image: radial-gradient(${({theme}) => theme.textColor1} 1px, transparent 0);
+  background-size: 7px 7px;
+  background-position: 4px 0px;
+  background-clip: content-box;
+  transition: all 1s ease;
+  cursor: move;
+  touch-action: none;
+  user-select: none;
+`;
+
+
 const CityMenu = styled.select`
-  display: inline;
-  width: 95px;
+  width: 85px;
   background: transparent;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 600;
-  color: ${({theme}) => theme.titleColor};
+  color: ${({theme}) => theme.textColor1};
   cursor: pointer;
   border: none;
   &:hover {
     background: ${({theme}) => theme.menuHoverColor};
- }
+  }
 `;
 
 const LocationOption = styled.option`
-  background-color:  ${({theme}) => theme.foregroundColor};
+  background-color:  ${({theme}) => theme.bgColor1};
+  color: ${({theme}) => theme.textColor1};
   font-size: 16px;
-  color: ${({theme}) => theme.titleColor};
 `;
 
 const TownMenu = styled.select`
-  display: inline;
-  width: 90px;
+  width: 85px;
   background: transparent;
   font-size: 18px;
-  font-weight: 550;
-  color: ${({theme}) => theme.titleColor};
+  font-weight: 600;
+  color: ${({theme}) => theme.textColor1};
   cursor: pointer;
   margin-left: 10px;
   border: none;
   &:hover {
     background: ${({theme}) => theme.menuHoverColor};
- }
+  }
 `;
 
-const CloseButton = styled(DashCircleIcon)`
-  text-align: center;
+const CloseButton = styled.button`
+  font-size: 14pt;
   float: right;
-  width: 20px;
-  height: 28px;
-  cursor: pointer;
-  ${
-  // 原圖檔為黑色。
-  // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => isHexLight(theme.foregroundColor) ?
-    '' :
-    '-webkit-filter: invert(100%); filter: invert(100%);'
-}
-  @media (max-width: 500px), (max-height: 600px) {
-    width: 16px;
- }
+  color: ${({theme}) => theme.textColor1};
+`;
+
+const BasicInfo = styled.div`
+  flex: 1 1 0;
+  position: relative;
+  width: 100%;
+  padding: 0 8px;
+`;
+
+const Temperature = styled.span`
+  color: ${({theme}) => theme.textColor1};
+  font-size: 28pt;
+  font-weight: bolder;
+  letter-spacing: -2px;
 `;
 
 const Description = styled.div`
-  width: fit-content;
-  padding-left: 5px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: ${({theme}) => theme.textColor};
-`;
-
-const CurrentWeather = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: fit-content;
-  justify-items: start;
-  align-items: flex-end;
-  margin-bottom: 10px;
-  > svg{
-    height: 80px;
-    width: 80px;
-    flex-shrink: 0;
-    margin-left: 5px;
-    pointer-events: none;
- }
-`;
-
-const TempNDanger = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
-  width: min-content;
-  height: max-content;
-`;
-
-const Temperature = styled.div`
-  display: flex;
-  color: ${({theme}) => theme.temperatureColor};
-  font-size: 40px;
-  font-weight: 300;
-  margin-left: 20px;
-`;
-
-const Celsius = styled.div`
-  font-weight: 400;
-  font-size: 16px;
-`;
-
-const DangerIndex = styled.div`
-  display: inline-flex;
-  white-space: nowrap;
-  align-items: center;
-  color: ${({theme}) => theme.temperatureColor};
-  font-size: 16px;
-  font-weight: 400;
-  margin-left: 17px;
-`;
-
-const DangerIcon = styled(DangerIcon_)`
-  max-width: 18px;
-  max-height: 18px;
-  margin-right: 10px;
-  ${
-  // 原圖檔為黑色。
-  // 背景亮度高則維持黑色，亮度低則反轉為白色。
-  ({theme}) => isHexLight(theme.foregroundColor) ?
-    '' :
-    '-webkit-filter: invert(100%); filter: invert(100%);'
-}
-`;
-
-const Info = styled.div`
-  display: flex;
-  align-self: flex-end;
-  align-content: flex-end;
-  width: min-content;
-  font-size: 16px;
-  font-weight: 400;
-  white-space: nowrap;
-  color: ${({theme}) => theme.textColor};
-  margin-left: 8px;
-  margin-top: 12px;
-`;
-
-const AirFlow = styled.div`
-  display: flex;
-  align-content: center;
-  svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-right: 10px;
-    pointer-events: none;
+  font-size: 14pt;
+  color: ${({theme}) => theme.textColor2};
+  font-weight: bold;
+  @media screen and (max-width: 500px) {
+    display: block;
+    margin-left: 0;
   }
 `;
 
-const Rain = styled.div`
-  display: flex;
-  align-content: center;
-  margin-left: 20px;
-  svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-right: 10px;
-    pointer-events: none;
+const WeatherIconWrapper = styled.div`
+  position: absolute;
+  top: 60%;
+  right: 20px;
+  transform: translate(0,-50%);
+  color: ${({theme}) => theme.textColor1};
+  font-size: 40pt;
+`;
+
+const DetailInfo = styled.div`
+  width: 100%;
+  white-space: nowrap;
+  color: ${({theme}) => theme.textColor2};
+  padding: 0 8px;
+  > span + span {
+    padding-left: 16px;
   }
+`;
+
+const DetailInfoItem = styled.span`
+  font-size: 12pt;
+  font-weight: 400;
 `;
 
 const LastUpdated = styled.div`
-  display: inline-flex;
-  align-items: center;
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
+  color: ${({theme}) => theme.textColor2};
   font-size: 12px;
-  color: ${({theme}) => theme.textColor};
+  text-align: end;
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 const Refresh = styled.button<{isLoading: boolean}>`
   margin-left: 4px;
-  border: none;
-  padding: 0;
-  font-size: 12px;
-  background-color: inherit;
-  color: ${({theme}) => theme.textColor};
-  svg {
-    width: 15px;
-    height: 15px;
-    animation: ${({isLoading}) => (
+  color: ${({theme}) => theme.textColor1};
+  animation: ${({isLoading}) => (
     isLoading ?
       'rotate infinite 0.8s linear;' :
       'rotate 1 0.8s linear;'
   )};
-  }
-  &:disabled svg {
-    opacity: 0.5;
-  }
 
   &:focus, &:hover {
     outline: none;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
   }
 `;
 
 export type WeatherCardProps = {
   cardIdx: number,
-  moment: Moment,
+  moment: Moments,
   delCard: (cardIdx: number) => void,
 }
 const WeatherCard = ({
@@ -264,14 +186,13 @@ const WeatherCard = ({
 
   const {
     observationTime,
-    temperature,
+    tempCurrent,
     windSpeed,
+    windDir,
     description,
     weatherCode,
     rainPossibility,
     comfortability,
-    heatInjuryIndex,
-    heatInjuryWarning,
     isLoading,
   } = weatherElement;
 
@@ -283,6 +204,20 @@ const WeatherCard = ({
       }).format(observationTime)
     } `;
   }, [observationTime]);
+
+  const windSpeedTip = useMemo(() => {
+    const {descr_} = getBeaufortScale(windSpeed);
+    return descr_ + ' - ' + windSpeed + 'm/h';
+  }, [windSpeed]);
+
+  const {cls_: windDirCls_, windDirTip_} = useMemo(() => {
+    const {cls_, text_} = getWindDirText(windDir);
+    return {
+      cls_,
+      windDirTip_: '風向 - ' + text_
+    };
+  }, [windDir]);
+
 
   const cityChanged = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const locationName = e.target.value as City;
@@ -320,17 +255,14 @@ const WeatherCard = ({
 
 
   // Drag event
-  const [cardPos, setCardPos] = useState<{
-    x: number | string, y: number | string
-  }>(() => {
-    return {x: 0, y: 0};
-  });
+  const [cardStyle, setCardStyle] = useState<CSSProperties>(() => ({
+    top: 0
+  }));
 
   const ref = useRef<HTMLDivElement>(null);
   const draggingStart = useMemo(() => {
     let isDragging = false;
     const startPoint = {
-      x: 0,
       y: 0,
     };
     function start(e: React.MouseEvent<HTMLDivElement>) {
@@ -339,24 +271,22 @@ const WeatherCard = ({
       // final pos = previous pos + variation
       // variation = mousemoveEvent.clientPos - mousedownEvent.clientPos
       // start = previous pos - mousedownEvent.clientPos.
-      startPoint.x = parseFloat(domStyle.left) - e.clientX;
       startPoint.y = parseFloat(domStyle.top) - e.clientY;
-      window.addEventListener('mousemove', move, true);
-      window.addEventListener('mouseup', end, true);
+      window.addEventListener('pointermove', move, true);
+      window.addEventListener('pointerup', end, true);
     }
     function move(e: MouseEvent) {
       if (isDragging) {
-        setCardPos({
-          x: `${startPoint.x + e.clientX}px`,
-          y: `${startPoint.y + e.clientY}px`,
+        setCardStyle({
+          top: `${startPoint.y + e.clientY}px`
         });
       }
-      e.stopPropagation();
+      // e.stopPropagation();
     }
     function end(e: MouseEvent) {
       isDragging = false;
-      window.removeEventListener('mousemove', move);
-      window.removeEventListener('mouseup', end);
+      window.removeEventListener('pointermove', move, true);
+      window.removeEventListener('pointerup', end, true);
       e.stopPropagation();
     }
     return start;
@@ -399,80 +329,81 @@ const WeatherCard = ({
   // }, []);
 
   return (
-    <WeatherCardWrapper
+    <CardWrapper
       ref={ref}
-      style={{
-        top: cardPos.y,
-        left: cardPos.x,
-      }}
-      onMouseDown={draggingStart}
+      style={cardStyle}
     >
-      <CityMenu
-        name="city"
-        aria-label="縣市"
-        value={currentCity}
-        onChange={cityChanged}
-      >
-        {
-          cities.map((city) => (
-            <LocationOption
-              key={city}
-              value={city}
-            >
-              {city}
-            </LocationOption>
-          ))
-        }
-      </CityMenu>
-      <TownMenu
-        name="town"
-        aria-label="鄉鎮市區"
-        value={currentTown}
-        onChange={townChanged}
-      >
-        {townItems}
-      </TownMenu>
-      <CloseButton onClick={deleteEvent} />
-
-      <Description>
-        {description} {comfortability}
-      </Description>
-
-      <CurrentWeather>
-        <WeatherIcon
-          weatherCode={weatherCode}
-          moment={moment}
-        />
-        <TempNDanger>
-          <Temperature>
-            {Math.round(temperature)} <Celsius>°C</Celsius>
-          </Temperature>
-          <DangerIndex id={'DangerIndex'}>
-            <Tooltip
-              id={'DangerIndex'}
-              content={'熱傷害指數'}
-            />
-            <DangerIcon />
-            {heatInjuryIndex} {heatInjuryWarning}
-          </DangerIndex>
-        </TempNDanger>
-        <Info>
-          <AirFlow id={'AirFlow'}>
-            <Tooltip
-              id={'AirFlow'}
-              content={'風速'}
-            />
-            <AirFlowIcon /> {windSpeed} m/h
-          </AirFlow>
-          <Rain id={'Rain'}>
-            <Tooltip
-              id={'Rain'}
-              content={'12小時內降雨機率'}
-            />
-            <RainIcon /> {rainPossibility}%
-          </Rain>
-        </Info>
-      </CurrentWeather>
+      <DragableRegion
+        onPointerDownCapture={draggingStart}
+      />
+      <div>
+        <CityMenu
+          name="city"
+          aria-label="縣市"
+          value={currentCity}
+          onChange={cityChanged}
+        >
+          {
+            cities.map((city) => (
+              <LocationOption
+                key={city}
+                value={city}
+              >
+                {city}
+              </LocationOption>
+            ))
+          }
+        </CityMenu>
+        <TownMenu
+          name="town"
+          aria-label="鄉鎮市區"
+          value={currentTown}
+          onChange={townChanged}
+        >
+          {townItems}
+        </TownMenu>
+        <CloseButton
+          type="button"
+          onClick={deleteEvent}
+        >
+          <i className='bi bi-x-lg' />
+        </CloseButton>
+      </div>
+      <BasicInfo>
+        <Temperature>
+          {Math.round(tempCurrent)}&thinsp;°C
+        </Temperature>
+        <Description>
+          {description} {comfortability}
+        </Description>
+        <WeatherIconWrapper>
+          {WeatherIcon({weatherCode, moment})}
+        </WeatherIconWrapper>
+      </BasicInfo>
+      <DetailInfo>
+        <DetailInfoItem id={'WindSpeed'}>
+          <Tooltip
+            id={'WindSpeed'}
+            content={windSpeedTip}
+          />
+          <i className='wi wi-strong-wind' /> {windSpeed} m/s
+        </DetailInfoItem>
+        <DetailInfoItem id={'WindDir'}>
+          <Tooltip
+            id={'WindDir'}
+            content={windDirTip_}
+          />
+          <i className={windDirCls_} /> {windDir}°
+        </DetailInfoItem>
+        <DetailInfoItem id={'Rain'}>
+          <Tooltip
+            id={'Rain'}
+            content={'12小時內降雨機率'}
+          />
+          <i className='wi wi-umbrella' /> {rainPossibility}%
+        </DetailInfoItem>
+      </DetailInfo>
+      {/* <div className="spacer" /> */}
       <LastUpdated>
         {obsTime}
         <Refresh
@@ -481,10 +412,10 @@ const WeatherCard = ({
           disabled={isRefreshCD || isLoading}
           onClick={isLoading ? undefined : fetchData}
         >
-          {isLoading ? <LoadingIcon /> : <RefreshIcon />}
+          <i className='bi bi-arrow-clockwise' />
         </Refresh>
       </LastUpdated>
-    </WeatherCardWrapper>
+    </CardWrapper>
   );
 };
 

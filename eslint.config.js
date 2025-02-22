@@ -42,6 +42,10 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
       'react/jsx-first-prop-new-line': ['error'],
       'react/jsx-max-props-per-line': ['error', { 'maximum': 1 }],
+      'react/self-closing-comp': ['error', {
+        'component': true,
+        'html': true
+      }]
     },
   },
 ];

@@ -6,21 +6,23 @@ import {ThemeProvider} from '@emotion/react';
 import {getMoment} from './utils/helpers';
 import WeatherCard from './views/WeatherCard';
 import Header from './views/Header';
-import {THEME} from './utils/constants';
+import {THEME} from './assets/theme';
 
 
 // Components
 const Container = styled.article`
   display: flex;
-  flex-wrap: wrap;
-  padding-top: 100px; /**Height of header */
-  align-content: start;
-  justify-content: center;
-  background-color: ${({theme}) => theme.backgroundColor};
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 120px; /** Height of header = 100 */
+  gap: 20px;
+  background-color: ${({theme}) => theme.bgColor1};
   width: 100%;
   min-height: 200%;
   height: auto;
   overflow-y: auto;
+  transition: all 0.7s ease;
 `;
 
 
@@ -28,12 +30,12 @@ const App = () => {
   // Get the city is day or night.
   const moment = useMemo(() => getMoment(), []);
 
-  // Web theme: {light, dark}
+  // Theme: {light, dark}
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(() => {
     let themeMode = localStorage.getItem('theme') ?? 'light';
     if (!themeMode || !(themeMode in THEME)) themeMode = 'light';
     document.body.style.backgroundColor =
-      THEME[themeMode as 'light' | 'dark'].backgroundColor;
+      THEME[themeMode as 'light' | 'dark'].bgColor1;
     return themeMode as 'light' | 'dark';
   });
 
@@ -41,7 +43,7 @@ const App = () => {
     setCurrentTheme((prevTheme) => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light';
       localStorage.setItem('theme', newTheme);
-      document.body.style.backgroundColor = THEME[newTheme].backgroundColor;
+      document.body.style.backgroundColor = THEME[newTheme].bgColor1;
       return newTheme;
     });
   }, []);

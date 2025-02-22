@@ -152,7 +152,7 @@ declare type CityForecastAPIStructure = {
     location: {
       locationName: string,
       weatherElement: {
-        elementName: string,
+        elementName: 'Wx' | 'PoP' | 'CI' | 'MinT' | 'MaxT',
         time: {
           startTime: string,
           string: string,
@@ -168,7 +168,7 @@ declare type CityForecastAPIStructure = {
 
 /**
  * Data structure of town weather forcast API.
- * Update every hour.
+ * Update every 3 hour.
  */
 declare type TownForecastAPIStructure = {
   records: {
@@ -179,37 +179,13 @@ declare type TownForecastAPIStructure = {
         Latitude: string,
         Longitude: string,
         WeatherElement: {
-          ElementName: string,
+          ElementName: '溫度' | '露點溫度' | '相對濕度' | '體感溫度' |
+              '舒適度指數' | '風速' | '風向' | '3小時降雨機率' | '天氣現象' |
+              '天氣預報綜合描述',
           Time: {
             DataTime: string,
             ElementValue: Record<string, string>[]
           }[]
-        }[]
-      }[]
-    }[]
-  }
-}
-
-
-/**
- * Data structure of WBGT API
- * WBGT: Wet Bulb Globe Temperature 綜合溫度熱指數(
- */
-declare type WBGTAPIStructure = {
-  records: {
-    Locations: {
-      CountyName: string,
-      Location: {
-        TownName: string,
-        Geocode: string,
-        Latitude: string,
-        Longitude: string,
-        Time: {
-          IssueTime: string,
-          WeatherElements: {
-            HeatInjuryIndex: number,
-            HeatInjuryWarning: string
-          }
         }[]
       }[]
     }[]

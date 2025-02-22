@@ -40,15 +40,15 @@ const weatherIconMap = {
     isCloudy: 'wi-day-cloudy',
     isFog: 'wi-day-fog',
     isThunderstorm: 'wi-day-thunderstorm',
-    isPartiallyClearWithRain: 'wi-day-shower',
+    isPartiallyClearWithRain: 'wi-day-showers',
     isSnowing: 'wi-day-snow',
   },
   night: {
     isClear: 'wi-night-clear',
     isCloudy: 'wi-night-cloudy',
     isFog: 'wi-night-fog',
-    isThunderstorm: 'wi-thunderstorm',
-    isPartiallyClearWithRain: 'wi-night-shower',
+    isThunderstorm: 'wi-night-thunderstorm',
+    isPartiallyClearWithRain: 'wi-night-showers',
     isSnowing: 'wi-night-snow',
   },
 } as const satisfies WeatherIcons;

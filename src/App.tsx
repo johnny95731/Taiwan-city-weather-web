@@ -15,14 +15,27 @@ const Container = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  padding-top: 120px; /** Height of header = 100 */
   gap: 20px;
-  background-color: ${({theme}) => theme.bgColor1};
+  padding-top: 110px; /** Height of header = 100 */
+  padding-bottom: 150px;
   width: 100%;
-  min-height: 200%;
   height: auto;
+  color: ${({theme}) => theme.textColor1};
+  background-color: ${({theme}) => theme.bgColor};
   overflow-y: auto;
   transition: all 0.7s ease;
+`;
+
+const AddBtn = styled.button`
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 20pt;
+  outline: 1px solid ${({theme}) => theme.outline};
+  opacity: 0.8;
+  &:hover {
+    background-color: ${({theme}) => theme.hoverBgColor};
+    opacity: 1;
+  }
 `;
 
 
@@ -35,7 +48,7 @@ const App = () => {
     let themeMode = localStorage.getItem('theme') ?? 'light';
     if (!themeMode || !(themeMode in THEME)) themeMode = 'light';
     document.body.style.backgroundColor =
-      THEME[themeMode as 'light' | 'dark'].bgColor1;
+      THEME[themeMode as 'light' | 'dark'].bgColor;
     return themeMode as 'light' | 'dark';
   });
 
@@ -43,7 +56,7 @@ const App = () => {
     setCurrentTheme((prevTheme) => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light';
       localStorage.setItem('theme', newTheme);
-      document.body.style.backgroundColor = THEME[newTheme].bgColor1;
+      document.body.style.backgroundColor = THEME[newTheme].bgColor;
       return newTheme;
     });
   }, []);
@@ -110,6 +123,13 @@ const App = () => {
       />
       <Container>
         {cards}
+        <AddBtn
+          type="button"
+          aria-label="新增卡片"
+          onClick={addCard}
+        >
+          <i className='bi bi-plus' />
+        </AddBtn>
       </Container>
     </ThemeProvider>
   );

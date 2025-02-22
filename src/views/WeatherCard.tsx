@@ -56,12 +56,12 @@ const CityMenu = styled.select`
   cursor: pointer;
   border: none;
   &:hover {
-    background: ${({theme}) => theme.menuHoverColor};
+    background: ${({theme}) => theme.hoverBgColor};
   }
 `;
 
 const LocationOption = styled.option`
-  background-color:  ${({theme}) => theme.bgColor1};
+  background-color:  ${({theme}) => theme.bgColor};
   color: ${({theme}) => theme.textColor1};
   font-size: 16px;
 `;
@@ -76,7 +76,7 @@ const TownMenu = styled.select`
   margin-left: 10px;
   border: none;
   &:hover {
-    background: ${({theme}) => theme.menuHoverColor};
+    background: ${({theme}) => theme.hoverBgColor};
   }
 `;
 

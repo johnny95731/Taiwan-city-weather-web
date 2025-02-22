@@ -3,11 +3,11 @@ import '@emotion/react';
 declare module '@emotion/react' {
   export interface Theme {
     name: string,
-    bgColor1: string,
     cardGrad: string,
-    menuHoverColor: string,
+    bgColor: string,
+    hoverBgColor: string,
     boxShadow: string,
-    titleColor: string,
+    outline: string,
     textColor1: string,
     textColor2: string,
   }

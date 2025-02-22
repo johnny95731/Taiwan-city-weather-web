@@ -4,85 +4,55 @@ import styled from '@emotion/styled';
 
 // Components
 const HeaderWrapper = styled.header<{isVisible: boolean}>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: fixed;
   left: 0px;
   top: ${({isVisible}) => isVisible ? '0px' : '-60px'};
   z-index: 1;
 
+  display: flex;
+  align-items: center;
+  gap: 20px;
   width: 100%;
   height: 60px;
-  box-sizing: border-box;
   padding: 10px 3% 10px 3%;
   box-shadow: ${({theme}) => theme.boxShadow};
 
-  background-color: ${({theme}) => theme.bgColor1};
+  background-color: ${({theme}) => theme.bgColor};
+  color: ${({theme}) => theme.textColor1};
   transition: all 0.7s ease;
 
-  @media (max-width: 500px), (max-height: 600px) {
+  @media (max-width: 500px) {
     padding-right: 5%;
     height: 50px;
   }
-
 `;
 
 const Title = styled.h1`
+  flex: 0 0 auto;
   font-size: 21px;
   font-weight: 600;
-  color: ${({theme}) => theme.textColor1};
 
-  @media (max-width: 500px), (max-height: 600px) {
+  @media (max-width: 500px) {
     font-size: 18px;
   }
 `;
 
-const OptionMenu = styled.div`
-  position: relative;
-  display: inline-block;
-
-  @media (max-width: 500px){
-    padding: 4px;
-  }
+const Toolbar = styled.div`
+  flex: 1 1 0;
+  display: flex;
+  gap: 12px;
 `;
 
-const OptionButton = styled.button`
-  border-radius: 50%;
-  padding: 6px;
-  color: ${({theme}) => theme.textColor1};
-  font-size: 16pt;
+const ActionBtn = styled.button`
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12pt;
+  font-weight: 600;
   &:hover {
-    background-color: ${({theme}) => theme.menuHoverColor};
-  }
-
-  @media (max-width: 500px) {
-    font-size: 12pt;
+    background-color: ${({theme}) => theme.hoverBgColor};
   }
 `;
-
-const OptionContent = styled.div`
-  display: none;
-  justify-items: stretch;
-  position: absolute;
-  left: auto;
-  right: 0;
-  width: 100px;
-  background-color: #000000;
-  box-shadow: ${({theme}) => theme.boxShadow};
-  z-index: 1;
-  button {
-    width: 100%;
-    background: ${({theme}) => theme.bgColor1};
-    font-size: 14px;
-    font-weight: 600;
-    color: ${({theme}) => theme.textColor1};
-    padding: 5px 10px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
+const ActionLink = ActionBtn.withComponent('a');
 
 
 export type HeaderProps = {
@@ -91,9 +61,7 @@ export type HeaderProps = {
   addCard: ()=> void,
 }
 const Header = ({
-  currentTheme,
   changeThemeMode,
-  addCard,
 }: HeaderProps) => {
   // Hide Header when scrolling more than heightToHideFrom.
   const [isVisible, setIsVisible] = useState(true);
@@ -117,41 +85,26 @@ const Header = ({
       window.removeEventListener('scroll', listenToScroll);
   }, [listenToScroll]);
 
-  const clickOption = () => {
-    const element = document.getElementById('OptionContents') as HTMLDivElement;
-    if (element.style.display === 'none') {
-      element.style.display = 'block';
-    } else {
-      element.style.display = 'none';
-    }
-  };
 
   return (
     <HeaderWrapper isVisible={isVisible}>
       <Title>縣市天氣即時資訊</Title>
-
-      <OptionMenu
-        onClick={clickOption}
-        id="OptionMenu">
-        {/* <button onClick={addCard}>新增天氣卡</button>
-        <button onClick={changeThemeMode}>
-          {currentTheme === "light" ? "深" : "淺" }色模式
-        </button> */}
-        <OptionButton
-          id="OptionButton"
+      <Toolbar>
+        <div className='spacer' />
+        <ActionBtn
           type="button"
+          onClick={changeThemeMode}
+          aria-label="背景主體"
         >
-          <i
-            className="bi bi-list"
-          />
-        </OptionButton>
-        <OptionContent id="OptionContents">
-          <button onClick={addCard}>新增天氣卡</button>
-          <button onClick={changeThemeMode}>
-            {currentTheme === 'light' ? '深' : '淺' }色模式
-          </button>
-        </OptionContent>
-      </OptionMenu>
+          <i className='bi bi-circle-half' />
+        </ActionBtn>
+        <ActionLink
+          href="https://github.com/johnny95731/Taiwan-city-weather-web"
+          aria-label="GitHub專案連結"
+        >
+          <i className='bi bi-github' />
+        </ActionLink>
+      </Toolbar>
     </HeaderWrapper>
   );
 };

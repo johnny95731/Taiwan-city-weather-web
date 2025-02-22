@@ -27,6 +27,9 @@ export default defineConfig({
           regex: /_$/,
         },
       },
+      parse: {
+        html5_comments: false,
+      }
     },
   },
   plugins: [

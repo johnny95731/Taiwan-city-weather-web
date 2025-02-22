@@ -15,8 +15,8 @@ const Container = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  gap: 20px;
-  padding-top: 110px; /** Height of header = 100 */
+  gap: 30px;
+  padding-top: 110px; /** Height of header = 60px */
   padding-bottom: 150px;
   width: 100%;
   height: auto;
@@ -24,6 +24,10 @@ const Container = styled.article`
   background-color: ${({theme}) => theme.bgColor};
   overflow-y: auto;
   transition: all 0.7s ease;
+
+  @media (max-width: 500px) {
+    padding-top: 100px; /** Height of header = 50px */
+  }
 `;
 
 const AddBtn = styled.button`

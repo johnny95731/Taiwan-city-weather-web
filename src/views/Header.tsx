@@ -85,7 +85,6 @@ const Header = ({
       window.removeEventListener('scroll', listenToScroll);
   }, [listenToScroll]);
 
-
   return (
     <HeaderWrapper isVisible={isVisible}>
       <Title>縣市天氣即時資訊</Title>
@@ -101,6 +100,8 @@ const Header = ({
         <ActionLink
           href="https://github.com/johnny95731/Taiwan-city-weather-web"
           aria-label="GitHub專案連結"
+          target="_blank"
+          rel="noopener"
         >
           <i className='bi bi-github' />
         </ActionLink>

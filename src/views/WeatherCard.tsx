@@ -1,5 +1,4 @@
 import React, {useState, useMemo, useRef, useCallback} from 'react';
-import type {CSSProperties} from 'react';
 import styled from '@emotion/styled';
 
 import WeatherIcon from '../components/WeatherIcon';
@@ -28,7 +27,7 @@ const CardWrapper = styled.div`
   }
 `;
 
-const DragableRegion = styled.div`
+const Decoration = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -41,8 +40,6 @@ const DragableRegion = styled.div`
   background-position: 4px 0px;
   background-clip: content-box;
   transition: all 1s ease;
-  cursor: move;
-  touch-action: none;
   user-select: none;
 `;
 
@@ -255,86 +252,18 @@ const WeatherCard = ({
 
 
   // Drag event
-  const [cardStyle, setCardStyle] = useState<CSSProperties>(() => ({
-    top: 0
-  }));
-
   const ref = useRef<HTMLDivElement>(null);
-  const draggingStart = useMemo(() => {
-    let isDragging = false;
-    const startPoint = {
-      y: 0,
-    };
-    function start(e: React.MouseEvent<HTMLDivElement>) {
-      isDragging = true;
-      const domStyle = ref.current!.style;
-      // final pos = previous pos + variation
-      // variation = mousemoveEvent.clientPos - mousedownEvent.clientPos
-      // start = previous pos - mousedownEvent.clientPos.
-      startPoint.y = parseFloat(domStyle.top) - e.clientY;
-      window.addEventListener('pointermove', move, true);
-      window.addEventListener('pointerup', end, true);
-    }
-    function move(e: MouseEvent) {
-      if (isDragging) {
-        setCardStyle({
-          top: `${startPoint.y + e.clientY}px`
-        });
-      }
-      // e.stopPropagation();
-    }
-    function end(e: MouseEvent) {
-      isDragging = false;
-      window.removeEventListener('pointermove', move, true);
-      window.removeEventListener('pointerup', end, true);
-      e.stopPropagation();
-    }
-    return start;
-  }, []);
 
   // Delete event
   const deleteEvent = useCallback(() =>{
     delCard(cardIdx);
   }, [cardIdx]);
 
-  // useEffect(() => {
-  //   // 檢驗資料抓取
-  //   let idxCity = 0;
-  //   let idxTown = 0;
-  //   let currentCity = cities[idxCity];
-  //   setCurrentCity(currentCity);
-  //   let towns = ["---", ...getTowns(currentCity)];
-  //   let currentTown = towns[idxTown];
-  //   const intervalId = setInterval(() => {
-  //     if (!currentCity) return;
-  //     console.log(currentCity, currentTown);
-  //     if (currentTown) {
-  //       setCurrentTown(currentTown);
-  //       idxTown += 1;
-  //       currentTown = towns[idxTown];
-  //     } else { // 切換城市
-  //       idxCity += 1;
-  //       currentCity = cities[idxCity];
-  //       if (!currentCity) return;
-  //       else {
-  //         towns = ["---", ...getTowns(currentCity)];
-  //         idxTown = 0;
-  //         currentTown = towns[idxTown];
-  //         setCurrentCity(currentCity);
-  //         setCurrentTown(currentTown);
-  //       }
-  //     }
-  //   }, 100);
-  //   return () => clearInterval(intervalId);
-  // }, []);
-
   return (
     <CardWrapper
       ref={ref}
-      style={cardStyle}
     >
-      <DragableRegion
-        onPointerDownCapture={draggingStart}
+      <Decoration
       />
       <div>
         <CityMenu

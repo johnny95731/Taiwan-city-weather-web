@@ -20,6 +20,7 @@ const Container = styled.article`
   padding-bottom: 150px;
   width: 100%;
   height: auto;
+  min-height: 100dvh;
   color: ${({theme}) => theme.textColor1};
   background-color: ${({theme}) => theme.bgColor};
   overflow-y: auto;
@@ -44,7 +45,6 @@ const AddBtn = styled.button`
 
 
 const App = () => {
-  // Get the city is day or night.
   const moment = useMemo(() => getMoment(), []);
 
   // Theme: {light, dark}
@@ -138,5 +138,4 @@ const App = () => {
     </ThemeProvider>
   );
 };
-
 export default App;
